@@ -1,0 +1,172 @@
+/* ============================================================
+   BASE STYLES — uses the variables from theme.css.
+   You normally never edit this file; change look via theme.css.
+   ============================================================ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-body);
+  font-weight: 300;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+  font-size: var(--fs-body);
+  -webkit-font-smoothing: antialiased;
+}
+img { display: block; max-width: 100%; }
+a { color: inherit; }
+
+h1, h2, h3 { font-family: var(--font-heading); font-weight: 400; line-height: 1.15; color: var(--heading); }
+
+/* ---------- HOMEPAGE BANNER ---------- */
+.banner {
+  text-align: center;
+  padding: clamp(3.5rem, 9vw, 7rem) 1.5rem clamp(2rem, 4vw, 3rem);
+}
+.banner h1 { font-size: var(--fs-h1); letter-spacing: .01em; }
+.banner .mission {
+  font-family: var(--font-heading);
+  font-size: clamp(1.1rem, 2.2vw, 1.5rem);
+  color: var(--text); line-height: 1.5;
+  max-width: 620px; margin: 1.3rem auto 0;
+}
+.banner .story-jump {
+  display: inline-block; margin-top: 1.4rem; text-decoration: none;
+  font-family: var(--font-heading); font-size: var(--fs-program); color: var(--heading);
+  border-bottom: 1px solid var(--accent); padding-bottom: 2px; transition: color .25s;
+}
+.banner .story-jump:hover { color: var(--accent); }
+
+/* ---------- OUR STORY SECTION ---------- */
+.story {
+  border-top: 1px solid var(--border);
+  max-width: 760px; margin: 0 auto; padding: clamp(3rem, 7vw, 5rem) 1.6rem;
+  text-align: center;
+}
+.story h2 { font-size: var(--fs-h2); margin-bottom: 1.6rem; }
+.story p { color: var(--text); margin-bottom: 1.1rem; }
+.story .learn-more {
+  display: inline-block; margin-top: 1rem; text-decoration: none;
+  font-family: var(--font-heading); font-size: var(--fs-program); color: var(--heading);
+  border-bottom: 1px solid var(--accent); padding-bottom: 2px; transition: color .25s;
+}
+.story .learn-more:hover { color: var(--accent); }
+
+/* ---------- GROUPED PROGRAM LINKS (story / about) ---------- */
+.link-groups {
+  display: grid; grid-template-columns: 1fr 1fr; gap: clamp(1.5rem, 5vw, 4rem);
+  max-width: 760px; margin: 2.8rem auto 0; text-align: center;
+}
+.link-group .label {
+  color: var(--muted); letter-spacing: .2em; text-transform: uppercase;
+  font-size: .72rem; margin-bottom: 1rem;
+}
+.link-group a {
+  display: block; text-decoration: none; color: var(--heading);
+  font-family: var(--font-heading); font-size: var(--fs-program);
+  padding: .6rem 0; transition: color .25s;
+}
+.link-group a:hover { color: var(--accent); }
+.link-shared { text-align: center; margin: 2rem auto 0; max-width: 760px; }
+.link-shared .label {
+  color: var(--muted); letter-spacing: .2em; text-transform: uppercase;
+  font-size: .72rem; margin-bottom: .6rem;
+}
+.link-shared a {
+  text-decoration: none; font-family: var(--font-heading); color: var(--heading);
+  font-size: var(--fs-program); border-bottom: 1px solid var(--accent); padding-bottom: 2px;
+}
+.link-shared a:hover { color: var(--accent); }
+@media (max-width: 600px){ .link-groups { grid-template-columns: 1fr; gap: 2rem; } }
+
+.banner .tagline {
+  margin-top: 1rem; color: var(--muted);
+  letter-spacing: .22em; text-transform: uppercase; font-size: .8rem;
+}
+
+/* ---------- HOME GRID: Nicole | shared | Casey ---------- */
+.home-grid {
+  max-width: 1140px; margin: 0 auto;
+  padding: 1rem clamp(1.5rem, 5vw, 4rem) clamp(3rem, 7vw, 6rem);
+  display: grid; grid-template-columns: 1fr auto 1fr;
+  gap: clamp(1.5rem, 4vw, 3.5rem); align-items: stretch;
+}
+.person { text-align: center; display: flex; flex-direction: column; align-items: center; }
+.headshot {
+  width: clamp(180px, 22vw, 240px); aspect-ratio: 4/5;
+  overflow: hidden; background: var(--surface);
+  border: 1px solid var(--border); margin-bottom: 1.4rem;
+}
+.headshot img { width: 100%; height: 100%; object-fit: cover; }
+.headshot.placeholder {
+  display: flex; align-items: center; justify-content: center;
+  color: var(--muted); font-size: .75rem; letter-spacing: .15em; text-transform: uppercase;
+}
+.person-name { font-size: var(--fs-h2); margin-bottom: 1.4rem; }
+
+.programs { list-style: none; width: 100%; max-width: 320px; }
+.program-link {
+  display: block; text-decoration: none; color: var(--heading);
+  font-family: var(--font-heading); font-size: var(--fs-program);
+  padding: .85rem 0; border-bottom: 1px solid var(--border);
+  transition: color .25s, padding-left .25s;
+}
+.programs li:first-child .program-link { border-top: 1px solid var(--border); }
+.program-link:hover { color: var(--accent); padding-left: .4rem; }
+
+/* ---------- CENTER SHARED COLUMN ---------- */
+.center-col {
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  padding: 0 .5rem;
+}
+.center-rule { width: 1px; flex: 1; background: var(--border); min-height: 40px; }
+.shared {
+  text-align: center; padding: 1.4rem 1.2rem; margin: 1rem 0;
+}
+.shared .label {
+  color: var(--muted); letter-spacing: .2em; text-transform: uppercase;
+  font-size: .7rem; margin-bottom: .6rem;
+}
+.shared-link {
+  text-decoration: none; font-family: var(--font-heading); color: var(--heading);
+  font-size: calc(var(--fs-program) * 1.15); line-height: 1.25;
+  display: inline-block; border-bottom: 1px solid var(--accent); padding-bottom: 2px;
+  transition: color .25s;
+}
+.shared-link:hover { color: var(--accent); }
+
+/* ---------- FOOTER ---------- */
+.site-footer {
+  border-top: 1px solid var(--border); text-align: center;
+  padding: 2rem 1.5rem; color: var(--muted); font-size: .8rem; letter-spacing: .05em;
+}
+
+/* ---------- PROGRAM / CONTENT PAGES ---------- */
+.page-wrap { max-width: 760px; margin: 0 auto; padding: clamp(3.5rem, 8vw, 6rem) 1.6rem 4rem; }
+.back-link {
+  text-decoration: none; color: var(--accent);
+  font-size: .75rem; letter-spacing: .14em; text-transform: uppercase;
+}
+.back-link:hover { color: var(--heading); }
+.page-eyebrow {
+  color: var(--muted); letter-spacing: .2em; text-transform: uppercase;
+  font-size: .75rem; margin: 2rem 0 1rem;
+}
+.page-title { font-size: var(--fs-h1); margin-bottom: 1.5rem; }
+.prose p { margin-bottom: 1.1rem; color: var(--text); }
+.prose h2 { font-size: var(--fs-h2); margin: 2.4rem 0 1rem; }
+.prose ul { margin: 0 0 1.1rem 1.2rem; }
+.prose li { margin-bottom: .5rem; }
+.placeholder-note {
+  background: var(--surface); border: 1px dashed var(--border);
+  padding: 1.2rem 1.4rem; color: var(--muted); font-size: .9rem; margin: 1.5rem 0;
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 860px) {
+  .home-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  .center-col { order: 3; }
+  .center-rule { display: none; }
+  .person { order: 1; }
+  .person.casey { order: 2; }
+}

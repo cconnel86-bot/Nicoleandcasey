@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Book a Session — Emotional Co-Regulation</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --stone: #f5f0ea; --warm-white: #faf8f5; --bark: #3d3530;
+    --clay: #9c7b6a; --sage: #7a8c7e; --mist: #e8e2d9;
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'DM Sans', sans-serif; background: var(--warm-white); color: var(--bark); font-weight: 300; line-height: 1.7; }
+
+  .wrap { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; }
+
+  .left {
+    background: var(--stone); display: flex; flex-direction: column;
+    justify-content: center; padding: 80px 64px 80px 80px;
+  }
+  .eyebrow {
+    font-size: 11px; font-weight: 500; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--sage); margin-bottom: 24px;
+  }
+  h1 {
+    font-family: 'Cormorant Garamond', serif; font-size: clamp(36px, 4.5vw, 56px);
+    font-weight: 300; line-height: 1.15; margin-bottom: 24px;
+  }
+  h1 em { font-style: italic; color: var(--clay); }
+  .lead { font-size: 15px; color: #6b5e56; max-width: 420px; margin-bottom: 32px; line-height: 1.85; }
+  .back-link {
+    font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--clay); text-decoration: none;
+  }
+  .back-link:hover { color: var(--bark); }
+
+  .right {
+    background: var(--warm-white); display: flex; align-items: center;
+    justify-content: center; padding: 80px 64px;
+  }
+  form { width: 100%; max-width: 440px; }
+  .field { margin-bottom: 22px; }
+  .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  label {
+    display: block; font-size: 11px; font-weight: 500; letter-spacing: 0.16em;
+    text-transform: uppercase; color: var(--sage); margin-bottom: 8px;
+  }
+  input, textarea {
+    width: 100%; background: var(--stone); border: 1px solid var(--mist);
+    padding: 13px 16px; font-family: 'DM Sans', sans-serif; font-weight: 300;
+    font-size: 14px; color: var(--bark); outline: none; transition: border-color .3s;
+  }
+  input:focus, textarea:focus { border-color: var(--clay); }
+  textarea { min-height: 130px; resize: vertical; line-height: 1.7; }
+  .btn-primary {
+    background: var(--bark); color: var(--warm-white); padding: 15px 34px;
+    font-size: 12px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase;
+    border: none; cursor: pointer; display: inline-block; transition: background 0.3s;
+    width: 100%;
+  }
+  .btn-primary:hover { background: var(--clay); }
+  .btn-primary:disabled { background: #a89f97; cursor: wait; }
+  .form-note { font-size: 12px; color: var(--clay); font-style: italic; margin-top: 14px; text-align: center; }
+
+  .success {
+    display: none; text-align: center; max-width: 420px;
+  }
+  .success h2 {
+    font-family: 'Cormorant Garamond', serif; font-size: 34px; font-weight: 300;
+    margin-bottom: 16px;
+  }
+  .success h2 em { font-style: italic; color: var(--clay); }
+  .success p { font-size: 14px; color: #6b5e56; line-height: 1.85; }
+  .error-note { display:none; font-size: 12px; color: #a05c4a; margin-top: 14px; text-align:center; }
+
+  footer {
+    background: var(--bark); padding: 32px 80px;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .footer-name { font-family: 'Cormorant Garamond', serif; font-size: 18px; font-weight: 300; color: var(--stone); }
+  .footer-note { font-size: 11px; color: rgba(245,240,234,0.4); max-width: 380px; text-align: right; line-height: 1.6; }
+
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+  .left > * { animation: fadeUp 0.7s ease forwards; opacity: 0; }
+  .left .eyebrow { animation-delay: 0.1s; }
+  .left h1 { animation-delay: 0.22s; }
+  .left .lead { animation-delay: 0.36s; }
+  .left .back-link { animation-delay: 0.48s; }
+  .right form, .right .success { animation: fadeUp 0.7s ease 0.4s forwards; opacity: 0; }
+
+  @media (max-width: 860px) {
+    .wrap { grid-template-columns: 1fr; }
+    .left { padding: 72px 36px 48px; }
+    .right { padding: 24px 36px 72px; }
+    footer { flex-direction: column; gap: 14px; padding: 32px 36px; }
+    .footer-note { text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <div class="left">
+    <p class="eyebrow">Emotional Co-Regulation · 1:1 Sessions</p>
+    <h1>Let's find a time<br>that <em>works for you.</em></h1>
+    <p class="lead">
+      Share a few details below and Nicole will reach out personally to connect and schedule your session.
+    </p>
+    <a class="back-link" href="/coregulation">&larr; Back to session details</a>
+  </div>
+
+  <div class="right">
+    <form id="bookForm" novalidate>
+      <div class="row2">
+        <div class="field">
+          <label for="firstName">First Name</label>
+          <input type="text" id="firstName" name="First Name" autocomplete="given-name" required>
+        </div>
+        <div class="field">
+          <label for="lastName">Last Name</label>
+          <input type="text" id="lastName" name="Last Name" autocomplete="family-name" required>
+        </div>
+      </div>
+      <div class="field">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="Email" autocomplete="email" required>
+      </div>
+      <div class="field">
+        <label for="phone">Phone</label>
+        <input type="tel" id="phone" name="Phone" autocomplete="tel" required>
+      </div>
+      <div class="field">
+        <label for="goals">What are you looking to get out of this session?</label>
+        <textarea id="goals" name="What are you looking to get out of this session?" required></textarea>
+      </div>
+      <button type="submit" class="btn-primary" id="submitBtn">Request a Session</button>
+      <p class="form-note">Nicole will reach out to you to schedule.</p>
+      <p class="error-note" id="errorNote">Something went wrong sending your request. Please email <a href="mailto:nicole.tiffany.cruz@gmail.com" style="color:inherit">nicole.tiffany.cruz@gmail.com</a> directly.</p>
+    </form>
+
+    <div class="success" id="successMsg">
+      <h2>Request <em>received.</em></h2>
+      <p>Thank you for reaching out. Nicole will contact you soon to connect and find a session time that works for you.</p>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-name">Nicole Cruz</div>
+  <p class="footer-note">Somatic coaching support — not a substitute for clinical mental health treatment. If you are in crisis, please contact a licensed mental health professional.</p>
+</footer>
+
+<script>
+  // Submissions go to Nicole's email (instant) AND a Google Sheet log (permanent record).
+  const DEST = 'nicole.tiffany.cruz@gmail.com';
+  // Paste the Apps Script web-app URL from the "Coregulation Sesson Leads" sheet between the quotes:
+  const SHEET_ENDPOINT = 'https://script.google.com/macros/s/AKfycbwpqIRr6ISqP0t6mxbx_kaacDBiQMcS6pfK4UW2oQtr19Cq2i4GAyyjy2SLmN1YT-MiHw/exec';
+
+  const form = document.getElementById('bookForm');
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    if (!form.checkValidity()) { form.reportValidity(); return; }
+
+    const btn = document.getElementById('submitBtn');
+    btn.disabled = true; btn.textContent = 'Sending\u2026';
+
+    const data = Object.fromEntries(new FormData(form).entries());
+
+    // 1) Log to the Google Sheet (best-effort; no-cors so it can't block the UX).
+    if (SHEET_ENDPOINT && SHEET_ENDPOINT.indexOf('http') === 0) {
+      try {
+        fetch(SHEET_ENDPOINT, { method: 'POST', mode: 'no-cors', body: JSON.stringify(data) });
+      } catch (err) { /* sheet logging is non-blocking */ }
+    }
+
+    // 2) Email Nicole via FormSubmit (confirmable; drives the success/error UI).
+    const payload = Object.assign({}, data, { _subject: 'New Coregulation Inquiry', _template: 'table' });
+    try {
+      const res = await fetch('https://formsubmit.co/ajax/' + DEST, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      if (!res.ok) throw new Error('send failed');
+      form.style.display = 'none';
+      document.getElementById('successMsg').style.display = 'block';
+    } catch (err) {
+      btn.disabled = false; btn.textContent = 'Request a Session';
+      document.getElementById('errorNote').style.display = 'block';
+    }
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,25 @@
+/* ============================================================
+   THEME — edit these values (or use /admin to generate them),
+   then redeploy this one file to update colors, fonts & sizes
+   across the homepage and all program pages.
+   ============================================================ */
+:root {
+  /* Colors (hex or rgb both work) */
+  --bg:       #f4f2ee;   /* page background        */
+  --surface:  #ffffff;   /* cards / panels         */
+  --text:     #2f2c28;   /* body text              */
+  --heading:  #1d1b18;   /* headings / names       */
+  --accent:   #8a7d6b;   /* links / highlights     */
+  --muted:    #8c867d;   /* labels / secondary     */
+  --border:   #e3ded6;   /* lines / borders        */
+
+  /* Fonts (any loaded font name; see <link> in each page to add Google Fonts) */
+  --font-heading: "Cormorant Garamond", Georgia, serif;
+  --font-body:    "Jost", system-ui, sans-serif;
+
+  /* Sizes */
+  --fs-h1:      clamp(2.6rem, 6vw, 4.2rem);
+  --fs-h2:      clamp(1.6rem, 3vw, 2.2rem);
+  --fs-program: 1.15rem;
+  --fs-body:    1rem;
+}
