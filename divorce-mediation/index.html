@@ -3,36 +3,438 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Divorce Mediation — Casey Connell</title>
-<meta name="description" content="Divorce Mediation with Casey Connell.">
+<title>Divorce Mediation | Casey Connell</title>
+<meta name="description" content="A calmer, cheaper, more human way to end a marriage. Certified family law mediation with Casey Connell. Virtual sessions nationwide, in person in Albuquerque.">
+
+<meta property="og:title" content="Divorce Mediation | Casey Connell">
+<meta property="og:description" content="You stay in the room. You keep the decisions. I keep the process honest.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://nicoleandcasey.com/divorce-mediation">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/theme.css">
-<link rel="stylesheet" href="/base.css">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<!-- Inherits site theme variables. Every var() below has a hardcoded fallback,
+     so this page still renders correctly if theme.css is missing or renamed. -->
+<link rel="stylesheet" href="../theme.css">
+
+<style>
+  :root{
+    --dm-bg:        var(--bg,        #FBF8F4);
+    --dm-surface:   var(--surface,   #FFFFFF);
+    --dm-text:      var(--text,      #2F2A26);
+    --dm-heading:   var(--heading,   #1E1B19);
+    --dm-accent:    var(--accent,    #A8654F);
+    --dm-muted:     var(--muted,     #6B625B);
+    --dm-border:    var(--border,    #E4DDD4);
+    --dm-font-h:    var(--font-heading, 'Cormorant Garamond', Georgia, serif);
+    --dm-font-b:    var(--font-body,    'Jost', system-ui, sans-serif);
+    --dm-max: 46rem;
+  }
+
+  *,*::before,*::after{ box-sizing:border-box; }
+
+  body.dm{
+    margin:0;
+    background:var(--dm-bg);
+    color:var(--dm-text);
+    font-family:var(--dm-font-b);
+    font-weight:300;
+    font-size:1.0625rem;
+    line-height:1.72;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  .dm-wrap{ max-width:var(--dm-max); margin:0 auto; padding:0 1.5rem; }
+
+  .dm p{ margin:0 0 1.25rem; }
+  .dm p:last-child{ margin-bottom:0; }
+  .dm strong{ font-weight:500; color:var(--dm-heading); }
+  .dm a{ color:var(--dm-accent); text-decoration:none; border-bottom:1px solid rgba(168,101,79,.35); }
+  .dm a:hover{ border-bottom-color:var(--dm-accent); }
+  .dm a:focus-visible{ outline:2px solid var(--dm-accent); outline-offset:3px; border-radius:2px; }
+
+  /* ---------- top bar ---------- */
+  .dm-top{ padding:1.75rem 0 0; }
+  .dm-back{
+    font-size:.75rem; letter-spacing:.14em; text-transform:uppercase;
+    color:var(--dm-muted); border-bottom:none;
+  }
+  .dm-back:hover{ color:var(--dm-accent); border-bottom:none; }
+
+  /* ---------- hero ---------- */
+  .dm-hero{ padding:4rem 0 3.5rem; }
+  .dm-eyebrow{
+    font-size:.7rem; font-weight:500; letter-spacing:.2em; text-transform:uppercase;
+    color:var(--dm-accent); margin:0 0 1.5rem;
+  }
+  .dm-hero h1{
+    font-family:var(--dm-font-h);
+    font-weight:400;
+    font-size:clamp(2.75rem,8vw,4.5rem);
+    line-height:1.03;
+    letter-spacing:-.015em;
+    color:var(--dm-heading);
+    margin:0 0 1.75rem;
+  }
+  .dm-lede{
+    font-size:clamp(1.125rem,2.4vw,1.3rem);
+    line-height:1.6;
+    color:var(--dm-text);
+    max-width:34rem;
+    margin:0;
+  }
+  .dm-lede .dm-split{ display:block; }
+
+  /* ---------- section rhythm ---------- */
+  .dm-section{ padding:3.25rem 0; border-top:1px solid var(--dm-border); }
+  .dm-label{
+    font-size:.7rem; font-weight:500; letter-spacing:.2em; text-transform:uppercase;
+    color:var(--dm-muted); margin:0 0 1.75rem;
+  }
+  .dm-section h2{
+    font-family:var(--dm-font-h);
+    font-weight:400;
+    font-size:clamp(1.9rem,4.5vw,2.6rem);
+    line-height:1.15;
+    color:var(--dm-heading);
+    margin:0 0 1.5rem;
+    letter-spacing:-.01em;
+  }
+  .dm-section h3{
+    font-family:var(--dm-font-b);
+    font-weight:500;
+    font-size:1rem;
+    letter-spacing:.01em;
+    color:var(--dm-heading);
+    margin:2.25rem 0 .9rem;
+  }
+
+  /* ---------- lists ---------- */
+  .dm-list{ list-style:none; margin:0; padding:0; }
+  .dm-list li{
+    position:relative;
+    padding-left:1.5rem;
+    margin-bottom:.85rem;
+  }
+  .dm-list li::before{
+    content:"";
+    position:absolute; left:0; top:.72em;
+    width:.45rem; height:1px;
+    background:var(--dm-accent);
+  }
+
+  /* ---------- fit / not fit ---------- */
+  .dm-notfit{
+    background:var(--dm-surface);
+    border:1px solid var(--dm-border);
+    border-left:2px solid var(--dm-accent);
+    padding:1.75rem 1.75rem 1.5rem;
+    margin-top:2.25rem;
+  }
+  .dm-notfit h3{ margin-top:0; }
+  .dm-safety{
+    display:block;
+    margin-top:1.25rem;
+    padding-top:1.25rem;
+    border-top:1px solid var(--dm-border);
+    font-weight:500;
+    color:var(--dm-heading);
+  }
+
+  /* ---------- process steps ---------- */
+  .dm-steps{ list-style:none; margin:0; padding:0; counter-reset:dmstep; }
+  .dm-step{
+    display:grid;
+    grid-template-columns:3.25rem 1fr;
+    gap:0 1rem;
+    padding:1.5rem 0;
+    border-top:1px solid var(--dm-border);
+  }
+  .dm-step:first-child{ border-top:none; padding-top:0; }
+  .dm-step::before{
+    counter-increment:dmstep;
+    content:counter(dmstep,decimal-leading-zero);
+    font-family:var(--dm-font-h);
+    font-size:1.5rem;
+    line-height:1.2;
+    color:var(--dm-accent);
+    opacity:.75;
+  }
+  .dm-step-body h3{ margin:0 0 .5rem; }
+  .dm-step-body p{ margin:0; }
+
+  /* ---------- signature statement ---------- */
+  .dm-mark{
+    padding:4.5rem 0;
+    border-top:1px solid var(--dm-border);
+    text-align:center;
+  }
+  .dm-mark blockquote{
+    margin:0;
+    font-family:var(--dm-font-h);
+    font-style:italic;
+    font-weight:400;
+    font-size:clamp(2.25rem,7vw,3.75rem);
+    line-height:1.1;
+    color:var(--dm-heading);
+    letter-spacing:-.01em;
+  }
+  .dm-mark cite{
+    display:block;
+    margin-top:1.5rem;
+    font-family:var(--dm-font-b);
+    font-style:normal;
+    font-size:.72rem;
+    letter-spacing:.2em;
+    text-transform:uppercase;
+    color:var(--dm-muted);
+  }
+
+  /* ---------- lrc feature list ---------- */
+  .dm-feature{ margin:0; padding:0; }
+  .dm-feature dt{
+    font-weight:500;
+    color:var(--dm-heading);
+    margin-top:1.5rem;
+  }
+  .dm-feature dd{ margin:.35rem 0 0; color:var(--dm-text); }
+
+  /* ---------- cta ---------- */
+  .dm-cta{
+    padding:3.5rem 0 4rem;
+    border-top:1px solid var(--dm-border);
+  }
+  .dm-actions{
+    display:flex; flex-wrap:wrap; align-items:center; gap:1.25rem 1.75rem;
+    margin-top:2rem;
+  }
+  .dm-btn{
+    display:inline-block;
+    background:var(--dm-accent);
+    color:#fff;
+    font-size:.82rem; font-weight:500; letter-spacing:.12em; text-transform:uppercase;
+    padding:1rem 2rem;
+    border:1px solid var(--dm-accent);
+    border-bottom-color:var(--dm-accent);
+    transition:background .2s ease, color .2s ease;
+  }
+  .dm-btn:hover{ background:transparent; color:var(--dm-accent); border-bottom-color:var(--dm-accent); }
+  .dm-btn:focus-visible{ outline:2px solid var(--dm-heading); outline-offset:3px; }
+  .dm-secondary{
+    font-size:.82rem; letter-spacing:.12em; text-transform:uppercase; font-weight:500;
+  }
+
+  /* ---------- footer ---------- */
+  .dm-foot{
+    border-top:1px solid var(--dm-border);
+    padding:2.25rem 0 3.5rem;
+    font-size:.82rem;
+    color:var(--dm-muted);
+    line-height:1.6;
+  }
+  .dm-foot p{ margin:0 0 .6rem; }
+  .dm-foot .dm-name{
+    font-family:var(--dm-font-h);
+    font-size:1.15rem;
+    color:var(--dm-heading);
+  }
+
+  @media (max-width:34rem){
+    .dm-step{ grid-template-columns:2.5rem 1fr; }
+    .dm-notfit{ padding:1.35rem; }
+    .dm-mark{ padding:3.25rem 0; }
+  }
+
+  @media (prefers-reduced-motion:reduce){
+    *{ transition:none !important; animation:none !important; }
+  }
+</style>
 </head>
-<body>
-  <div class="page-wrap">
-    <a class="back-link" href="/">&larr; Nicole &amp; Casey</a>
-    <p class="page-eyebrow">Casey Connell · Program</p>
-    <h1 class="page-title">Divorce Mediation</h1>
 
-    <div class="prose">
-      <div class="placeholder-note">Placeholder page — replace the text below with the real description of Divorce Mediation.</div>
+<body class="dm">
 
-      <h2>What it is</h2>
-      <p>Describe what Divorce Mediation is, who it's for, and the transformation it offers.</p>
+<div class="dm-wrap dm-top">
+  <a class="dm-back" href="/">Nicole &amp; Casey</a>
+</div>
 
-      <h2>How it works</h2>
-      <p>Walk through the format: how sessions or steps are structured, what a client can expect, and how to begin.</p>
+<header class="dm-wrap dm-hero">
+  <p class="dm-eyebrow">Casey Connell &middot; Program</p>
 
-      <h2>Get started</h2>
-      <p>Add a call to action here — a booking link, an application form, or contact details.</p>
+  <!-- Alternate headlines on file, swap the h1 text if you want a different tone:
+       "End It Without Burning It Down"
+       "Two People, One Table, No Lawyers Billing By The Hour"
+       "The Version Of Divorce Your Kids Can Live With" -->
+  <h1>Divorce Mediation</h1>
+
+  <!-- Alternate subheads on file:
+       "You are going to be co-parents long after the case closes. Mediation is how you get there without wreckage."
+       "Most divorces do not need a courtroom. They need someone neutral in the room who will not let the conversation collapse." -->
+  <p class="dm-lede">
+    A calmer, cheaper, more human way to end a marriage.
+    <span class="dm-split">You stay in the room. You keep the decisions. I keep the process honest.</span>
+  </p>
+</header>
+
+<main>
+
+  <section class="dm-wrap dm-section">
+    <p class="dm-label">What it is</p>
+    <h2>You decide. I keep the conversation moving.</h2>
+
+    <p>Mediation is a structured conversation between two people who are ending a marriage, guided by a neutral third person who does not take a side.</p>
+
+    <p>Most people picture divorce as two attorneys writing letters to each other at four hundred dollars an hour while a judge who has never met your kids decides where they sleep on Christmas. That version is real, and sometimes it is necessary. But it is not the only version, and it is not the one most families need.</p>
+
+    <p>In mediation, you and your spouse sit down with me and work through the actual list: parenting time, decision making, the house, the debt, retirement accounts, support, who keeps the dog. I do not decide anything. I make sure both people are heard, that nothing gets skipped, and that the conversation keeps moving when it wants to stall out on the same fight you have been having for years.</p>
+
+    <p>You leave with a written agreement that reflects what the two of you decided, not what a stranger decided for you.</p>
+  </section>
+
+  <section class="dm-wrap dm-section">
+    <p class="dm-label">Fit</p>
+    <h2>Who this is for</h2>
+
+    <ul class="dm-list">
+      <li>Two people who can be in the same room, or the same video call, without it becoming unsafe</li>
+      <li>Parents who are going to keep sharing children long after the case closes, and know it</li>
+      <li>Anyone who wants to spend their money on their kids instead of on litigation</li>
+      <li>Couples who mostly agree and need help with three or four sticking points</li>
+      <li>Couples who agree on almost nothing but are willing to try before they hand it over</li>
+    </ul>
+
+    <div class="dm-notfit">
+      <h3>Who this is not for</h3>
+      <p>I would rather tell you the truth up front than take your money.</p>
+      <p>Mediation is a poor fit when there is abuse, when one person is afraid of the other, or when one person has controlled the money so completely that the other cannot bargain as an equal. It does not work when someone is hiding assets, or when someone is only at the table to run out the clock. In those situations you need an attorney, and in some of them you need protection before you need anything else.</p>
+      <p>I will tell you if I think you are in one of those situations. That is part of what you are paying me for.</p>
+      <p class="dm-safety">If you are in danger, do not wait on any of this. An order of protection is a separate and much faster process.</p>
     </div>
-  </div>
+  </section>
 
-  <footer class="site-footer">
-    <p>&copy; 2026 CDWJ LLC</p>
-  </footer>
+  <section class="dm-wrap dm-section">
+    <p class="dm-label">How it works</p>
+    <h2>Five steps, in order.</h2>
+
+    <ol class="dm-steps">
+      <li class="dm-step">
+        <div class="dm-step-body">
+          <h3>Separate intake conversations</h3>
+          <p>I talk with each of you alone first. I want to know what matters most to you, what you are afraid of, and what you already agree on. Nothing you say here is repeated to the other person without your permission.</p>
+        </div>
+      </li>
+      <li class="dm-step">
+        <div class="dm-step-body">
+          <h3>Financial groundwork</h3>
+          <p>We build a full picture: income, debt, accounts, property, insurance, the real monthly cost of two households instead of one. This is where my finance coaching work earns its keep. Most fights about money are actually fights about a number nobody has written down yet.</p>
+        </div>
+      </li>
+      <li class="dm-step">
+        <div class="dm-step-body">
+          <h3>Working sessions</h3>
+          <p>Usually two to five, depending on complexity. We take the list in order, hardest last. You will not be rushed into a decision in the room, and either of you can pause to think or to consult your own attorney at any point.</p>
+        </div>
+      </li>
+      <li class="dm-step">
+        <div class="dm-step-body">
+          <h3>Memorandum of understanding</h3>
+          <p>I write up what you agreed to, in plain language, so you can both read it and recognize your own decisions in it.</p>
+        </div>
+      </li>
+      <li class="dm-step">
+        <div class="dm-step-body">
+          <h3>Review and filing</h3>
+          <p>Each of you takes that document to your own attorney to review before anything is signed or filed. I will say this more than once, because it protects you.</p>
+        </div>
+      </li>
+    </ol>
+
+    <p style="margin-top:2rem;">Sessions are virtual by default, which means we can work together regardless of where each of you lives right now. In person is available in the Albuquerque area.</p>
+  </section>
+
+  <section class="dm-wrap dm-section">
+    <p class="dm-label">The honest line</p>
+    <h2>What I am, and what I am not.</h2>
+
+    <p>I am a certified family law mediator and a divorce coach. I am not an attorney, and I do not represent either of you.</p>
+
+    <p>That means I do not give legal advice, I do not tell you what a judge would do, and I do not draft your final decree. What I do is keep two people talking productively about decisions that will shape the next twenty years of their lives, and make sure the agreement you reach is one you both actually understand.</p>
+
+    <p>Hiring an attorney to review your agreement is the normal path, not a fallback. Good mediation makes that review shorter and cheaper. It does not replace it.</p>
+  </section>
+
+  <section class="dm-wrap dm-section">
+    <p class="dm-label">Why I do this work</p>
+    <h2>Divorce is where cycles break or get passed down.</h2>
+
+    <p>I came out of a childhood I would not wish on anyone, and I spent years learning how to stop repeating what I was handed.</p>
+
+    <p>The way two adults treat each other in this process becomes the model their children carry into their own marriages. I have watched people who genuinely loved each other spend forty thousand dollars teaching their kids that conflict means destruction.</p>
+
+    <p>You cannot always control whether your marriage ends. You have a great deal of control over how.</p>
+  </section>
+
+  <section class="dm-wrap dm-mark">
+    <blockquote>It ends with me.</blockquote>
+    <cite>The tattoo. I meant it.</cite>
+  </section>
+
+  <section class="dm-wrap dm-section">
+    <p class="dm-label">The tools I build</p>
+    <h2>LegalReportCard.com</h2>
+
+    <p>Mediation only helps the people who make it to my calendar. So I build things for everyone else.</p>
+
+    <p><a href="https://legalreportcard.com">LegalReportCard.com</a> is a free family law directory I built and run. It exists because when you are meeting the family law system for the first time, at the worst moment of your life, almost everyone offering you information has a financial interest in your decision.</p>
+
+    <h3>What is on it</h3>
+
+    <dl class="dm-feature">
+      <dt>Attorney reviews from actual clients, with no paid placement.</dt>
+      <dd>No sponsored results, no premium profiles, no way to buy your way up the list. Ever. Reviews are read by a human before they publish, and reviewers are never exposed to the attorney they reviewed.</dd>
+
+      <dt>A roadmap for all fifty states plus D.C.</dt>
+      <dd>The real filing steps, links to the court forms, and the specific gotchas that catch people in each jurisdiction.</dd>
+
+      <dt>A glossary of one hundred and fifty terms.</dt>
+      <dd>So the first time you hear "pendente lite" it is not from a judge.</dd>
+
+      <dt>A guide to representing yourself.</dt>
+      <dd>For people who cannot afford counsel and are going to do it anyway.</dd>
+    </dl>
+
+    <p style="margin-top:1.75rem;">It is free, there is nothing to buy, and there never will be. It is legal information, not legal advice. The point is not to help you skip an attorney. The point is that when you hire one, you can tell whether they are doing a good job.</p>
+  </section>
+
+  <section class="dm-wrap dm-cta">
+    <p class="dm-label">Get started</p>
+    <h2>The first conversation is free, and it is not a sales call.</h2>
+
+    <p>Tell me where things stand, and I will tell you honestly whether mediation fits your situation or whether you need something else.</p>
+
+    <!-- BOOKING: this currently opens the visitor's email client.
+         Swap the href to "/divorce-mediation/book" once the booking form is built
+         (clone of coregulation/book with the FormSubmit and Apps Script endpoints changed). -->
+    <div class="dm-actions">
+      <a class="dm-btn" href="mailto:bodymindlifeupgrade@gmail.com?subject=Mediation%20consultation">Schedule a free consultation</a>
+      <a class="dm-secondary" href="https://legalreportcard.com">Visit LegalReportCard.com</a>
+    </div>
+
+    <!-- PRICING: uncomment and fill in when you set rates. Left out of the live page
+         on purpose so visitors do not see a placeholder.
+    <h3>Investment</h3>
+    <p>Flat rate per session, or a package rate for the full process. For comparison, a contested divorce in New Mexico commonly runs well into five figures per side.</p>
+    -->
+  </section>
+
+</main>
+
+<footer class="dm-wrap dm-foot">
+  <p class="dm-name">Casey Connell</p>
+  <p>Certified family law mediator and personal finance coach. Mediation is not legal representation and nothing on this page is legal advice. Each party should have their own attorney review any agreement before signing or filing.</p>
+  <p><a href="/">Nicole &amp; Casey</a></p>
+</footer>
+
 </body>
 </html>
