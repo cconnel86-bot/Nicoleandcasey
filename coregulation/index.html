@@ -96,6 +96,33 @@
     font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--clay);
   }
 
+  /* ---------- PHOTO CAROUSEL ---------- */
+  .gallery { background: var(--warm-white); }
+  .carousel { position: relative; max-width: 440px; margin: 8px auto 0; }
+  .slides-window { overflow: hidden; }
+  .slides-track { display: flex; transition: transform .6s cubic-bezier(.4,0,.2,1); }
+  .slide { min-width: 100%; }
+  .slide img { width: 100%; aspect-ratio: 4/5; object-fit: cover; display: block; }
+  .car-arrow {
+    position: absolute; top: 50%; transform: translateY(-50%);
+    background: rgba(250,248,245,.82); border: 1px solid var(--mist); color: var(--bark);
+    font-size: 26px; line-height: 1; font-family: 'Cormorant Garamond', serif;
+    width: 40px; height: 40px; cursor: pointer; transition: background .25s, color .25s;
+  }
+  .car-arrow:hover { background: var(--bark); color: var(--stone); border-color: var(--bark); }
+  .car-arrow.prev { left: -20px; }
+  .car-arrow.next { right: -20px; }
+  .car-dots { display: flex; gap: 8px; justify-content: center; margin-top: 18px; }
+  .car-dot {
+    width: 7px; height: 7px; border-radius: 50%; border: none; padding: 0; cursor: pointer;
+    background: var(--mist); transition: background .25s;
+  }
+  .car-dot.active { background: var(--clay); }
+  @media (max-width: 560px) {
+    .car-arrow.prev { left: 4px; }
+    .car-arrow.next { right: 4px; }
+  }
+
   .booking { background: var(--bark); text-align: center; }
   .booking .label { color: var(--clay); }
   .booking h2 { color: var(--stone); }
@@ -209,6 +236,24 @@
   </div>
 </section>
 
+<section class="gallery">
+  <p class="label" style="text-align:center">What This Looks Like</p>
+  <div class="carousel" id="carousel">
+    <div class="slides-window">
+      <div class="slides-track" id="slidesTrack">
+        <div class="slide"><img src="/assets/coreg-1-holding-space.jpg" alt="Holding Space"></div>
+        <div class="slide"><img src="/assets/coreg-2-supportive-touch.jpg" alt="Holding Space With Supportive Touch"></div>
+        <div class="slide"><img src="/assets/coreg-3-grounding-touch.jpg" alt="Grounding Touch"></div>
+        <div class="slide"><img src="/assets/coreg-4-holds.jpg" alt="Holds"></div>
+        <div class="slide"><img src="/assets/coreg-5-compression.jpg" alt="Holds With Compression"></div>
+      </div>
+    </div>
+    <button class="car-arrow prev" id="carPrev" aria-label="Previous image">&#8249;</button>
+    <button class="car-arrow next" id="carNext" aria-label="Next image">&#8250;</button>
+    <div class="car-dots" id="carDots"></div>
+  </div>
+</section>
+
 <section class="booking" id="booking">
   <p class="label">Book a Session</p>
   <h2>Your nervous system<br>has been waiting<br>for <em>this.</em></h2>
@@ -223,6 +268,61 @@
   <div class="footer-name">Nicole Cruz</div>
   <p class="footer-note">Somatic coaching support — not a substitute for clinical mental health treatment. If you are in crisis, please contact a licensed mental health professional.</p>
 </footer>
+
+<script>
+  (function () {
+    var track = document.getElementById('slidesTrack');
+    if (!track) return;
+    var slides = track.children.length;
+    var dotsEl = document.getElementById('carDots');
+    var carousel = document.getElementById('carousel');
+    var idx = 0, timer = null, DELAY = 5000;
+
+    for (var i = 0; i < slides; i++) {
+      var d = document.createElement('button');
+      d.className = 'car-dot' + (i === 0 ? ' active' : '');
+      d.setAttribute('aria-label', 'Go to image ' + (i + 1));
+      d.dataset.i = i;
+      d.addEventListener('click', function () { go(+this.dataset.i); restart(); });
+      dotsEl.appendChild(d);
+    }
+
+    function go(n) {
+      idx = (n + slides) % slides;
+      track.style.transform = 'translateX(-' + (idx * 100) + '%)';
+      var dots = dotsEl.children;
+      for (var j = 0; j < dots.length; j++) {
+        dots[j].classList.toggle('active', j === idx);
+      }
+    }
+    function next() { go(idx + 1); }
+    function start() { timer = setInterval(next, DELAY); }
+    function stop() { clearInterval(timer); }
+    function restart() { stop(); start(); }
+
+    document.getElementById('carNext').addEventListener('click', function () { go(idx + 1); restart(); });
+    document.getElementById('carPrev').addEventListener('click', function () { go(idx - 1); restart(); });
+
+    // pause while hovering or when the tab is hidden
+    carousel.addEventListener('mouseenter', stop);
+    carousel.addEventListener('mouseleave', start);
+    document.addEventListener('visibilitychange', function () {
+      document.hidden ? stop() : restart();
+    });
+
+    // swipe on touch devices
+    var x0 = null;
+    carousel.addEventListener('touchstart', function (e) { x0 = e.touches[0].clientX; stop(); }, { passive: true });
+    carousel.addEventListener('touchend', function (e) {
+      if (x0 === null) return;
+      var dx = e.changedTouches[0].clientX - x0;
+      if (Math.abs(dx) > 40) { go(dx < 0 ? idx + 1 : idx - 1); }
+      x0 = null; start();
+    }, { passive: true });
+
+    start();
+  })();
+</script>
 
 </body>
 </html>
