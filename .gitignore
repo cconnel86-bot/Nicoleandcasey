@@ -1,0 +1,4 @@
+﻿deploy.ps1
+HANDOFF.md
+*.zip
+Thumbs.db
