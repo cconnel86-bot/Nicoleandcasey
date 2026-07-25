@@ -65,7 +65,7 @@
   .dm a:focus-visible{ outline:2px solid var(--dm-accent); outline-offset:3px; border-radius:2px; }
 
   /* ---------- top bar ---------- */
-  .dm-top{ padding:1.75rem 0 0; }
+  .dm-top{ padding-block:1.75rem 0; }
   .dm a.dm-back{
     font-size:.75rem; letter-spacing:.14em; text-transform:uppercase;
     color:var(--dm-muted); border-bottom:none;
@@ -73,7 +73,7 @@
   .dm a.dm-back:hover{ color:var(--dm-accent); border-bottom:none; }
 
   /* ---------- hero ---------- */
-  .dm-hero{ padding:4rem 0 3.5rem; }
+  .dm-hero{ padding-block:4rem 3.5rem; }
   .dm-eyebrow{
     font-size:.7rem; font-weight:500; letter-spacing:.2em; text-transform:uppercase;
     color:var(--dm-accent); margin:0 0 1.5rem;
@@ -97,7 +97,7 @@
   .dm-lede .dm-split{ display:block; }
 
   /* ---------- section rhythm ---------- */
-  .dm-section{ padding:3.25rem 0; border-top:1px solid var(--dm-border); }
+  .dm-section{ padding-block:3.25rem; border-top:1px solid var(--dm-border); }
   .dm-label{
     font-size:.7rem; font-weight:500; letter-spacing:.2em; text-transform:uppercase;
     color:var(--dm-muted); margin:0 0 1.75rem;
@@ -177,7 +177,7 @@
 
   /* ---------- signature statement ---------- */
   .dm-mark{
-    padding:4.5rem 0;
+    padding-block:4.5rem;
     border-top:1px solid var(--dm-border);
     text-align:center;
   }
@@ -213,7 +213,7 @@
 
   /* ---------- cta ---------- */
   .dm-cta{
-    padding:3.5rem 0 4rem;
+    padding-block:3.5rem 4rem;
     border-top:1px solid var(--dm-border);
   }
   .dm-actions{
@@ -240,7 +240,7 @@
   /* ---------- footer ---------- */
   .dm-foot{
     border-top:1px solid var(--dm-border);
-    padding:2.25rem 0 3.5rem;
+    padding-block:2.25rem 3.5rem;
     font-size:.82rem;
     color:var(--dm-muted);
     line-height:1.6;
@@ -255,7 +255,7 @@
   @media (max-width:34rem){
     .dm-step{ grid-template-columns:2.5rem 1fr; }
     .dm-notfit{ padding:1.35rem; }
-    .dm-mark{ padding:3.25rem 0; }
+    .dm-mark{ padding-block:3.25rem; }
     .dm-mark blockquote{ letter-spacing:0; }
     .dm-actions{ display:block; }
     .dm a.dm-btn{
