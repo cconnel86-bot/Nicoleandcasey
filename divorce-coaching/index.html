@@ -3,36 +3,486 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Divorce Coaching — Casey Connell</title>
-<meta name="description" content="Divorce Coaching with Casey Connell.">
+<title>Divorce Coaching | Casey Connell</title>
+<meta name="description" content="A mediator is neutral. A coach is in your corner. Divorce coaching with Casey Connell, one on one, in groups, or a single strategy session.">
+
+<meta property="og:title" content="Divorce Coaching | Casey Connell">
+<meta property="og:description" content="Your attorney handles the case. Your therapist handles the past. I handle the eleven months in between.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://nicoleandcasey.com/divorce-coaching">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/theme.css">
-<link rel="stylesheet" href="/base.css">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<!-- Inherits site theme variables. Every var() below has a hardcoded fallback,
+     so this page still renders correctly if theme.css is missing or renamed. -->
+<link rel="stylesheet" href="../theme.css">
+
+<style>
+  :root{
+    --dc-bg:        var(--bg,        #FBF8F4);
+    --dc-surface:   var(--surface,   #FFFFFF);
+    --dc-text:      var(--text,      #2F2A26);
+    --dc-heading:   var(--heading,   #1E1B19);
+    --dc-accent:    var(--accent,    #A8654F);
+    --dc-muted:     var(--muted,     #6B625B);
+    --dc-border:    var(--border,    #E4DDD4);
+    --dc-font-h:    var(--font-heading, 'Cormorant Garamond', Georgia, serif);
+    --dc-font-b:    var(--font-body,    'Jost', system-ui, sans-serif);
+    --dc-max: 46rem;
+  }
+
+  *,*::before,*::after{ box-sizing:border-box; }
+
+  html{ overflow-x:hidden; }
+
+  body.dc{
+    margin:0;
+    background:var(--dc-bg);
+    color:var(--dc-text);
+    font-family:var(--dc-font-b);
+    font-weight:300;
+    font-size:1.0625rem;
+    line-height:1.72;
+    overflow-x:hidden;
+    overflow-wrap:break-word;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  /* Wrapper owns the horizontal gutter. Every section below uses padding-block
+     so it can never overwrite the left and right padding. */
+  .dc-wrap{ max-width:var(--dc-max); margin:0 auto; padding:0 1.5rem; }
+
+  .dc p{ margin:0 0 1.25rem; }
+  .dc p:last-child{ margin-bottom:0; }
+  .dc strong{ font-weight:500; color:var(--dc-heading); }
+  .dc em{ font-style:italic; }
+  .dc a{
+    color:var(--dc-accent);
+    text-decoration:none;
+    border-bottom:1px solid rgba(168,101,79,.35);
+    border-bottom-color:color-mix(in srgb, currentColor 35%, transparent);
+  }
+  .dc a:hover{ border-bottom-color:var(--dc-accent); }
+  .dc a:focus-visible{ outline:2px solid var(--dc-accent); outline-offset:3px; border-radius:2px; }
+
+  /* ---------- top bar ---------- */
+  .dc-top{ padding-block:1.75rem 0; }
+  .dc a.dc-back{
+    font-size:.75rem; letter-spacing:.14em; text-transform:uppercase;
+    color:var(--dc-muted); border-bottom:none;
+  }
+  .dc a.dc-back:hover{ color:var(--dc-accent); border-bottom:none; }
+
+  /* ---------- hero ---------- */
+  .dc-hero{ padding-block:4rem 3.5rem; }
+  .dc-eyebrow{
+    font-size:.7rem; font-weight:500; letter-spacing:.2em; text-transform:uppercase;
+    color:var(--dc-accent); margin:0 0 1.5rem;
+  }
+  .dc-hero h1{
+    font-family:var(--dc-font-h);
+    font-weight:400;
+    font-size:clamp(2.25rem,9vw,4.5rem);
+    line-height:1.03;
+    letter-spacing:-.015em;
+    color:var(--dc-heading);
+    margin:0 0 1.75rem;
+  }
+  .dc-lede{
+    font-size:clamp(1.125rem,2.4vw,1.3rem);
+    line-height:1.6;
+    color:var(--dc-text);
+    max-width:34rem;
+    margin:0;
+  }
+  .dc-lede .dc-split{ display:block; }
+
+  /* ---------- section rhythm ---------- */
+  .dc-section{ padding-block:3.25rem; border-top:1px solid var(--dc-border); }
+  .dc-label{
+    font-size:.7rem; font-weight:500; letter-spacing:.2em; text-transform:uppercase;
+    color:var(--dc-muted); margin:0 0 1.75rem;
+  }
+  .dc-section h2{
+    font-family:var(--dc-font-h);
+    font-weight:400;
+    font-size:clamp(1.9rem,4.5vw,2.6rem);
+    line-height:1.15;
+    color:var(--dc-heading);
+    margin:0 0 1.5rem;
+    letter-spacing:-.01em;
+  }
+  .dc-section h3{
+    font-family:var(--dc-font-b);
+    font-weight:500;
+    font-size:1rem;
+    letter-spacing:.01em;
+    color:var(--dc-heading);
+    margin:2.25rem 0 .9rem;
+  }
+
+  /* ---------- the three questions, this page's signature moment ---------- */
+  .dc-questions{
+    margin:2.5rem 0;
+    padding-left:1.5rem;
+    border-left:2px solid var(--dc-accent);
+  }
+  .dc-questions p{
+    font-family:var(--dc-font-h);
+    font-style:italic;
+    font-size:clamp(1.35rem,4.5vw,1.9rem);
+    line-height:1.35;
+    color:var(--dc-heading);
+    margin:0 0 .5rem;
+  }
+  .dc-questions p:last-child{ margin-bottom:0; }
+
+  .dc-turn{
+    font-family:var(--dc-font-h);
+    font-size:clamp(1.4rem,4vw,1.85rem);
+    line-height:1.4;
+    color:var(--dc-heading);
+    margin-top:2.25rem;
+  }
+
+  /* ---------- lists ---------- */
+  .dc-list{ list-style:none; margin:0; padding:0; }
+  .dc-list li{
+    position:relative;
+    padding-left:1.5rem;
+    margin-bottom:.7rem;
+  }
+  .dc-list li::before{
+    content:"";
+    position:absolute; left:0; top:.72em;
+    width:.45rem; height:1px;
+    background:var(--dc-accent);
+  }
+
+  /* ---------- what we work on ---------- */
+  .dc-grid{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:2.25rem 2rem;
+    margin-top:.5rem;
+  }
+  .dc-grid > *{ min-width:0; }
+  .dc-grid h3{ margin:0 0 .9rem; }
+
+  /* ---------- who is who ---------- */
+  .dc-roster{ margin:0; padding:0; }
+  .dc-roster > div{
+    padding:1.25rem 0;
+    border-top:1px solid var(--dc-border);
+  }
+  .dc-roster > div:first-child{ border-top:none; padding-top:0; }
+  .dc-roster dt{
+    font-weight:500;
+    color:var(--dc-heading);
+    margin:0 0 .3rem;
+  }
+  .dc-roster dd{ margin:0; }
+
+  /* ---------- offers ---------- */
+  .dc-offer{
+    background:var(--dc-surface);
+    border:1px solid var(--dc-border);
+    border-left:2px solid var(--dc-accent);
+    padding:1.75rem;
+    margin-bottom:1.25rem;
+  }
+  .dc-offer h3{ margin:0 0 .75rem; }
+  .dc-offer p{ margin:0; }
+
+  /* ---------- boundaries box ---------- */
+  .dc-limits{
+    background:var(--dc-surface);
+    border:1px solid var(--dc-border);
+    padding:1.75rem;
+    margin-top:2rem;
+  }
+  .dc-limits p:first-child{ margin-top:0; }
+
+  /* ---------- cta ---------- */
+  .dc-cta{ padding-block:3.5rem 4rem; border-top:1px solid var(--dc-border); }
+  .dc-actions{
+    display:flex; flex-wrap:wrap; align-items:center; gap:1.25rem 1.75rem;
+    margin-top:2rem;
+  }
+  .dc a.dc-btn{
+    display:inline-block;
+    max-width:100%;
+    text-align:center;
+    background:var(--dc-accent);
+    color:#fff;
+    font-size:.82rem; font-weight:500; letter-spacing:.12em; text-transform:uppercase;
+    padding:1rem 2rem;
+    border:1px solid var(--dc-accent);
+    transition:background .2s ease, color .2s ease;
+  }
+  .dc a.dc-btn:hover{ background:transparent; color:var(--dc-accent); }
+  .dc a.dc-btn:focus-visible{ outline:2px solid var(--dc-heading); outline-offset:3px; }
+  .dc-links{ margin-top:1.75rem; }
+  .dc-links a{
+    display:inline-block;
+    margin-right:1.5rem;
+    font-size:.82rem; letter-spacing:.12em; text-transform:uppercase; font-weight:500;
+  }
+
+  /* ---------- footer ---------- */
+  .dc-foot{
+    border-top:1px solid var(--dc-border);
+    padding-block:2.25rem 3.5rem;
+    font-size:.82rem;
+    color:var(--dc-muted);
+    line-height:1.6;
+  }
+  .dc-foot p{ margin:0 0 .6rem; }
+  .dc-foot .dc-name{
+    font-family:var(--dc-font-h);
+    font-size:1.15rem;
+    color:var(--dc-heading);
+  }
+
+  @media (max-width:34rem){
+    .dc-grid{ grid-template-columns:1fr; gap:2rem; }
+    .dc-offer, .dc-limits{ padding:1.35rem; }
+    .dc-questions{ padding-left:1.15rem; }
+    .dc-actions{ display:block; }
+    .dc a.dc-btn{
+      display:block;
+      width:100%;
+      padding:1.05rem 1rem;
+      letter-spacing:.08em;
+    }
+    .dc-links a{ display:block; margin:0 0 .9rem; }
+  }
+
+  @media (prefers-reduced-motion:reduce){
+    *{ transition:none !important; animation:none !important; }
+  }
+</style>
 </head>
-<body>
-  <div class="page-wrap">
-    <a class="back-link" href="/">&larr; Nicole &amp; Casey</a>
-    <p class="page-eyebrow">Casey Connell · Program</p>
-    <h1 class="page-title">Divorce Coaching</h1>
 
-    <div class="prose">
-      <div class="placeholder-note">Placeholder page — replace the text below with the real description of Divorce Coaching.</div>
+<body class="dc">
 
-      <h2>What it is</h2>
-      <p>Describe what Divorce Coaching is, who it's for, and the transformation it offers.</p>
+<div class="dc-wrap dc-top">
+  <a class="dc-back" href="/">Nicole &amp; Casey</a>
+</div>
 
-      <h2>How it works</h2>
-      <p>Walk through the format: how sessions or steps are structured, what a client can expect, and how to begin.</p>
+<header class="dc-wrap dc-hero">
+  <p class="dc-eyebrow">Casey Connell &middot; Program</p>
 
-      <h2>Get started</h2>
-      <p>Add a call to action here — a booking link, an application form, or contact details.</p>
+  <!-- Alternate headlines on file, swap the h1 text if you want a different tone:
+       "Someone Whose Only Job Is You"
+       "Get Through It Without Becoming Someone You Do Not Like"
+       "The Part Your Attorney Does Not Handle" -->
+  <h1>Divorce Coaching</h1>
+
+  <!-- Alternate subheads on file:
+       "Your attorney handles the case. Your therapist handles the past. I handle the eleven months in between."
+       "Divorce is a legal process wrapped around a human one. Only one of those has professional help built in." -->
+  <p class="dc-lede">
+    A mediator is neutral. A coach is in your corner.
+    <span class="dc-split">If you are the one going through this, you need someone whose only job is you.</span>
+  </p>
+</header>
+
+<main>
+
+  <section class="dc-wrap dc-section">
+    <p class="dc-label">Start here</p>
+    <h2>If you are reading this at two in the morning</h2>
+
+    <p>You are not alone in that. This is the page people find when they cannot sleep.</p>
+
+    <p>Maybe you already filed. Maybe you have not said the word out loud yet. Maybe someone else decided and you are still standing in the wreckage of a life you thought you had. Whatever brought you here, you are probably carrying some version of the same three questions:</p>
+
+    <div class="dc-questions">
+      <p>What is going to happen to my kids.</p>
+      <p>Can I afford this.</p>
+      <p>Am I going to be okay.</p>
     </div>
-  </div>
 
-  <footer class="site-footer">
-    <p>&copy; 2026 CDWJ LLC</p>
-  </footer>
+    <p>Nobody in your life right now is equipped to answer all three. Your attorney will answer the first one in legal terms and start the meter. Your therapist will sit with the third one and should. Your friends love you and have never done this, or did it badly and are still angry about it. Meanwhile you are making decisions that will follow you for a decade, on four hours of sleep, in the worst emotional condition of your adult life.</p>
+
+    <p class="dc-turn">That gap is where I work.</p>
+  </section>
+
+  <section class="dc-wrap dc-section">
+    <p class="dc-label">The role</p>
+    <h2>What a divorce coach actually does</h2>
+
+    <p>I am the person who helps you show up to the rest of it well.</p>
+
+    <p>Practically, that looks like: getting your financial picture on paper so you know what you are actually negotiating over. Preparing you for your attorney meetings so you use that hour on strategy instead of venting. Helping you write the email to your ex that gets a result instead of the one that feels good to send. Building a parenting plan proposal you can defend. Talking through what you actually want on the other side of this, which almost nobody asks you.</p>
+
+    <p>And the other half, the half people do not expect: helping you stay a person your kids recognize while it happens.</p>
+  </section>
+
+  <section class="dc-wrap dc-section">
+    <p class="dc-label">What we work on</p>
+    <h2>Four fronts, usually at once.</h2>
+
+    <div class="dc-grid">
+      <div>
+        <h3>Money and logistics</h3>
+        <ul class="dc-list">
+          <li>A real number for what two households cost, before anyone proposes anything</li>
+          <li>Understanding your marital balance sheet: assets, debt, retirement, the house</li>
+          <li>Budgeting for the transition year, which is almost always the hardest one</li>
+          <li>Rebuilding credit, income, and savings on the other side</li>
+        </ul>
+      </div>
+
+      <div>
+        <h3>Strategy and communication</h3>
+        <ul class="dc-list">
+          <li>Getting ready for attorney meetings, mediation sessions, and court dates</li>
+          <li>Writing messages to your ex that lower the temperature instead of raising it</li>
+          <li>Boundaries that hold up when the other person keeps testing them</li>
+          <li>Deciding which hills are worth it, and letting the rest go on purpose</li>
+        </ul>
+      </div>
+
+      <div>
+        <h3>Kids</h3>
+        <ul class="dc-list">
+          <li>Language for the conversation with your children, by age</li>
+          <li>Parenting plans that fit your actual life, not a template</li>
+          <li>Co-parenting with someone you no longer trust</li>
+          <li>Staying the stable parent when you do not feel stable</li>
+        </ul>
+      </div>
+
+      <div>
+        <h3>You</h3>
+        <ul class="dc-list">
+          <li>The pattern that got you here, and whether you are on track to repeat it</li>
+          <li>Grief, anger, and the guilt that shows up even when leaving was right</li>
+          <li>Who you are going to be when this is over</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="dc-wrap dc-section">
+    <p class="dc-label">Who is who</p>
+    <h2>Everyone you are talking to right now, and what they are for</h2>
+
+    <dl class="dc-roster">
+      <div>
+        <dt>Your attorney</dt>
+        <dd>Advocates for your legal position. Expensive, essential, and not the right person to process your feelings with at their hourly rate.</dd>
+      </div>
+      <div>
+        <dt>Your therapist</dt>
+        <dd>Works on your mental health and your history. Essential. Usually not built for the tactical question of how to answer a hostile email by Thursday.</dd>
+      </div>
+      <div>
+        <dt>A mediator</dt>
+        <dd>Stays neutral between two people. I do <a href="/divorce-mediation">this work too</a>, but a mediator cannot take your side because taking a side would break the process.</dd>
+      </div>
+      <div>
+        <dt>A coach</dt>
+        <dd>Takes your side and stays practical. Forward looking, action oriented, and available for the whole ugly middle of it.</dd>
+      </div>
+      <div>
+        <dt>Your friends and family</dt>
+        <dd>Love you. They are also grinding an axe of their own, and their advice usually comes from their divorce, not yours.</dd>
+      </div>
+    </dl>
+
+    <p style="margin-top:2rem;">You probably need more than one of these. I will tell you when what you are bringing me belongs to a therapist or an attorney instead, and I will say so directly.</p>
+  </section>
+
+  <section class="dc-wrap dc-section">
+    <p class="dc-label">Ways to work together</p>
+    <h2>Three ways in.</h2>
+
+    <div class="dc-offer">
+      <h3>One on one</h3>
+      <p>Private sessions, virtual, scheduled around your life instead of a court calendar. Most people start here. We meet weekly through the heaviest stretch, then step down as things stabilize.</p>
+      <!-- ADD WHEN SET: frequency and package details. -->
+    </div>
+
+    <div class="dc-offer">
+      <h3>Group coaching</h3>
+      <p>A small closed group moving through the process together. Same material, lower cost, and something one on one work cannot give you: a room full of people who understand exactly what you are describing without you having to explain it. There is a specific relief in being the fifth person to say a thing out loud instead of the first.</p>
+      <!-- ADD WHEN SET: cohort size, length, and schedule. -->
+    </div>
+
+    <div class="dc-offer">
+      <h3>Single strategy session</h3>
+      <p>Ninety minutes on one decision. Whether to file, how to respond to an offer, how to prepare for one particular conversation. For people who do not want ongoing work and need a clear head on one thing.</p>
+      <!-- ADD WHEN SET: price. -->
+    </div>
+  </section>
+
+  <section class="dc-wrap dc-section">
+    <p class="dc-label">The honest line</p>
+    <h2>What I will not do</h2>
+
+    <p>I am a divorce coach and a personal finance coach. I am not an attorney and not a therapist.</p>
+
+    <p>I do not give legal advice, predict what a judge will do, or tell you what to sign. I do not treat mental health conditions. I do not tell you whether to leave your marriage, because that decision has to be yours or it will not hold.</p>
+
+    <div class="dc-limits">
+      <p><strong>If I coach you individually, I will not mediate your case.</strong></p>
+      <p>Coaching means I am on your side, and a mediator has to be neutral. Doing both in the same divorce is a conflict I am not willing to blur. If you and your spouse want <a href="/divorce-mediation">mediation</a>, we start there instead, and I stay neutral from the beginning.</p>
+    </div>
+  </section>
+
+  <section class="dc-wrap dc-section">
+    <p class="dc-label">Why me</p>
+    <h2>I write about this because I lived a version of it.</h2>
+
+    <p>I grew up adopted, with a father who taught me what fear feels like in your own house, and I spent years figuring out how not to hand that down. In 2025 I published a book about it called <a href="https://www.amazon.com/dp/B0GZ7HNV9P"><em>Why You Keep Choosing the Same Pain</em></a>, about the patterns that keep people cycling through the same relationship with different faces, and what it takes to actually stop. I have a tattoo that reads "It ends with me."</p>
+
+    <p>I am also a father of three boys. Everything I know about doing this well, I learned because doing it badly was not an option I could live with.</p>
+
+    <p class="dc-turn">You are allowed to want more than survival on the other side of this. Most people show up here just trying to get through. The work is bigger than that.</p>
+  </section>
+
+  <section class="dc-wrap dc-section">
+    <p class="dc-label">Homework</p>
+    <h2>Where the free stuff lives</h2>
+
+    <p>Coaching works better when you are not paying someone to explain vocabulary to you.</p>
+
+    <p>I built <a href="https://legalreportcard.com">LegalReportCard.com</a> for exactly that reason, and it is free. It has a hundred and fifty term glossary, a step by step roadmap and court forms for every state, a self representation guide, and client reviews of family law attorneys with no paid placement of any kind. No sponsored listings, no premium profiles, no way to buy a better position. That is the whole point of it.</p>
+
+    <p>Clients use it between sessions. If you never book a call with me, use it anyway.</p>
+  </section>
+
+  <section class="dc-wrap dc-cta">
+    <p class="dc-label">Get started</p>
+    <h2>Book a free consultation.</h2>
+
+    <p>Tell me where you are, and I will tell you honestly whether coaching is what you need right now, or whether you should be spending that money on an attorney, a therapist, or your rent this month.</p>
+
+    <!-- BOOKING: this currently opens the visitor's email client.
+         Swap the href to "/divorce-coaching/book" once the booking form is built
+         (clone of coregulation/book with the FormSubmit and Apps Script endpoints changed). -->
+    <div class="dc-actions">
+      <a class="dc-btn" href="mailto:bodymindlifeupgrade@gmail.com?subject=Divorce%20coaching%20consultation">Schedule a free consultation</a>
+    </div>
+
+    <div class="dc-links">
+      <a href="/divorce-mediation">Read about Divorce Mediation instead</a>
+      <a href="https://legalreportcard.com">Visit LegalReportCard.com</a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="dc-wrap dc-foot">
+  <p class="dc-name">Casey Connell</p>
+  <p>Certified divorce mediator, divorce coach, and personal finance coach. Coaching is not legal representation, legal advice, or mental health treatment. For legal advice, consult an attorney licensed in your state.</p>
+  <p><a href="/">Nicole &amp; Casey</a></p>
+</footer>
+
 </body>
 </html>
