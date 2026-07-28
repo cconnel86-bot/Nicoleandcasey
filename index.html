@@ -13,10 +13,34 @@
 </head>
 <body>
 
-  <header class="banner">
-    <h1>Nicole &amp; Casey</h1>
-    <p class="mission">Helping people create healthier relationships, emotional resilience, and lives aligned with who they really are.</p>
-    <a class="story-jump" href="#our-story">Our Story</a>
+  <header class="hero">
+
+    <!-- Still frame. Shows instantly, and is all that phones and
+         reduced-motion visitors see.
+         TODO: replace with your own /assets/hero-poster.jpg so you
+         control the crop and nothing loads from Google before click. -->
+    <div class="hero-poster">
+      <img src="https://img.youtube.com/vi/F5itla8akG8/maxresdefault.jpg" alt=""
+           onerror="this.onerror=null;this.src='https://img.youtube.com/vi/F5itla8akG8/hqdefault.jpg';">
+    </div>
+
+    <!-- Silent looping video. Muted is required for autoplay.
+         playlist= must repeat the video ID or loop does nothing. -->
+    <div class="hero-video">
+      <iframe
+        src="https://www.youtube-nocookie.com/embed/F5itla8akG8?autoplay=1&mute=1&loop=1&playlist=F5itla8akG8&controls=0&rel=0&playsinline=1&disablekb=1&iv_load_policy=3&modestbranding=1&origin=https://nicoleandcasey.com"
+        title="" tabindex="-1" aria-hidden="true"
+        allow="autoplay; encrypted-media" frameborder="0"></iframe>
+    </div>
+
+    <div class="hero-scrim"></div>
+
+    <div class="hero-inner">
+      <h1>Nicole &amp; Casey</h1>
+      <p class="mission">Helping people create healthier relationships, emotional resilience, and lives aligned with who they really are.</p>
+      <a class="story-jump" href="#our-story">Our Story</a>
+    </div>
+
   </header>
 
   <main class="home-grid">
