@@ -84,12 +84,33 @@
     <p>We've never followed a conventional path. Between us, we've navigated divorce, parenting, neurodiversity, career changes, financial challenges, and the ongoing journey of becoming more fully ourselves.</p>
     <p>What we've learned is that lasting change doesn't come from becoming someone else. It comes from reconnecting with who you truly are and building a life that reflects it.</p>
     <p>That's the foundation of everything we do.</p>
+
+    <!-- NARRATED version, click to play. Loads no YouTube code until clicked. -->
+    <div class="story-video" data-yt="QEihqToEjgE">
+      <button class="story-video-play" type="button" aria-label="Play our story">
+        <img src="https://img.youtube.com/vi/QEihqToEjgE/maxresdefault.jpg" alt=""
+             onerror="this.onerror=null;this.src='https://img.youtube.com/vi/QEihqToEjgE/hqdefault.jpg';">
+        <span class="story-video-btn" aria-hidden="true"></span>
+      </button>
+    </div>
+    <p class="story-video-caption">Our story &middot; 2 minutes</p>
+
     <a class="learn-more" href="/about">Learn more&hellip;</a>
   </section>
 
   <footer class="site-footer">
     <p>&copy; 2026 CDWJ LLC</p>
   </footer>
+
+<script>
+document.querySelectorAll('.story-video').forEach(function(box){
+  box.addEventListener('click', function(){
+    box.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/' + box.dataset.yt +
+      '?autoplay=1&rel=0&playsinline=1" title="Our story" ' +
+      'allow="autoplay; encrypted-media; fullscreen" allowfullscreen frameborder="0"></iframe>';
+  }, { once:true });
+});
+</script>
 
 </body>
 </html>
