@@ -3,36 +3,316 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Personal Finance Coaching — Casey Connell</title>
-<meta name="description" content="Personal Finance Coaching with Casey Connell.">
+<title>Personal Finance Coaching | Casey Connell</title>
+<meta name="description" content="Personal finance coaching with Casey Connell. Honest about your numbers, without the humiliation. For beginners, for people living paycheck to paycheck, and for cycle breakers.">
+
+<meta property="og:title" content="Personal Finance Coaching | Casey Connell">
+<meta property="og:description" content="You were never taught this. Almost none of us were.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://nicoleandcasey.com/personal-finance-coaching">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/theme.css">
-<link rel="stylesheet" href="/base.css">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<!-- Inherits site theme variables. Every var() below has a hardcoded fallback,
+     so this page still renders correctly if theme.css is missing or renamed. -->
+<link rel="stylesheet" href="../theme.css">
+
+<style>
+  :root{
+    --pf-bg:        var(--bg,        #FBF8F4);
+    --pf-surface:   var(--surface,   #FFFFFF);
+    --pf-text:      var(--text,      #2F2A26);
+    --pf-heading:   var(--heading,   #1E1B19);
+    --pf-accent:    var(--accent,    #A8654F);
+    --pf-muted:     var(--muted,     #6B625B);
+    --pf-border:    var(--border,    #E4DDD4);
+    --pf-font-h:    var(--font-heading, 'Cormorant Garamond', Georgia, serif);
+    --pf-font-b:    var(--font-body,    'Jost', system-ui, sans-serif);
+    --pf-max: 46rem;
+  }
+
+  *,*::before,*::after{ box-sizing:border-box; }
+
+  html{ overflow-x:hidden; }
+
+  body.pf{
+    margin:0;
+    background:var(--pf-bg);
+    color:var(--pf-text);
+    font-family:var(--pf-font-b);
+    font-weight:300;
+    font-size:1.0625rem;
+    line-height:1.72;
+    overflow-x:hidden;
+    overflow-wrap:break-word;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  /* Wrapper owns the horizontal gutter. Every section below uses padding-block
+     so it can never overwrite the left and right padding. */
+  .pf-wrap{ max-width:var(--pf-max); margin:0 auto; padding:0 1.5rem; }
+
+  .pf p{ margin:0 0 1.25rem; }
+  .pf p:last-child{ margin-bottom:0; }
+  .pf strong{ font-weight:500; color:var(--pf-heading); }
+  .pf em{ font-style:italic; }
+  .pf a{
+    color:var(--pf-accent);
+    text-decoration:none;
+    border-bottom:1px solid rgba(168,101,79,.35);
+    border-bottom-color:color-mix(in srgb, currentColor 35%, transparent);
+  }
+  .pf a:hover{ border-bottom-color:var(--pf-accent); }
+  .pf a:focus-visible{ outline:2px solid var(--pf-accent); outline-offset:3px; border-radius:2px; }
+
+  /* ---------- top bar ---------- */
+  .pf-top{ padding-block:1.75rem 0; }
+  .pf a.pf-back{
+    font-size:.75rem; letter-spacing:.14em; text-transform:uppercase;
+    color:var(--pf-muted); border-bottom:none;
+  }
+  .pf a.pf-back:hover{ color:var(--pf-accent); border-bottom:none; }
+
+  /* ---------- hero ---------- */
+  .pf-hero{ padding-block:4rem 3.5rem; }
+  .pf-eyebrow{
+    font-size:.7rem; font-weight:500; letter-spacing:.2em; text-transform:uppercase;
+    color:var(--pf-accent); margin:0 0 1.5rem;
+  }
+  .pf-hero h1{
+    font-family:var(--pf-font-h);
+    font-weight:400;
+    font-size:clamp(2.25rem,9vw,4.5rem);
+    line-height:1.03;
+    letter-spacing:-.015em;
+    color:var(--pf-heading);
+    margin:0 0 1.75rem;
+  }
+  .pf-lede{
+    font-size:clamp(1.125rem,2.4vw,1.3rem);
+    line-height:1.6;
+    color:var(--pf-text);
+    max-width:34rem;
+    margin:0;
+  }
+  .pf-lede .pf-split{ display:block; }
+
+  /* ---------- section rhythm ---------- */
+  .pf-section{ padding-block:3.25rem; border-top:1px solid var(--pf-border); }
+  .pf-label{
+    font-size:.7rem; font-weight:500; letter-spacing:.2em; text-transform:uppercase;
+    color:var(--pf-muted); margin:0 0 1.75rem;
+  }
+  .pf-section h2{
+    font-family:var(--pf-font-h);
+    font-weight:400;
+    font-size:clamp(1.9rem,4.5vw,2.6rem);
+    line-height:1.15;
+    color:var(--pf-heading);
+    margin:0 0 1.5rem;
+    letter-spacing:-.01em;
+  }
+
+  .pf-turn{
+    font-family:var(--pf-font-h);
+    font-size:clamp(1.4rem,4vw,1.85rem);
+    line-height:1.4;
+    color:var(--pf-heading);
+    margin-top:2.25rem;
+  }
+
+  /* ---------- the three looks, this page's signature ---------- */
+  .pf-method{ margin-top:.5rem; }
+  .pf-look{
+    padding-block:2rem;
+    border-top:1px solid var(--pf-border);
+  }
+  .pf-look:first-child{ border-top:none; padding-top:.5rem; }
+  .pf-look h3{
+    font-family:var(--pf-font-h);
+    font-weight:400;
+    font-size:clamp(1.75rem,5.5vw,2.35rem);
+    line-height:1.1;
+    letter-spacing:-.01em;
+    color:var(--pf-heading);
+    margin:0 0 1rem;
+  }
+  .pf-look h3 span{ color:var(--pf-accent); }
+  .pf-look p{ margin:0; }
+
+  /* ---------- callout ---------- */
+  .pf-callout{
+    background:var(--pf-surface);
+    border:1px solid var(--pf-border);
+    border-left:2px solid var(--pf-accent);
+    padding:1.75rem;
+    margin:2.25rem 0;
+  }
+  .pf-callout p:last-child{ margin-bottom:0; }
+
+  /* ---------- cta ---------- */
+  .pf-cta{ padding-block:3.5rem 4rem; border-top:1px solid var(--pf-border); }
+  .pf-actions{
+    display:flex; flex-wrap:wrap; align-items:center; gap:1.25rem 1.75rem;
+    margin-top:2rem;
+  }
+  .pf a.pf-btn{
+    display:inline-block;
+    max-width:100%;
+    text-align:center;
+    background:var(--pf-accent);
+    color:#fff;
+    font-size:.82rem; font-weight:500; letter-spacing:.12em; text-transform:uppercase;
+    padding:1rem 2rem;
+    border:1px solid var(--pf-accent);
+    transition:background .2s ease, color .2s ease;
+  }
+  .pf a.pf-btn:hover{ background:transparent; color:var(--pf-accent); }
+  .pf a.pf-btn:focus-visible{ outline:2px solid var(--pf-heading); outline-offset:3px; }
+  .pf a.pf-alt{
+    font-size:.82rem; letter-spacing:.12em; text-transform:uppercase; font-weight:500;
+  }
+  .pf-links{ margin-top:1.75rem; }
+  .pf-links a{
+    display:inline-block;
+    margin-right:1.5rem;
+    font-size:.82rem; letter-spacing:.12em; text-transform:uppercase; font-weight:500;
+  }
+
+  /* ---------- footer ---------- */
+  .pf-foot{
+    border-top:1px solid var(--pf-border);
+    padding-block:2.25rem 3.5rem;
+    font-size:.82rem;
+    color:var(--pf-muted);
+    line-height:1.6;
+  }
+  .pf-foot p{ margin:0 0 .6rem; }
+  .pf-foot .pf-name{
+    font-family:var(--pf-font-h);
+    font-size:1.15rem;
+    color:var(--pf-heading);
+  }
+
+  @media (max-width:34rem){
+    .pf-callout{ padding:1.35rem; }
+    .pf-actions{ display:block; }
+    .pf a.pf-btn{
+      display:block;
+      width:100%;
+      padding:1.05rem 1rem;
+      letter-spacing:.08em;
+    }
+    .pf a.pf-alt{ display:block; margin-top:1.5rem; }
+    .pf-links a{ display:block; margin:0 0 .9rem; }
+  }
+
+  @media (prefers-reduced-motion:reduce){
+    *{ transition:none !important; animation:none !important; }
+  }
+</style>
 </head>
-<body>
-  <div class="page-wrap">
-    <a class="back-link" href="/">&larr; Nicole &amp; Casey</a>
-    <p class="page-eyebrow">Casey Connell · Program</p>
-    <h1 class="page-title">Personal Finance Coaching</h1>
 
-    <div class="prose">
-      <div class="placeholder-note">Placeholder page — replace the text below with the real description of Personal Finance Coaching.</div>
+<body class="pf">
 
-      <h2>What it is</h2>
-      <p>Describe what Personal Finance Coaching is, who it's for, and the transformation it offers.</p>
+<div class="pf-wrap pf-top">
+  <a class="pf-back" href="/">Nicole &amp; Casey</a>
+</div>
 
-      <h2>How it works</h2>
-      <p>Walk through the format: how sessions or steps are structured, what a client can expect, and how to begin.</p>
+<header class="pf-wrap pf-hero">
+  <p class="pf-eyebrow">Casey Connell &middot; Program</p>
+  <h1>Personal Finance Coaching</h1>
+  <p class="pf-lede">
+    You were never taught this.
+    <span class="pf-split">Almost none of us were.</span>
+  </p>
+</header>
 
-      <h2>Get started</h2>
-      <p>Add a call to action here — a booking link, an application form, or contact details.</p>
+<main>
+
+  <section class="pf-wrap pf-section">
+    <p class="pf-label">Start here</p>
+
+    <p>We learned money the way we learned everything else growing up, by watching the people around us do the best they could with what they had. Nobody sat us down and explained interest. Nobody showed us how a small habit becomes a big balance. So we absorbed a set of patterns without ever choosing them, carried them straight into our own lives, and then quietly wondered why we keep ending up in the same place.</p>
+
+    <p>I built this coaching practice, and the app that runs alongside it, for the person who is tired of ending up in the same place.</p>
+  </section>
+
+  <section class="pf-wrap pf-section">
+    <p class="pf-label">What it is</p>
+    <h2>Here is the thing nobody says out loud. The system is not built for you to win.</h2>
+
+    <p>Impulse is one click away. Interest is designed to stay invisible until it has already cost you. And for every month you do not fully understand your own money, someone else is profiting from the confusion. That is not a character flaw and it is not a willpower problem. It is a fight that was never set up to be fair.</p>
+
+    <p class="pf-turn">My job is to make it fair.</p>
+
+    <p style="margin-top:2rem;">Not by shaming you for the takeout order or the balance you have been avoiding. I have watched the version of financial help where someone gets torn apart for their spending, and I understand why it gets attention, but I also know what it actually does to a real person. Shame does not change behavior. It freezes it. It makes people hide the number from the people who could help them, and it hardens into an identity: I am just bad with money. That is a lie, and it is a lie that keeps you stuck.</p>
+
+    <div class="pf-callout">
+      <p>So this is different. The honesty about your numbers stays. The humiliation goes. Compassion is how I deliver it. Accountability is what is underneath.</p>
     </div>
-  </div>
 
-  <footer class="site-footer">
-    <p>&copy; 2026 CDWJ LLC</p>
-  </footer>
+    <p>This is for the person living paycheck to paycheck and the person who looks fine on paper but never seems to get ahead. It is for the beginner who was never taught, and it is for the cycle breaker who has decided that whatever pattern they inherited is going to stop with them. You do not need to have it together to start. You need to be willing to look.</p>
+  </section>
+
+  <section class="pf-wrap pf-section">
+    <p class="pf-label">How it works</p>
+    <h2>My whole method is three steps, and we run them on everything.</h2>
+
+    <div class="pf-method">
+      <div class="pf-look">
+        <h3><span>Look</span> at it.</h3>
+        <p>Before we cut a single expense or build a single plan, we get honest about what is actually true. Your real numbers, on the table, without judgment. Most people have never done this, because looking hurts, and avoiding the number feels safer than facing it. But you cannot change a thing you refuse to look at, and I will make looking survivable. Your balance is a starting point, not a verdict on who you are.</p>
+      </div>
+
+      <div class="pf-look">
+        <h3><span>Look</span> for the loop.</h3>
+        <p>One purchase is a story you can defend. Forty purchases is information. We zoom out far enough that the pattern shows up, because the pattern is the thing we are actually working on, not any single decision you can talk yourself into or out of.</p>
+      </div>
+
+      <div class="pf-look">
+        <h3><span>Look</span> underneath.</h3>
+        <p>Nothing you do over and over is random. Every repeated spend is doing a job. Comforting something, avoiding something, proving something. When we find the job it is doing, we find the lever that actually moves. This is where real change happens, and it is the part most money advice skips entirely.</p>
+      </div>
+    </div>
+
+    <p style="margin-top:2.5rem;">The app is the tool that makes this possible without the spreadsheet dread. It shows you your real money clearly, tracks what your debt is genuinely costing you, and puts the same audit-style honesty in your hands privately, without anyone watching. Then we build the part that lasts: systems that survive a bad week, and a buffer for the fact that something is always coming. A car repair. A layoff. A diagnosis. The difference between a hard month and a five year hole is almost never income. It is whether you were ready before the thing hit.</p>
+
+    <p>You will not leave knowing a few money facts. You will leave able to look at your own money without flinching, understand it well enough to correct yourself, and break the one pattern that has been costing you the most.</p>
+  </section>
+
+  <section class="pf-wrap pf-cta">
+    <p class="pf-label">Get started</p>
+    <h2>If that is you, let's begin.</h2>
+
+    <p>I have been the person avoiding the number. I know what it takes to turn and face it, and I know it is easier with someone in your corner who is not going to make you feel small for where you are starting.</p>
+
+    <p>My tattoo reads "It ends with me." That is the whole point of this work. You are not here because you are bad with money. You are here because you are the one in your family line who decided to look at the pattern instead of passing it down.</p>
+
+    <!-- BOOKING: this currently opens the visitor's email client.
+         Swap the href to "/personal-finance-coaching/book" once the booking form is built
+         (clone of coregulation/book with the FormSubmit and Apps Script endpoints changed). -->
+    <div class="pf-actions">
+      <a class="pf-btn" href="mailto:bodymindlifeupgrade@gmail.com?subject=Finance%20coaching%20consultation">Book a free consultation</a>
+      <!-- APP LINK: confirm this URL is live and public before deploying. -->
+      <a class="pf-alt" href="https://usura.io">Or start with the app</a>
+    </div>
+
+    <div class="pf-links">
+      <a href="/divorce-coaching">Divorce Coaching</a>
+      <a href="/divorce-mediation">Divorce Mediation</a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="pf-wrap pf-foot">
+  <p class="pf-name">Casey Connell</p>
+  <p>Certified divorce mediator, divorce coach, and personal finance coach. Financial coaching is educational and behavioral. It is not investment, tax, or legal advice, and it is not a guarantee of any financial outcome. For advice specific to your situation, consult a licensed professional.</p>
+  <p><a href="/">Nicole &amp; Casey</a></p>
+</footer>
+
 </body>
 </html>
