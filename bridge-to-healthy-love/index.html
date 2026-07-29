@@ -22,6 +22,16 @@
     padding: .85rem 2.2rem; transition: opacity .25s;
   }
   .btn-primary:hover { opacity: .85; }
+
+  /* review block: uses the .story-video component from base.css */
+  .review-block {
+    border-top: 1px solid var(--border);
+    margin-top: 3rem; padding-top: 2.5rem; text-align: center;
+  }
+  .review-block h2 { margin: 0 0 .4rem; }
+  .review-block .review-intro {
+    color: var(--muted); margin-bottom: 1.5rem;
+  }
 </style>
 </head>
 <body>
@@ -70,6 +80,23 @@
 
       <p>If you've done the inner work but still find yourself struggling to build the relationship you want, Bridge to Healthy Love may be the missing bridge between knowing and doing.</p>
 
+      <!-- ============ CLIENT REVIEW ============
+           Loads no YouTube code until someone clicks the still. -->
+      <div class="review-block">
+        <h2>In their own words</h2>
+        <p class="review-intro">A client on what the program was actually like.</p>
+
+        <div class="story-video" data-yt="21RdDgunwHM">
+          <button class="story-video-play" type="button" aria-label="Play client review">
+            <img src="https://img.youtube.com/vi/21RdDgunwHM/maxresdefault.jpg" alt=""
+                 onerror="this.onerror=null;this.src='https://img.youtube.com/vi/21RdDgunwHM/hqdefault.jpg';">
+            <span class="story-video-btn" aria-hidden="true"></span>
+          </button>
+        </div>
+        <!-- FILL IN: first name and what they worked on, e.g. "Sarah M. · Anxious attachment" -->
+        <p class="story-video-caption">NAME &middot; WHAT THEY WORKED ON</p>
+      </div>
+
       <div class="cta-callout">
         <p>Message us to begin the conversation. If there's alignment, we'll schedule a consultation and design a customized path forward together.</p>
         <a class="btn-primary" href="mailto:bodymindlifeupgrade@gmail.com?subject=Bridge%20to%20Healthy%20Love%20Inquiry">Begin the Conversation</a>
@@ -80,5 +107,16 @@
   <footer class="site-footer">
     <p>&copy; 2026 CDWJ LLC</p>
   </footer>
+
+<script>
+document.querySelectorAll('.story-video').forEach(function(box){
+  box.addEventListener('click', function(){
+    box.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/' + box.dataset.yt +
+      '?autoplay=1&rel=0&playsinline=1" title="Client review" ' +
+      'allow="autoplay; encrypted-media; fullscreen" allowfullscreen frameborder="0"></iframe>';
+  }, { once:true });
+});
+</script>
+
 </body>
 </html>
