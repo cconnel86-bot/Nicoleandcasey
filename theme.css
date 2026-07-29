@@ -3,6 +3,15 @@
    then redeploy this one file to update colors, fonts & sizes
    across the homepage and all program pages.
    ============================================================ */
+
+/* Base size for the whole site. Every rem-based size on every page
+   scales from this one number, so raising it enlarges body copy,
+   links, labels and headings together.
+   100% = 16px (browser default) | 125% = 20px | 150% = 24px
+   NOTE: /admin does not currently generate this line. If you
+   download a new theme.css from /admin, re-add it at the top. */
+html { font-size: 125%; }
+
 :root {
   /* Colors (hex or rgb both work) */
   --bg:       #f4f2ee;   /* page background        */
