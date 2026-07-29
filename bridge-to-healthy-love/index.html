@@ -32,6 +32,10 @@
   .review-block .review-intro {
     color: var(--muted); margin-bottom: 1.5rem;
   }
+  .review-block .story-video-caption a {
+    text-decoration: none; border-bottom: 1px solid var(--accent); padding-bottom: 1px;
+  }
+  .review-block .story-video-caption a:hover { color: var(--accent); }
 </style>
 </head>
 <body>
@@ -83,18 +87,20 @@
       <!-- ============ CLIENT REVIEW ============
            Loads no YouTube code until someone clicks the still. -->
       <div class="review-block">
-        <h2>In their own words</h2>
-        <p class="review-intro">A client on what the program was actually like.</p>
+        <h2>In her own words</h2>
+        <p class="review-intro">Love coach Maya Kova on Bridge to Healthy Love.</p>
 
         <div class="story-video" data-yt="21RdDgunwHM">
-          <button class="story-video-play" type="button" aria-label="Play client review">
+          <button class="story-video-play" type="button" aria-label="Play Maya Kova's review">
             <img src="https://img.youtube.com/vi/21RdDgunwHM/maxresdefault.jpg" alt=""
                  onerror="this.onerror=null;this.src='https://img.youtube.com/vi/21RdDgunwHM/hqdefault.jpg';">
             <span class="story-video-btn" aria-hidden="true"></span>
           </button>
         </div>
-        <!-- FILL IN: first name and what they worked on, e.g. "Sarah M. · Anxious attachment" -->
-        <p class="story-video-caption">NAME &middot; WHAT THEY WORKED ON</p>
+        <p class="story-video-caption">
+          <a href="https://consciouslytransform.com/" target="_blank" rel="noopener">Maya Kova</a>
+          &middot; Love Coach, New York
+        </p>
       </div>
 
       <div class="cta-callout">
