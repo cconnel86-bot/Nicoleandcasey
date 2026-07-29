@@ -135,9 +135,13 @@
         <label for="goals">What are you looking to get out of this session?</label>
         <textarea id="goals" name="What are you looking to get out of this session?" required></textarea>
       </div>
+      <div style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden" aria-hidden="true">
+        <label for="_honey">Leave this blank</label>
+        <input type="text" id="_honey" name="_honey" tabindex="-1" autocomplete="off">
+      </div>
       <button type="submit" class="btn-primary" id="submitBtn">Request a Session</button>
       <p class="form-note">Nicole will reach out to you to schedule.</p>
-      <p class="error-note" id="errorNote">Something went wrong sending your request. Please email <a href="mailto:nicole.tiffany.cruz@gmail.com" style="color:inherit">nicole.tiffany.cruz@gmail.com</a> directly.</p>
+      <p class="error-note" id="errorNote">Something went wrong sending your request. Please email <a href="mailto:hello@nicoleandcasey.com" style="color:inherit">hello@nicoleandcasey.com</a> directly.</p>
     </form>
 
     <div class="success" id="successMsg">
@@ -154,19 +158,28 @@
 
 <script>
   // Submissions go to Nicole's email (instant) AND a Google Sheet log (permanent record).
-  const DEST = 'nicole.tiffany.cruz@gmail.com';
+  const DEST = 'hello@nicoleandcasey.com';
   // Paste the Apps Script web-app URL from the "Coregulation Sesson Leads" sheet between the quotes:
   const SHEET_ENDPOINT = 'https://script.google.com/macros/s/AKfycbwpqIRr6ISqP0t6mxbx_kaacDBiQMcS6pfK4UW2oQtr19Cq2i4GAyyjy2SLmN1YT-MiHw/exec';
 
+  const loadedAt = Date.now();
   const form = document.getElementById('bookForm');
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
     if (!form.checkValidity()) { form.reportValidity(); return; }
 
+    const data = Object.fromEntries(new FormData(form).entries());
+
+    // Bot filters. Silent on purpose: a bot that gets an error retries.
+    if (data._honey || (Date.now() - loadedAt) < 3000) {
+      form.style.display = 'none';
+      document.getElementById('successMsg').style.display = 'block';
+      return;
+    }
+    delete data._honey;
+
     const btn = document.getElementById('submitBtn');
     btn.disabled = true; btn.textContent = 'Sending\u2026';
-
-    const data = Object.fromEntries(new FormData(form).entries());
 
     // 1) Log to the Google Sheet (best-effort; no-cors so it can't block the UX).
     if (SHEET_ENDPOINT && SHEET_ENDPOINT.indexOf('http') === 0) {

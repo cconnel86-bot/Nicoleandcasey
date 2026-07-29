@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Request a Consultation — Nicole &amp; Casey</title>
+<meta name="description" content="Request a free consultation for divorce mediation, divorce coaching, personal finance coaching, or Bridge to Healthy Love.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/theme.css">
+
+<style>
+  :root{
+    --bk-bg:      var(--bg,      #FBF8F4);
+    --bk-surface: var(--surface, #FFFFFF);
+    --bk-text:    var(--text,    #2F2A26);
+    --bk-heading: var(--heading, #1E1B19);
+    --bk-accent:  var(--accent,  #A8654F);
+    --bk-muted:   var(--muted,   #6B625B);
+    --bk-border:  var(--border,  #E4DDD4);
+    --bk-font-h:  var(--font-heading, 'Cormorant Garamond', Georgia, serif);
+    --bk-font-b:  var(--font-body,    'Jost', system-ui, sans-serif);
+  }
+  *,*::before,*::after{ box-sizing:border-box; margin:0; padding:0; }
+  html{ overflow-x:hidden; }
+  body{
+    background:var(--bk-bg); color:var(--bk-text);
+    font-family:var(--bk-font-b); font-weight:300; line-height:1.7;
+    overflow-wrap:break-word; -webkit-font-smoothing:antialiased;
+  }
+
+  .bk-wrap{ max-width:40rem; margin:0 auto; padding:0 1.5rem; }
+  .bk-top{ padding-block:1.75rem 0; }
+  .bk-back{
+    font-size:.75rem; letter-spacing:.14em; text-transform:uppercase;
+    color:var(--bk-muted); text-decoration:none;
+  }
+  .bk-back:hover{ color:var(--bk-accent); }
+
+  .bk-head{ padding-block:3rem 2.5rem; }
+  .bk-eyebrow{
+    font-size:.7rem; font-weight:500; letter-spacing:.2em; text-transform:uppercase;
+    color:var(--bk-accent); margin-bottom:1.25rem;
+  }
+  .bk-head h1{
+    font-family:var(--bk-font-h); font-weight:400;
+    font-size:clamp(2.1rem,7vw,3.2rem); line-height:1.08;
+    letter-spacing:-.015em; color:var(--bk-heading); margin-bottom:1.25rem;
+  }
+  .bk-lead{ color:var(--bk-text); max-width:32rem; }
+
+  form{ padding-bottom:1rem; }
+  .bk-row2{ display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
+  .bk-row2 > *{ min-width:0; }
+  .bk-field{ margin-bottom:1.35rem; }
+  label{
+    display:block; font-size:.7rem; font-weight:500; letter-spacing:.16em;
+    text-transform:uppercase; color:var(--bk-muted); margin-bottom:.5rem;
+  }
+  .bk-optional{ text-transform:none; letter-spacing:0; font-weight:300; }
+  input, textarea, select{
+    width:100%; background:var(--bk-surface);
+    border:1px solid var(--bk-border); border-radius:0;
+    padding:.85rem 1rem;
+    font-family:var(--bk-font-b); font-weight:300; font-size:1rem;
+    color:var(--bk-text); outline:none; transition:border-color .25s;
+    -webkit-appearance:none; appearance:none;
+  }
+  select{
+    background-image:linear-gradient(45deg,transparent 50%,var(--bk-muted) 50%),
+                     linear-gradient(135deg,var(--bk-muted) 50%,transparent 50%);
+    background-position:calc(100% - 20px) center, calc(100% - 14px) center;
+    background-size:6px 6px, 6px 6px;
+    background-repeat:no-repeat;
+    padding-right:2.5rem;
+  }
+  input:focus, textarea:focus, select:focus{ border-color:var(--bk-accent); }
+  textarea{ min-height:9rem; resize:vertical; }
+
+  /* honeypot: invisible to people, irresistible to bots */
+  .bk-trap{ position:absolute; left:-9999px; width:1px; height:1px; overflow:hidden; }
+
+  .bk-btn{
+    width:100%; cursor:pointer;
+    background:var(--bk-accent); color:#fff;
+    border:1px solid var(--bk-accent);
+    padding:1.05rem 1rem;
+    font-family:var(--bk-font-b); font-size:.82rem; font-weight:500;
+    letter-spacing:.12em; text-transform:uppercase;
+    transition:background .25s, color .25s;
+  }
+  .bk-btn:hover{ background:transparent; color:var(--bk-accent); }
+  .bk-btn:disabled{ background:var(--bk-muted); border-color:var(--bk-muted); color:#fff; cursor:wait; }
+  .bk-btn:focus-visible{ outline:2px solid var(--bk-heading); outline-offset:3px; }
+
+  .bk-note{ font-size:.85rem; color:var(--bk-muted); margin-top:1rem; text-align:center; }
+  .bk-error{ display:none; font-size:.9rem; color:#A0442F; margin-top:1rem; text-align:center; }
+  .bk-error a{ color:inherit; }
+
+  .bk-success{ display:none; padding-block:1rem 2rem; }
+  .bk-success h2{
+    font-family:var(--bk-font-h); font-weight:400;
+    font-size:clamp(1.8rem,5vw,2.5rem); line-height:1.15;
+    color:var(--bk-heading); margin-bottom:1.25rem;
+  }
+
+  .bk-foot{
+    border-top:1px solid var(--bk-border);
+    margin-top:2.5rem; padding-block:2rem 3.5rem;
+    font-size:.82rem; color:var(--bk-muted); line-height:1.6;
+  }
+  .bk-foot p{ margin-bottom:.6rem; }
+  .bk-foot .bk-name{
+    font-family:var(--bk-font-h); font-size:1.15rem; color:var(--bk-heading);
+  }
+  .bk-foot a{ color:var(--bk-accent); text-decoration:none; }
+
+  @media (max-width:34rem){
+    .bk-row2{ grid-template-columns:1fr; gap:0; }
+  }
+  @media (prefers-reduced-motion:reduce){ *{ transition:none !important; } }
+</style>
+</head>
+<body>
+
+<div class="bk-wrap bk-top">
+  <a class="bk-back" id="backLink" href="/">&larr; Nicole &amp; Casey</a>
+</div>
+
+<div class="bk-wrap bk-head">
+  <p class="bk-eyebrow">Free consultation</p>
+  <h1 id="pageTitle">Let's start with a conversation.</h1>
+  <p class="bk-lead" id="pageLead">Tell me where things stand. I will get back to you personally, and if what you need is something other than what I do, I will tell you that too.</p>
+</div>
+
+<div class="bk-wrap">
+  <form id="bookForm" novalidate>
+
+    <div class="bk-row2">
+      <div class="bk-field">
+        <label for="firstName">First name</label>
+        <input type="text" id="firstName" name="First Name" autocomplete="given-name" required>
+      </div>
+      <div class="bk-field">
+        <label for="lastName">Last name</label>
+        <input type="text" id="lastName" name="Last Name" autocomplete="family-name" required>
+      </div>
+    </div>
+
+    <div class="bk-field">
+      <label for="email">Email</label>
+      <input type="email" id="email" name="Email" autocomplete="email" required>
+    </div>
+
+    <div class="bk-field">
+      <label for="phone">Phone <span class="bk-optional">(optional)</span></label>
+      <input type="tel" id="phone" name="Phone" autocomplete="tel">
+    </div>
+
+    <div class="bk-field">
+      <label for="program">What are you reaching out about?</label>
+      <select id="program" name="Program" required>
+        <option value="">Choose one</option>
+        <option value="Divorce Mediation">Divorce Mediation</option>
+        <option value="Divorce Coaching">Divorce Coaching</option>
+        <option value="Personal Finance Coaching">Personal Finance Coaching</option>
+        <option value="Bridge to Healthy Love">Bridge to Healthy Love</option>
+        <option value="Not sure yet">Not sure yet</option>
+      </select>
+    </div>
+
+    <div class="bk-field">
+      <label for="details">Where do things stand right now?</label>
+      <textarea id="details" name="Details" required></textarea>
+    </div>
+
+    <!-- honeypot + timing check, both invisible to real visitors -->
+    <div class="bk-trap" aria-hidden="true">
+      <label for="_honey">Leave this blank</label>
+      <input type="text" id="_honey" name="_honey" tabindex="-1" autocomplete="off">
+    </div>
+
+    <button type="submit" class="bk-btn" id="submitBtn">Request a consultation</button>
+    <p class="bk-note">No cost, no sales pitch. Usually a reply within a day.</p>
+    <p class="bk-error" id="errorNote">
+      Something went wrong sending that. You can email
+      <a href="mailto:hello@nicoleandcasey.com">hello@nicoleandcasey.com</a> directly.
+    </p>
+  </form>
+
+  <div class="bk-success" id="successMsg">
+    <h2>Message received.</h2>
+    <p>Thank you for reaching out. I will get back to you personally, usually within a day. If your situation is urgent, email <a href="mailto:hello@nicoleandcasey.com" style="color:var(--bk-accent)">hello@nicoleandcasey.com</a> and put URGENT in the subject line.</p>
+  </div>
+</div>
+
+<footer class="bk-wrap bk-foot">
+  <p class="bk-name">Nicole &amp; Casey</p>
+  <p>Coaching and mediation are not legal representation, legal advice, or mental health treatment. If you are in crisis, please contact a licensed professional or your local emergency number.</p>
+  <p><a href="/">Back to the site</a></p>
+</footer>
+
+<script>
+  // Where inquiries land. hello@ forwards to both inboxes, so this address
+  // can change without ever touching the website again.
+  const DEST = 'hello@nicoleandcasey.com';
+
+  // Optional: paste an Apps Script /exec URL here to also log every inquiry
+  // to a Google Sheet. Leave empty and only email is used.
+  const SHEET_ENDPOINT = '';
+
+  // Preselect the service from the link that brought them here,
+  // e.g. /book?program=mediation
+  const PROGRAMS = {
+    mediation: ['Divorce Mediation', 'Divorce mediation'],
+    divorce:   ['Divorce Coaching', 'Divorce coaching'],
+    finance:   ['Personal Finance Coaching', 'Finance coaching'],
+    bridge:    ['Bridge to Healthy Love', 'Bridge to Healthy Love']
+  };
+  const BACKLINKS = {
+    mediation: '/divorce-mediation',
+    divorce:   '/divorce-coaching',
+    finance:   '/personal-finance-coaching',
+    bridge:    '/bridge-to-healthy-love'
+  };
+
+  const key = new URLSearchParams(location.search).get('program');
+  if (key && PROGRAMS[key]) {
+    document.getElementById('program').value = PROGRAMS[key][0];
+    document.getElementById('pageTitle').textContent = PROGRAMS[key][1] + ': let\u2019s talk.';
+    const back = document.getElementById('backLink');
+    back.setAttribute('href', BACKLINKS[key]);
+    back.textContent = '\u2190 Back to details';
+  }
+
+  const loadedAt = Date.now();
+  const form = document.getElementById('bookForm');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    if (!form.checkValidity()) { form.reportValidity(); return; }
+
+    const data = Object.fromEntries(new FormData(form).entries());
+
+    // Bot filters. Silent on purpose: a bot that gets an error retries,
+    // a bot that gets a thank-you goes away.
+    const tooFast = (Date.now() - loadedAt) < 3000;
+    if (data._honey || tooFast) {
+      form.style.display = 'none';
+      document.getElementById('successMsg').style.display = 'block';
+      return;
+    }
+    delete data._honey;
+
+    const btn = document.getElementById('submitBtn');
+    btn.disabled = true; btn.textContent = 'Sending\u2026';
+
+    if (SHEET_ENDPOINT && SHEET_ENDPOINT.indexOf('http') === 0) {
+      try {
+        fetch(SHEET_ENDPOINT, { method: 'POST', mode: 'no-cors', body: JSON.stringify(data) });
+      } catch (err) { /* logging is best-effort, never blocks the visitor */ }
+    }
+
+    const payload = Object.assign({}, data, {
+      _subject: 'New inquiry: ' + (data.Program || 'Unspecified'),
+      _template: 'table'
+    });
+
+    try {
+      const res = await fetch('https://formsubmit.co/ajax/' + DEST, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      if (!res.ok) throw new Error('send failed');
+      form.style.display = 'none';
+      document.getElementById('successMsg').style.display = 'block';
+    } catch (err) {
+      btn.disabled = false; btn.textContent = 'Request a consultation';
+      document.getElementById('errorNote').style.display = 'block';
+    }
+  });
+</script>
+
+</body>
+</html>
