@@ -480,3 +480,8 @@ h1, h2, h3 { font-family: var(--font-heading); font-weight: 400; line-height: 1.
 @media (max-width: 40rem) {
   .site-nav .nav-cols { grid-template-columns: 1fr; gap: 2rem; }
 }
+
+/* On a bio page the person's own programs are already listed above, so the
+   nav drops their column, centres the other, and stacks About us beneath. */
+.site-nav.nav-single .nav-cols { grid-template-columns: 1fr; gap: 0; }
+.site-nav.nav-single .nav-mid { margin-top: 2rem; }
