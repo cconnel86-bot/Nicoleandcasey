@@ -17,6 +17,7 @@
 
 <!-- Inherits site theme variables. Every var() below has a hardcoded fallback,
      so this page still renders correctly if theme.css is missing or renamed. -->
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 <link rel="stylesheet" href="../theme.css">
 
 <style>
@@ -297,6 +298,42 @@
   }
   .site-nav .nav-together{ text-align:center; margin-top:2rem; }
   @media (max-width:40rem){ .site-nav .nav-cols{ grid-template-columns:1fr; gap:2rem; } }
+  /* ---------- INLINE CONSULTATION FORM ---------- */
+  .dm-form{ max-width:30rem; margin-top:2.25rem; }
+  .dm-row2{ display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
+  .dm-row2 > *{ min-width:0; }
+  .dm-field{ margin-bottom:1.2rem; }
+  .dm-form label{
+    display:block; font-size:.7rem; font-weight:500; letter-spacing:.16em;
+    text-transform:uppercase; color:var(--dm-muted); margin-bottom:.45rem;
+  }
+  .dm-form .dm-opt{ text-transform:none; letter-spacing:0; font-weight:300; }
+  .dm-form input, .dm-form textarea{
+    width:100%; background:var(--dm-surface); border:1px solid var(--dm-border);
+    padding:.8rem .95rem; border-radius:0;
+    font-family:var(--dm-font-b); font-weight:300; font-size:1rem;
+    color:var(--dm-text); outline:none; transition:border-color .25s;
+    -webkit-appearance:none; appearance:none;
+  }
+  .dm-form input:focus, .dm-form textarea:focus{ border-color:var(--dm-accent); }
+  .dm-form textarea{ min-height:7rem; resize:vertical; }
+  .dm-trap{ position:absolute; left:-9999px; width:1px; height:1px; overflow:hidden; }
+  .dm-form .cf-turnstile{ margin:.4rem 0 1.2rem; }
+  .dm-submit{
+    width:100%; cursor:pointer; background:var(--dm-accent); color:#fff;
+    border:1px solid var(--dm-accent); padding:1.05rem 1rem;
+    font-family:var(--dm-font-b); font-size:.82rem; font-weight:500;
+    letter-spacing:.12em; text-transform:uppercase;
+    transition:background .25s, color .25s;
+  }
+  .dm-submit:hover{ background:transparent; color:var(--dm-accent); }
+  .dm-submit:disabled{ background:var(--dm-muted); border-color:var(--dm-muted); cursor:wait; }
+  .dm-formnote{ font-size:.85rem; color:var(--dm-muted); margin-top:.9rem; text-align:center; }
+  .dm-alert{ display:none; font-size:.85rem; color:#A0442F; margin-top:.9rem; text-align:center; }
+  .dm-alert a{ color:inherit; }
+  .dm-done{ display:none; max-width:34rem; margin-top:2rem; }
+  @media (max-width:34rem){ .dm-row2{ grid-template-columns:1fr; gap:0; } }
+
   @media (prefers-reduced-motion:reduce){
     *{ transition:none !important; animation:none !important; }
   }
@@ -475,19 +512,57 @@
 
     <p>Tell me where things stand, and I will tell you honestly whether mediation fits your situation or whether you need something else.</p>
 
-    <!-- BOOKING: this currently opens the visitor's email client.
-         Swap the href to "/divorce-mediation/book" once the booking form is built
-         (clone of coregulation/book with the FormSubmit and Apps Script endpoints changed). -->
-    <div class="dm-actions">
-      <a class="dm-btn" href="/book?program=mediation">Schedule a free consultation</a>
-      <a class="dm-secondary" href="https://legalreportcard.com">Visit LegalReportCard.com</a>
+
+    <form class="dm-form" id="ctaForm" data-subject="New inquiry" novalidate>
+      <input type="hidden" name="Program" value="Divorce Mediation">
+
+      <div class="dm-row2">
+        <div class="dm-field">
+          <label for="fName">First name</label>
+          <input type="text" id="fName" name="First Name" autocomplete="given-name" required>
+        </div>
+        <div class="dm-field">
+          <label for="lName">Last name</label>
+          <input type="text" id="lName" name="Last Name" autocomplete="family-name" required>
+        </div>
+      </div>
+
+      <div class="dm-field">
+        <label for="fEmail">Email</label>
+        <input type="email" id="fEmail" name="Email" autocomplete="email" required>
+      </div>
+
+      <div class="dm-field">
+        <label for="fPhone">Phone <span class="dm-opt">(optional)</span></label>
+        <input type="tel" id="fPhone" name="Phone" autocomplete="tel">
+      </div>
+
+      <div class="dm-field">
+        <label for="fDetails">Where do things stand right now?</label>
+        <textarea id="fDetails" name="Details" required></textarea>
+      </div>
+
+      <div class="dm-trap" aria-hidden="true">
+        <label for="_honey">Leave this blank</label>
+        <input type="text" id="_honey" name="_honey" tabindex="-1" autocomplete="off">
+      </div>
+
+      <div class="cf-turnstile" data-sitekey="0x4AAAAAAEBPdzRvlBh8W6FV" data-theme="light"></div>
+      <p class="dm-alert" id="ctaTsNote">Please complete the verification check above.</p>
+
+      <button type="submit" class="dm-submit">Request a consultation</button>
+      <p class="dm-formnote">No cost consultation. Usually respond within a day.</p>
+      <p class="dm-alert" id="ctaError">Something went wrong sending that. You can email <a href="mailto:hello@nicoleandcasey.com">hello@nicoleandcasey.com</a> instead.</p>
+    </form>
+
+    <div class="dm-done" id="ctaSuccess">
+      <h3 style="font-family:var(--dm-font-h);font-weight:400;font-size:1.6rem;color:var(--dm-heading);margin-bottom:.75rem">Message received.</h3>
+      <p>Thank you for reaching out. I will get back to you personally, usually within a day.</p>
     </div>
 
-    <!-- PRICING: uncomment and fill in when you set rates. Left out of the live page
-         on purpose so visitors do not see a placeholder.
-    <h3>Investment</h3>
-    <p>Flat rate per session, or a package rate for the full process. For comparison, a contested divorce in New Mexico commonly runs well into five figures per side.</p>
-    -->
+    <div class="dm-links" style="margin-top:2rem">
+      <a class="dm-secondary" href="https://legalreportcard.com">Visit LegalReportCard.com</a>
+    </div>
   </section>
 
 </main>
@@ -521,5 +596,6 @@
   <p><a href="/">Nicole &amp; Casey</a></p>
 </footer>
 
+<script src="/cta-form.js" defer></script>
 </body>
 </html>

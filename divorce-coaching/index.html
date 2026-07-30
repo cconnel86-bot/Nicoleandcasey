@@ -17,6 +17,7 @@
 
 <!-- Inherits site theme variables. Every var() below has a hardcoded fallback,
      so this page still renders correctly if theme.css is missing or renamed. -->
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 <link rel="stylesheet" href="../theme.css">
 
 <style>
@@ -290,6 +291,42 @@
   }
   .site-nav .nav-together{ text-align:center; margin-top:2rem; }
   @media (max-width:40rem){ .site-nav .nav-cols{ grid-template-columns:1fr; gap:2rem; } }
+  /* ---------- INLINE CONSULTATION FORM ---------- */
+  .dc-form{ max-width:30rem; margin-top:2.25rem; }
+  .dc-row2{ display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
+  .dc-row2 > *{ min-width:0; }
+  .dc-field{ margin-bottom:1.2rem; }
+  .dc-form label{
+    display:block; font-size:.7rem; font-weight:500; letter-spacing:.16em;
+    text-transform:uppercase; color:var(--dc-muted); margin-bottom:.45rem;
+  }
+  .dc-form .dc-opt{ text-transform:none; letter-spacing:0; font-weight:300; }
+  .dc-form input, .dc-form textarea{
+    width:100%; background:var(--dc-surface); border:1px solid var(--dc-border);
+    padding:.8rem .95rem; border-radius:0;
+    font-family:var(--dc-font-b); font-weight:300; font-size:1rem;
+    color:var(--dc-text); outline:none; transition:border-color .25s;
+    -webkit-appearance:none; appearance:none;
+  }
+  .dc-form input:focus, .dc-form textarea:focus{ border-color:var(--dc-accent); }
+  .dc-form textarea{ min-height:7rem; resize:vertical; }
+  .dc-trap{ position:absolute; left:-9999px; width:1px; height:1px; overflow:hidden; }
+  .dc-form .cf-turnstile{ margin:.4rem 0 1.2rem; }
+  .dc-submit{
+    width:100%; cursor:pointer; background:var(--dc-accent); color:#fff;
+    border:1px solid var(--dc-accent); padding:1.05rem 1rem;
+    font-family:var(--dc-font-b); font-size:.82rem; font-weight:500;
+    letter-spacing:.12em; text-transform:uppercase;
+    transition:background .25s, color .25s;
+  }
+  .dc-submit:hover{ background:transparent; color:var(--dc-accent); }
+  .dc-submit:disabled{ background:var(--dc-muted); border-color:var(--dc-muted); cursor:wait; }
+  .dc-formnote{ font-size:.85rem; color:var(--dc-muted); margin-top:.9rem; text-align:center; }
+  .dc-alert{ display:none; font-size:.85rem; color:#A0442F; margin-top:.9rem; text-align:center; }
+  .dc-alert a{ color:inherit; }
+  .dc-done{ display:none; max-width:34rem; margin-top:2rem; }
+  @media (max-width:34rem){ .dc-row2{ grid-template-columns:1fr; gap:0; } }
+
   @media (prefers-reduced-motion:reduce){
     *{ transition:none !important; animation:none !important; }
   }
@@ -493,14 +530,55 @@
 
     <p>Tell me where you are, and I will tell you honestly whether coaching is what you need right now, or whether you should be spending that money on an attorney, a therapist, or your rent this month.</p>
 
-    <!-- BOOKING: this currently opens the visitor's email client.
-         Swap the href to "/divorce-coaching/book" once the booking form is built
-         (clone of coregulation/book with the FormSubmit and Apps Script endpoints changed). -->
-    <div class="dc-actions">
-      <a class="dc-btn" href="/book?program=divorce">Schedule a free consultation</a>
+
+    <form class="dc-form" id="ctaForm" data-subject="New inquiry" novalidate>
+      <input type="hidden" name="Program" value="Divorce Coaching">
+
+      <div class="dc-row2">
+        <div class="dc-field">
+          <label for="fName">First name</label>
+          <input type="text" id="fName" name="First Name" autocomplete="given-name" required>
+        </div>
+        <div class="dc-field">
+          <label for="lName">Last name</label>
+          <input type="text" id="lName" name="Last Name" autocomplete="family-name" required>
+        </div>
+      </div>
+
+      <div class="dc-field">
+        <label for="fEmail">Email</label>
+        <input type="email" id="fEmail" name="Email" autocomplete="email" required>
+      </div>
+
+      <div class="dc-field">
+        <label for="fPhone">Phone <span class="dc-opt">(optional)</span></label>
+        <input type="tel" id="fPhone" name="Phone" autocomplete="tel">
+      </div>
+
+      <div class="dc-field">
+        <label for="fDetails">Where do things stand right now?</label>
+        <textarea id="fDetails" name="Details" required></textarea>
+      </div>
+
+      <div class="dc-trap" aria-hidden="true">
+        <label for="_honey">Leave this blank</label>
+        <input type="text" id="_honey" name="_honey" tabindex="-1" autocomplete="off">
+      </div>
+
+      <div class="cf-turnstile" data-sitekey="0x4AAAAAAEBPdzRvlBh8W6FV" data-theme="light"></div>
+      <p class="dc-alert" id="ctaTsNote">Please complete the verification check above.</p>
+
+      <button type="submit" class="dc-submit">Request a consultation</button>
+      <p class="dc-formnote">No cost consultation. Usually respond within a day.</p>
+      <p class="dc-alert" id="ctaError">Something went wrong sending that. You can email <a href="mailto:hello@nicoleandcasey.com">hello@nicoleandcasey.com</a> instead.</p>
+    </form>
+
+    <div class="dc-done" id="ctaSuccess">
+      <h3 style="font-family:var(--dc-font-h);font-weight:400;font-size:1.6rem;color:var(--dc-heading);margin-bottom:.75rem">Message received.</h3>
+      <p>Thank you for reaching out. I will get back to you personally, usually within a day.</p>
     </div>
 
-    <div class="dc-links">
+    <div class="dc-links" style="margin-top:2rem">
       <a href="https://legalreportcard.com">Visit LegalReportCard.com</a>
     </div>
   </section>
@@ -536,5 +614,6 @@
   <p><a href="/">Nicole &amp; Casey</a></p>
 </footer>
 
+<script src="/cta-form.js" defer></script>
 </body>
 </html>
