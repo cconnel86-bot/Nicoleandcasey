@@ -88,15 +88,16 @@ h1, h2, h3 { font-family: var(--font-heading); font-weight: 400; line-height: 1.
 }
 .hero-inner .mission {
   font-family: var(--font-heading);
+  font-weight: 600;
   font-size: clamp(1.1rem, 2.2vw, 1.5rem);
   line-height: 1.5;
-  color: rgba(255,255,255,.93);
+  color: #fff;
   max-width: 620px; margin: 1.3rem auto 0;
 }
 .hero-inner .story-jump {
   display: inline-block; margin-top: 1.8rem; text-decoration: none;
-  font-family: var(--font-heading); font-size: var(--fs-program);
-  color: #fff; border-bottom: 1px solid rgba(255,255,255,.7);
+  font-family: var(--font-heading); font-weight: 600; font-size: var(--fs-program);
+  color: #fff; border-bottom: 1px solid #fff;
   padding-bottom: 2px; transition: color .25s, border-color .25s;
 }
 .hero-inner .story-jump:hover { color: var(--accent); border-bottom-color: var(--accent); }
