@@ -165,7 +165,7 @@
 
     <div class="bk-field">
       <label for="program">What are you reaching out about?</label>
-      <select id="program" name="Program" required>
+      <select id="program" name="Program" autocomplete="off" required>
         <option value="">Choose one</option>
         <option value="Divorce Mediation">Divorce Mediation</option>
         <option value="Divorce Coaching">Divorce Coaching</option>
@@ -190,7 +190,7 @@
     <p class="bk-tsnote" id="tsNote">Please complete the verification check above.</p>
 
     <button type="submit" class="bk-btn" id="submitBtn">Request a consultation</button>
-    <p class="bk-note">No cost, no sales pitch. Usually a reply within a day.</p>
+    <p class="bk-note">No cost consultation. Usually respond within a day.</p>
     <p class="bk-error" id="errorNote">
       Something went wrong sending that. You can email
       <a href="mailto:hello@nicoleandcasey.com">hello@nicoleandcasey.com</a> directly.
@@ -234,6 +234,12 @@
   };
 
   const key = new URLSearchParams(location.search).get('program');
+  function applyProgram() {
+    if (key && PROGRAMS[key]) document.getElementById('program').value = PROGRAMS[key][0];
+  }
+  // Chrome restores previously chosen values on reload and back navigation,
+  // which can overwrite the link's choice. Re-apply once that has happened.
+  window.addEventListener('pageshow', applyProgram);
   if (key && PROGRAMS[key]) {
     document.getElementById('program').value = PROGRAMS[key][0];
     document.getElementById('pageTitle').textContent = PROGRAMS[key][1] + ': let\u2019s talk.';
