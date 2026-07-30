@@ -276,3 +276,71 @@ h1, h2, h3 { font-family: var(--font-heading); font-weight: 400; line-height: 1.
   .person { order: 1; }
   .person.casey { order: 2; }
 }
+
+/* ---------- PROGRAM PAGE PHOTO ---------- */
+.program-hero {
+  width: 100%; max-width: 760px; margin: 1.5rem auto 0;
+  aspect-ratio: 3/2; overflow: hidden; border: 1px solid var(--border);
+}
+.program-hero img {
+  width: 100%; height: 100%; object-fit: cover;
+  object-position: center 38%; display: block;
+}
+
+/* ---------- TEXT REQUEST CTA (Nicole's program pages) ---------- */
+.cta-text {
+  border-top: 1px solid var(--border);
+  max-width: 760px; margin: 0 auto;
+  padding: clamp(2.5rem,6vw,4rem) 1.6rem clamp(3rem,7vw,4.5rem);
+}
+.cta-text .label {
+  color: var(--muted); letter-spacing: .2em; text-transform: uppercase;
+  font-size: .72rem; margin-bottom: 1rem;
+}
+.cta-text h2 { font-size: var(--fs-h2); margin-bottom: 1rem; }
+.cta-text .cta-lead { color: var(--text); max-width: 34rem; margin-bottom: .6rem; }
+.cta-text .cta-promise {
+  color: var(--muted); max-width: 34rem; margin-bottom: 1.4rem; font-size: .95rem;
+}
+.cta-text .cta-price {
+  color: var(--heading); max-width: 34rem; margin-bottom: 2rem;
+  font-family: var(--font-heading); font-size: 1.15rem; line-height: 1.5;
+  border-left: 2px solid var(--accent); padding-left: 1rem;
+}
+.cta-form { max-width: 30rem; }
+.cta-field { margin-bottom: 1.2rem; }
+.cta-form label {
+  display: block; font-size: .7rem; font-weight: 500; letter-spacing: .16em;
+  text-transform: uppercase; color: var(--muted); margin-bottom: .45rem;
+}
+.cta-form .opt { text-transform: none; letter-spacing: 0; font-weight: 300; }
+.cta-form input, .cta-form textarea {
+  width: 100%; background: var(--surface); border: 1px solid var(--border);
+  padding: .8rem .95rem; border-radius: 0;
+  font-family: var(--font-body); font-weight: 300; font-size: 1rem;
+  color: var(--text); outline: none; transition: border-color .25s;
+  -webkit-appearance: none; appearance: none;
+}
+.cta-form input:focus, .cta-form textarea:focus { border-color: var(--accent); }
+.cta-form textarea { min-height: 6rem; resize: vertical; }
+.cta-trap { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+.cta-text .cf-turnstile { margin: .4rem 0 1.2rem; }
+.cta-btn {
+  width: 100%; cursor: pointer;
+  background: var(--heading); color: var(--bg); border: 1px solid var(--heading);
+  padding: 1rem; font-family: var(--font-body); font-size: .8rem; font-weight: 500;
+  letter-spacing: .12em; text-transform: uppercase;
+  transition: background .25s, color .25s, border-color .25s;
+}
+.cta-btn:hover { background: var(--accent); border-color: var(--accent); color: var(--bg); }
+.cta-btn:disabled { background: var(--muted); border-color: var(--muted); cursor: wait; }
+.cta-btn:focus-visible { outline: 2px solid var(--heading); outline-offset: 3px; }
+.cta-consent { font-size: .78rem; color: var(--muted); margin-top: .9rem; line-height: 1.6; }
+.cta-note { display: none; font-size: .85rem; color: #A0442F; margin-top: .9rem; }
+.cta-note a { color: inherit; }
+.cta-success { display: none; max-width: 34rem; }
+.cta-success h2 { margin-bottom: 1rem; }
+
+@media (max-width: 34rem) {
+  .cta-text .cta-price { font-size: 1.05rem; }
+}

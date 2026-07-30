@@ -8,15 +8,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 <link rel="stylesheet" href="/theme.css">
 <link rel="stylesheet" href="/base.css">
-<style>
-  .program-hero {
-    width: 100%; max-width: 760px; margin: 1.5rem auto 0;
-    aspect-ratio: 3/2; overflow: hidden; border: 1px solid var(--border);
-  }
-  .program-hero img { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; }
-</style>
 </head>
 <body>
   <div class="page-wrap">
@@ -74,8 +68,60 @@
     </div>
   </div>
 
+
+  <section class="cta-text">
+    <p class="label">Get in touch</p>
+    <h2>Request a text from Nicole</h2>
+    <p class="cta-lead">She'll answer your questions or help you book a consultation.</p>
+    <p class="cta-promise">She'll reach out personally, not her assistant, not a bot. You won't be added to any marketing lists and definitely no spam.</p>
+    <p class="cta-price">Initial conversations are free. Coaching runs $500 to $2,000 a month, based on how much support you want.</p>
+
+    <form class="cta-form" id="ctaForm" novalidate>
+      <input type="hidden" name="Program" value="Soulmaps">
+
+      <div class="cta-field">
+        <label for="ctaName">Your name</label>
+        <input type="text" id="ctaName" name="Name" autocomplete="name" required>
+      </div>
+
+      <div class="cta-field">
+        <label for="ctaMobile">Mobile number</label>
+        <input type="tel" id="ctaMobile" name="Mobile" autocomplete="tel" required>
+      </div>
+
+      <div class="cta-field">
+        <label for="ctaEmail">Email <span class="opt">(optional)</span></label>
+        <input type="email" id="ctaEmail" name="Email" autocomplete="email">
+      </div>
+
+      <div class="cta-field">
+        <label for="ctaNote">Anything you'd like her to know <span class="opt">(optional)</span></label>
+        <textarea id="ctaNote" name="Note"></textarea>
+      </div>
+
+      <div class="cta-trap" aria-hidden="true">
+        <label for="_honey">Leave this blank</label>
+        <input type="text" id="_honey" name="_honey" tabindex="-1" autocomplete="off">
+      </div>
+
+      <div class="cf-turnstile" data-sitekey="0x4AAAAAAEBPdzRvlBh8W6FV" data-theme="light"></div>
+      <p class="cta-note" id="ctaTsNote">Please complete the verification check above.</p>
+
+      <button type="submit" class="cta-btn">Request a Text From Nicole</button>
+
+      <p class="cta-consent">By submitting this, you're asking Nicole to text you at the number above. Reply STOP any time and she won't text again.</p>
+      <p class="cta-note" id="ctaError">Something went wrong sending that. You can email <a href="mailto:hello@nicoleandcasey.com">hello@nicoleandcasey.com</a> instead.</p>
+    </form>
+
+    <div class="cta-success" id="ctaSuccess">
+      <h2>Got it.</h2>
+      <p>Nicole will text you personally, usually within a day.</p>
+    </div>
+  </section>
+
   <footer class="site-footer">
     <p>&copy; 2026 CDWJ LLC</p>
   </footer>
+<script src="/cta-form.js" defer></script>
 </body>
 </html>
