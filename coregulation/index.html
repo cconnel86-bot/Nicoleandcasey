@@ -14,7 +14,7 @@
   html { scroll-behavior: smooth; }
   body { font-family: 'DM Sans', sans-serif; background: var(--warm-white); color: var(--bark); font-weight: 300; line-height: 1.7; }
 
-  .hero { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; }
+  .hero { min-height: 78vh; display: grid; grid-template-columns: 1fr 1fr; }
   .hero-left {
     background: var(--stone); display: flex; flex-direction: column;
     justify-content: center; padding: 80px 64px 80px 80px;
@@ -176,6 +176,36 @@
     footer { flex-direction: column; gap: 14px; }
     .footer-note { text-align: center; }
   }
+  /* ---------- PAGE BANNER ---------- */
+  .pbanner{ position:relative; width:100%; overflow:hidden; background:#12100e; }
+  .pbanner-frame{ position:relative; z-index:2; max-width:900px; margin:0 auto;
+    aspect-ratio:3/2; overflow:hidden; }
+  .pbanner-frame img{ position:absolute; inset:0; width:100%; height:100%;
+    object-fit:cover; object-position:center 45%; z-index:0; }
+  .pbanner-frame .scrim{ position:absolute; inset:0; z-index:1;
+    background:linear-gradient(to bottom,
+      rgba(12,10,9,.30) 0%, rgba(12,10,9,.06) 30%,
+      rgba(12,10,9,.34) 58%, rgba(12,10,9,.66) 100%); }
+  .pbanner-inner{ position:absolute; left:0; right:0; top:62%; z-index:2;
+    text-align:center; padding:0 24px; }
+  .pbanner h1{ font-family:'Cormorant Garamond', serif; font-weight:400; color:#fff;
+    font-size:clamp(38px,7vw,68px); line-height:1; letter-spacing:.01em;
+    text-shadow:0 2px 26px rgba(4,3,2,.55); }
+  .pbanner .back{ position:absolute; top:22px; left:26px; z-index:3;
+    color:rgba(255,255,255,.85); text-decoration:none; font-size:11px;
+    letter-spacing:.14em; text-transform:uppercase; }
+  .pbanner .back:hover{ color:#fff; }
+  .pbanner .side{ position:absolute; top:0; bottom:0; z-index:1;
+    width:calc((100% - 900px) / 2); }
+  .pbanner .side.l{ left:0; background:linear-gradient(to bottom,
+    #505757 0%,#444a49 25%,#4b3a2b 50%,#39352c 75%,#4f4f4c 100%); }
+  .pbanner .side.r{ right:0; background:linear-gradient(to bottom,
+    #121510 0%,#151713 25%,#111716 50%,#2e3637 75%,#343536 100%); }
+  .pbanner .side::after{ content:""; position:absolute; inset:0;
+    background:linear-gradient(to right, rgba(10,9,8,.62), rgba(10,9,8,0)); }
+  .pbanner .side.r::after{ background:linear-gradient(to left, rgba(10,9,8,.62), rgba(10,9,8,0)); }
+  @media (max-width:900px){ .pbanner .side{ display:none; } }
+
   /* ---------- SITE NAV ---------- */
   .site-nav{ background:var(--warm-white); border-top:1px solid var(--mist); padding:56px 36px 8px; }
   .site-nav-in{ max-width:900px; margin:0 auto; }
@@ -197,6 +227,16 @@
 </style>
 </head>
 <body>
+
+<header class="pbanner">
+  <a class="back" href="/">&larr; Nicole &amp; Casey</a>
+  <div class="side l"></div><div class="side r"></div>
+  <div class="pbanner-frame">
+    <img src="/assets/coregulation.jpg" alt="Two people holding each other, arms crossed in an embrace">
+    <div class="scrim"></div>
+    <div class="pbanner-inner"><h1>Coregulation</h1></div>
+  </div>
+</header>
 
 <div class="hero">
   <div class="hero-left">
@@ -297,7 +337,6 @@
       <a class="nav-name" href="/nicole">Nicole</a>
       <a href="/soul-map">Soulmaps</a>
       <a href="/neurodiverse-wellness">Neurodiverse Wellness Systems</a>
-      <a href="/coregulation">Emotional Coregulation</a>
     </div>
     <div class="nav-col nav-mid">
       <a class="nav-name" href="/about">About us</a>
