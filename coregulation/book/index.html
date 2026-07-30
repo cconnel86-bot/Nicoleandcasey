@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Book a Session — Emotional Co-Regulation</title>
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -62,6 +63,8 @@
   }
   .btn-primary:hover { background: var(--clay); }
   .btn-primary:disabled { background: #a89f97; cursor: wait; }
+  .cf-turnstile { margin: 0 0 18px; display: flex; justify-content: center; }
+  .ts-note { display:none; font-size: 12px; color: #a05c4a; margin-bottom: 14px; text-align:center; }
   .form-note { font-size: 12px; color: var(--clay); font-style: italic; margin-top: 14px; text-align: center; }
 
   .success {
@@ -139,6 +142,8 @@
         <label for="_honey">Leave this blank</label>
         <input type="text" id="_honey" name="_honey" tabindex="-1" autocomplete="off">
       </div>
+      <div class="cf-turnstile" data-sitekey="0x4AAAAAAEBPdzRvlBh8W6FV" data-theme="light"></div>
+      <p class="ts-note" id="tsNote">Please complete the verification check above.</p>
       <button type="submit" class="btn-primary" id="submitBtn">Request a Session</button>
       <p class="form-note">Nicole will reach out to you to schedule.</p>
       <p class="error-note" id="errorNote">Something went wrong sending your request. Please email <a href="mailto:hello@nicoleandcasey.com" style="color:inherit">hello@nicoleandcasey.com</a> directly.</p>
@@ -168,6 +173,14 @@
     e.preventDefault();
     if (!form.checkValidity()) { form.reportValidity(); return; }
 
+    // Cloudflare Turnstile. Fails open if the widget could not load.
+    let tsToken = '';
+    if (window.turnstile) {
+      tsToken = turnstile.getResponse();
+      if (!tsToken) { document.getElementById('tsNote').style.display = 'block'; return; }
+      document.getElementById('tsNote').style.display = 'none';
+    }
+
     const data = Object.fromEntries(new FormData(form).entries());
 
     // Bot filters. Silent on purpose: a bot that gets an error retries.
@@ -189,7 +202,7 @@
     }
 
     // 2) Email Nicole via FormSubmit (confirmable; drives the success/error UI).
-    const payload = Object.assign({}, data, { _subject: 'New Coregulation Inquiry', _template: 'table' });
+    const payload = Object.assign({}, data, { _subject: 'New Coregulation Inquiry', _template: 'table', 'cf-turnstile-response': tsToken });
     try {
       const res = await fetch('https://formsubmit.co/ajax/' + DEST, {
         method: 'POST',
@@ -201,6 +214,7 @@
       document.getElementById('successMsg').style.display = 'block';
     } catch (err) {
       btn.disabled = false; btn.textContent = 'Request a Session';
+      if (window.turnstile) turnstile.reset();
       document.getElementById('errorNote').style.display = 'block';
     }
   });

@@ -9,6 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 <link rel="stylesheet" href="/theme.css">
 
 <style>
@@ -117,6 +118,9 @@
   }
   .bk-foot a{ color:var(--bk-accent); text-decoration:none; }
 
+  .cf-turnstile{ margin:0 0 1.25rem; display:flex; justify-content:center; }
+  .bk-tsnote{ display:none; font-size:.9rem; color:#A0442F; margin-bottom:1rem; text-align:center; }
+
   @media (max-width:34rem){
     .bk-row2{ grid-template-columns:1fr; gap:0; }
   }
@@ -182,6 +186,9 @@
       <input type="text" id="_honey" name="_honey" tabindex="-1" autocomplete="off">
     </div>
 
+    <div class="cf-turnstile" data-sitekey="0x4AAAAAAEBPdzRvlBh8W6FV" data-theme="light"></div>
+    <p class="bk-tsnote" id="tsNote">Please complete the verification check above.</p>
+
     <button type="submit" class="bk-btn" id="submitBtn">Request a consultation</button>
     <p class="bk-note">No cost, no sales pitch. Usually a reply within a day.</p>
     <p class="bk-error" id="errorNote">
@@ -242,6 +249,15 @@
     e.preventDefault();
     if (!form.checkValidity()) { form.reportValidity(); return; }
 
+    // Cloudflare Turnstile. Fails open if the widget could not load,
+    // so an ad blocker never locks out a real person.
+    let tsToken = '';
+    if (window.turnstile) {
+      tsToken = turnstile.getResponse();
+      if (!tsToken) { document.getElementById('tsNote').style.display = 'block'; return; }
+      document.getElementById('tsNote').style.display = 'none';
+    }
+
     const data = Object.fromEntries(new FormData(form).entries());
 
     // Bot filters. Silent on purpose: a bot that gets an error retries,
@@ -265,7 +281,8 @@
 
     const payload = Object.assign({}, data, {
       _subject: 'New inquiry: ' + (data.Program || 'Unspecified'),
-      _template: 'table'
+      _template: 'table',
+      'cf-turnstile-response': tsToken
     });
 
     try {
@@ -279,6 +296,7 @@
       document.getElementById('successMsg').style.display = 'block';
     } catch (err) {
       btn.disabled = false; btn.textContent = 'Request a consultation';
+      if (window.turnstile) turnstile.reset();
       document.getElementById('errorNote').style.display = 'block';
     }
   });
