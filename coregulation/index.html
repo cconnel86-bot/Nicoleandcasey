@@ -176,6 +176,25 @@
     footer { flex-direction: column; gap: 14px; }
     .footer-note { text-align: center; }
   }
+  /* ---------- SITE NAV ---------- */
+  .site-nav{ background: var(--warm-white); border-top:1px solid var(--mist);
+    padding: 56px 36px 8px; }
+  .site-nav-in{ max-width: 900px; margin: 0 auto; }
+  .site-nav .nav-cols{ display:grid; grid-template-columns:1fr 1fr; gap:40px; text-align:center; }
+  .site-nav .nav-label{ display:block; width:fit-content; margin:0 auto 14px;
+    font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:var(--bark);
+    text-decoration:none; border-bottom:1px solid transparent; padding-bottom:2px;
+    transition:color .3s, border-color .3s; }
+  .site-nav .nav-label:hover{ color:var(--clay); border-bottom-color:var(--clay); }
+  .site-nav .nav-muted{ font-size:11px; letter-spacing:.2em; text-transform:uppercase;
+    color:var(--sage); margin-bottom:8px; }
+  .site-nav a:not(.nav-label){ display:block; padding:8px 0; text-decoration:none;
+    font-family:'Cormorant Garamond', serif; font-size:18px; color:var(--bark); transition:color .3s; }
+  .site-nav a:not(.nav-label):hover{ color:var(--clay); }
+  .site-nav .nav-together{ text-align:center; margin-top:32px; }
+  @media (max-width:640px){ .site-nav .nav-cols{ grid-template-columns:1fr; gap:32px; }
+    .site-nav{ padding:44px 24px 8px; } }
+
 </style>
 </head>
 <body>
@@ -271,6 +290,29 @@
   </div>
   <p class="booking-note">All enquiries responded to within 48 hours.</p>
 </section>
+
+<nav class="site-nav">
+  <div class="site-nav-in">
+    <div class="nav-cols">
+      <div>
+        <a class="nav-label" href="/nicole">Nicole</a>
+        <a href="/soul-map">Soulmaps</a>
+        <a href="/neurodiverse-wellness">Neurodiverse Wellness Systems</a>
+        <a href="/coregulation">Emotional Coregulation</a>
+      </div>
+      <div>
+        <a class="nav-label" href="/casey">Casey</a>
+        <a href="/personal-finance-coaching">Personal Finance Coaching</a>
+        <a href="/divorce-coaching">Divorce Coaching</a>
+        <a href="/divorce-mediation">Divorce Mediation</a>
+      </div>
+    </div>
+    <div class="nav-together">
+      <p class="nav-muted">Together</p>
+      <a href="/bridge-to-healthy-love">Bridge to Healthy Love</a>
+    </div>
+  </div>
+</nav>
 
 <footer>
   <div class="footer-name">Nicole Cruz</div>

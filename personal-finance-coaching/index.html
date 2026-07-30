@@ -209,6 +209,37 @@
     .pf-links a{ display:block; margin:0 0 .9rem; }
   }
 
+  /* ---------- SITE NAV ---------- */
+  .site-nav{
+    border-top:1px solid var(--pf-border);
+    max-width:56rem; margin:0 auto; padding:clamp(2.5rem,6vw,3.5rem) 1.5rem 0;
+  }
+  .site-nav .nav-cols{
+    display:grid; grid-template-columns:1fr 1fr; gap:clamp(1.5rem,5vw,4rem);
+    text-align:center;
+  }
+  .site-nav .nav-cols > *{ min-width:0; }
+  .site-nav .nav-label{
+    display:block; width:fit-content; margin:0 auto .9rem;
+    font-size:.72rem; letter-spacing:.2em; text-transform:uppercase;
+    color:var(--pf-heading); text-decoration:none;
+    border-bottom:1px solid transparent; padding-bottom:2px;
+    transition:color .25s, border-color .25s;
+  }
+  .site-nav .nav-label:hover{ color:var(--pf-accent); border-bottom-color:var(--pf-accent); }
+  .site-nav .nav-muted{
+    font-size:.72rem; letter-spacing:.2em; text-transform:uppercase;
+    color:var(--pf-muted); margin-bottom:.6rem;
+  }
+  .site-nav a:not(.nav-label){
+    display:block; padding:.5rem 0; text-decoration:none; border-bottom:none;
+    font-family:var(--pf-font-h); font-size:1.1rem; color:var(--pf-heading);
+    transition:color .25s;
+  }
+  .site-nav a:not(.nav-label):hover{ color:var(--pf-accent); }
+  .site-nav .nav-together{ text-align:center; margin-top:2rem; }
+  @media (max-width:34rem){ .site-nav .nav-cols{ grid-template-columns:1fr; gap:2rem; } }
+
   @media (prefers-reduced-motion:reduce){
     *{ transition:none !important; animation:none !important; }
   }
@@ -306,6 +337,27 @@
   </section>
 
 </main>
+
+<nav class="site-nav">
+  <div class="nav-cols">
+    <div>
+      <a class="nav-label" href="/nicole">Nicole</a>
+      <a href="/soul-map">Soulmaps</a>
+      <a href="/neurodiverse-wellness">Neurodiverse Wellness Systems</a>
+      <a href="/coregulation">Emotional Coregulation</a>
+    </div>
+    <div>
+      <a class="nav-label" href="/casey">Casey</a>
+      <a href="/personal-finance-coaching">Personal Finance Coaching</a>
+      <a href="/divorce-coaching">Divorce Coaching</a>
+      <a href="/divorce-mediation">Divorce Mediation</a>
+    </div>
+  </div>
+  <div class="nav-together">
+    <p class="nav-muted">Together</p>
+    <a href="/bridge-to-healthy-love">Bridge to Healthy Love</a>
+  </div>
+</nav>
 
 <footer class="pf-wrap pf-foot">
   <p class="pf-name">Casey Connell</p>
