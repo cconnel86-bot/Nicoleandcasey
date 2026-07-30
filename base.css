@@ -344,3 +344,50 @@ h1, h2, h3 { font-family: var(--font-heading); font-weight: 400; line-height: 1.
 @media (max-width: 34rem) {
   .cta-text .cta-price { font-size: 1.05rem; }
 }
+
+/* ---------- PROGRAM PAGE BANNER (full-bleed photo + title) ---------- */
+.pbanner {
+  position: relative; width: 100%;
+  min-height: clamp(24rem, 64vh, 40rem);
+  display: grid; align-content: start; justify-items: center;
+  overflow: hidden; background: #0d1620; isolation: isolate; text-align: center;
+}
+.pbanner img {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; z-index: -2;
+  object-position: center 55%;
+}
+/* Wider screens show a shorter slice of a portrait photo, so bias the crop
+   toward the bottom of the frame rather than losing it. */
+@media (min-width: 700px)  { .pbanner img { object-position: center 70%; } }
+@media (min-width: 1100px) { .pbanner img { object-position: center 80%; } }
+
+.pbanner .scrim {
+  position: absolute; inset: 0; z-index: -1;
+  background: linear-gradient(to bottom,
+    rgba(8,14,22,.74) 0%,
+    rgba(8,14,22,.34) 34%,
+    rgba(8,14,22,.06) 58%,
+    rgba(8,14,22,.42) 100%);
+}
+.pbanner-inner {
+  position: relative;
+  padding: clamp(3.5rem, 9vh, 6rem) 1.5rem 1.5rem;
+  max-width: 44rem;
+}
+.pbanner .eyebrow {
+  font-size: .7rem; font-weight: 500; letter-spacing: .24em; text-transform: uppercase;
+  color: rgba(255,255,255,.85); margin-bottom: 1rem;
+}
+.pbanner h1 {
+  font-family: var(--font-heading); font-weight: 400;
+  font-size: clamp(3rem, 9vw, 5.5rem); color: #fff;
+  letter-spacing: .01em; line-height: 1;
+  text-shadow: 0 2px 24px rgba(4,9,16,.45);
+}
+.pbanner .back {
+  position: absolute; top: 1.4rem; left: 1.6rem; z-index: 2;
+  color: rgba(255,255,255,.85); text-decoration: none;
+  font-size: .72rem; letter-spacing: .14em; text-transform: uppercase;
+}
+.pbanner .back:hover { color: #fff; }
