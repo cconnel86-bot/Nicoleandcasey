@@ -30,7 +30,12 @@
     font-weight: 300; line-height: 1.15; margin-bottom: 24px;
   }
   h1 em { font-style: italic; color: var(--clay); }
-  .lead { font-size: 15px; color: #6b5e56; max-width: 420px; margin-bottom: 32px; line-height: 1.85; }
+  .lead { font-size: 15px; color: #6b5e56; max-width: 420px; margin-bottom: 18px; line-height: 1.85; }
+  .lead-price {
+    font-family: 'Cormorant Garamond', serif; font-size: 19px; color: var(--bark);
+    line-height: 1.5; max-width: 420px; margin-bottom: 32px;
+    border-left: 2px solid var(--clay); padding-left: 14px;
+  }
   .back-link {
     font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase;
     color: var(--clay); text-decoration: none;
@@ -90,6 +95,7 @@
   .left .eyebrow { animation-delay: 0.1s; }
   .left h1 { animation-delay: 0.22s; }
   .left .lead { animation-delay: 0.36s; }
+  .left .lead-price { animation-delay: 0.42s; }
   .left .back-link { animation-delay: 0.48s; }
   .right form, .right .success { animation: fadeUp 0.7s ease 0.4s forwards; opacity: 0; }
 
@@ -111,6 +117,7 @@
     <p class="lead">
       Share a few details below and Nicole will reach out personally to connect and schedule your session.
     </p>
+    <p class="lead-price">Sessions are $150/hour.</p>
     <a class="back-link" href="/coregulation">&larr; Back to session details</a>
   </div>
 
