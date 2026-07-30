@@ -90,11 +90,18 @@
 
   .session-right { padding-top: 8px; }
   .session-right p { font-size: 14px; color: #6b5e56; line-height: 1.85; margin-bottom: 18px; }
-  .cred-tags { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 32px; }
+  .cred-tags { display: flex; flex-wrap: wrap; gap: 0 10px; margin-top: 30px; }
   .tag {
-    border: 1px solid var(--mist); padding: 7px 16px;
     font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--clay);
   }
+  .tag:not(:last-child)::after { content: "\00b7"; margin-left: 10px; color: var(--mist); }
+  .btn-secondary {
+    background: transparent; color: var(--bark); padding: 13px 28px;
+    font-size: 12px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase;
+    border: 1px solid var(--mist); cursor: pointer; text-decoration: none;
+    display: inline-block; transition: border-color .3s, color .3s; margin-top: 6px;
+  }
+  .btn-secondary:hover { border-color: var(--clay); color: var(--clay); }
 
   /* ---------- PHOTO CAROUSEL ---------- */
   .gallery { background: var(--warm-white); }
@@ -227,6 +234,7 @@
       <h2>Skilled. <em>Trained.<br>Present.</em></h2>
       <p>Nicole Cruz is a certified trauma-informed coach with training in somatic practice and nervous system support. Sessions are shaped by what you're carrying that day — not a fixed script.</p>
       <p>Sessions are 60 minutes, held in a private community space in Tribeca, NYC.</p>
+      <a href="/nicole" class="btn-secondary">Learn more about Nicole</a>
       <div class="cred-tags">
         <span class="tag">Trauma-Informed Coaching</span>
         <span class="tag">Somatic Practice</span>
