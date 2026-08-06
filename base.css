@@ -485,3 +485,124 @@ h1, h2, h3 { font-family: var(--font-heading); font-weight: 400; line-height: 1.
    nav drops their column, centres the other, and stacks About us beneath. */
 .site-nav.nav-single .nav-cols { grid-template-columns: 1fr; gap: 0; }
 .site-nav.nav-single .nav-mid { margin-top: 2rem; }
+
+/* sampled edge colours, Bridge to Healthy Love */
+.pbanner.bridge .side.l {
+  background: linear-gradient(to bottom,#65625a 0%,#565b5f 25%,#4e535b 50%,#64554b 75%,#2d2725 100%);
+}
+.pbanner.bridge .side.r {
+  background: linear-gradient(to bottom,#e2e2e1 0%,#e6e3e0 25%,#212630 50%,#0c0d13 75%,#10131a 100%);
+}
+/* biased low: the sky at the top of this frame is near white, which white
+   type cannot survive, and the couple sits in the lower half */
+.pbanner.bridge .pbanner-frame > img { object-position: center 62%; }
+.pbanner.bridge .pbanner-frame .scrim {
+  background: linear-gradient(to bottom,
+    rgba(8,14,22,.30) 0%,
+    rgba(8,14,22,.10) 26%,
+    rgba(8,14,22,.06) 44%,
+    rgba(8,14,22,.50) 66%,
+    rgba(8,14,22,.64) 100%);
+}
+.pbanner.bridge h1 { text-shadow: 0 2px 26px rgba(4,9,16,.6); }
+.pbanner.bridge .back { text-shadow: 0 1px 10px rgba(4,9,16,.6); }
+
+/* ============================================================
+   ABOUT PAGE PHOTO STORY
+   Sits between the written story and the book callout, wider than
+   .page-wrap so it reads as a sequence rather than a gallery.
+   Rhythm: full width, offset left, offset right, a pair that is one
+   moment, then a horizontal carousel per trip.
+   ============================================================ */
+.story-photos {
+  max-width: 1040px; margin: 0 auto;
+  padding: clamp(2.5rem,6vw,4rem) 1.6rem clamp(1rem,3vw,2rem);
+}
+.story-photos .sp-head {
+  max-width: 760px; margin: 0 auto clamp(2.5rem,6vw,3.5rem); text-align: center;
+}
+.story-photos h2 { font-size: var(--fs-h2); margin-bottom: .9rem; }
+.sp-eyebrow {
+  color: var(--muted); letter-spacing: .2em; text-transform: uppercase;
+  font-size: .72rem; margin-bottom: .8rem;
+}
+.sp-lede { color: var(--text); }
+
+/* the small clay line above each caption */
+.sp-when {
+  display: block; color: var(--accent);
+  letter-spacing: .2em; text-transform: uppercase;
+  font-size: .68rem; margin-bottom: .45rem;
+}
+.sp-cap { color: var(--text); font-size: .95rem; line-height: 1.65; }
+
+.sp { margin: 0 0 clamp(3rem,7vw,4.5rem); }
+.sp img {
+  width: 100%; height: auto;
+  border: 1px solid var(--border); background: var(--surface);
+}
+.sp figcaption { margin-top: .9rem; max-width: 34rem; }
+
+/* every single frame is centred; only pairs and carousels share a line */
+.sp-full { max-width: 900px; }
+.sp-mid  { max-width: 620px; }
+/* tall frames get held narrower so a portrait does not eat the screen */
+.sp-portrait { max-width: 440px; }
+.sp-full, .sp-mid, .sp-portrait { margin-left: auto; margin-right: auto; }
+.sp figcaption { margin-left: auto; margin-right: auto; text-align: center; }
+
+/* two frames that are really one moment */
+.sp-pair { max-width: 900px; margin-left: auto; margin-right: auto; }
+.sp-pair-imgs {
+  display: grid; grid-template-columns: 1fr 1fr; gap: clamp(.7rem,2vw,1.2rem);
+}
+.sp-pair-imgs img { aspect-ratio: 4/3; object-fit: cover; }
+.sp-pair figcaption { margin-left: auto; margin-right: auto; text-align: center; }
+@media (max-width: 34rem) { .sp-pair-imgs { grid-template-columns: 1fr; } }
+
+/* ---------- one trip, one beat ---------- */
+.sp-carousel { margin: 0 0 clamp(3rem,7vw,4.5rem); }
+.sp-carousel .sp-c-head { max-width: 34rem; margin-bottom: 1.2rem; }
+.sp-track {
+  display: flex; gap: clamp(.7rem,2vw,1.1rem);
+  overflow-x: auto; overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory; scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: .5rem;
+  scrollbar-width: none;
+}
+.sp-track::-webkit-scrollbar { display: none; }
+.sp-slide { flex: 0 0 auto; scroll-snap-align: center; margin: 0; max-width: 88vw; }
+.sp-slide img {
+  height: clamp(280px, 42vw, 500px); width: auto; max-width: 88vw; object-fit: cover;
+  border: 1px solid var(--border); background: var(--surface);
+}
+.sp-slide figcaption {
+  margin-top: .6rem; max-width: 24rem;
+  color: var(--muted); font-size: .8rem; line-height: 1.55;
+}
+.sp-ctrl { display: flex; align-items: center; gap: .55rem; margin-top: 1rem; }
+.sp-ctrl button {
+  width: 2.4rem; height: 2.4rem; cursor: pointer;
+  background: none; border: 1px solid var(--border); color: var(--heading);
+  font-family: var(--font-body); font-size: .95rem; line-height: 1;
+  transition: border-color .25s, color .25s, opacity .25s;
+}
+.sp-ctrl button:hover { border-color: var(--accent); color: var(--accent); }
+.sp-ctrl button:disabled { opacity: .3; cursor: default; }
+.sp-ctrl button:disabled:hover { border-color: var(--border); color: var(--heading); }
+.sp-ctrl button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.sp-count {
+  color: var(--muted); font-size: .7rem; letter-spacing: .16em; margin-left: .4rem;
+}
+
+/* closing line, and the book callout that follows the story */
+.sp-close {
+  max-width: 34rem; margin: 0 auto; text-align: center; color: var(--text);
+}
+.page-wrap.sp-tail { padding-top: 0; }
+/* the closing frame sits a little tighter to the line that follows it */
+.sp-last { margin-bottom: clamp(1.6rem,4vw,2.4rem); }
+/* the proposal frame: held wider than the other portraits so it lands */
+.sp-final { max-width: 520px; margin-left: auto; margin-right: auto; }
+.sp-final figcaption { margin-left: auto; margin-right: auto; text-align: center; }
