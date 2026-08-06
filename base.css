@@ -566,13 +566,13 @@ h1, h2, h3 { font-family: var(--font-heading); font-weight: 400; line-height: 1.
 .sp-track {
   display: flex; gap: clamp(.7rem,2vw,1.1rem);
   overflow-x: auto; overscroll-behavior-x: contain;
-  scroll-snap-type: x mandatory; scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
   padding-bottom: .5rem;
   scrollbar-width: none;
 }
 .sp-track::-webkit-scrollbar { display: none; }
-.sp-slide { flex: 0 0 auto; scroll-snap-align: center; margin: 0; max-width: 88vw; }
+.sp-slide { flex: 0 0 auto; scroll-snap-align: start; margin: 0; max-width: 88vw; }
 .sp-slide img {
   height: clamp(280px, 42vw, 500px); width: auto; max-width: 88vw; object-fit: cover;
   border: 1px solid var(--border); background: var(--surface);
