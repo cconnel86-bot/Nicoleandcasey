@@ -10,6 +10,28 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/theme.css">
 <link rel="stylesheet" href="/base.css">
+<style>
+  .home-book {
+    max-width: 760px; margin: 0 auto; text-align: center;
+    border-top: 1px solid var(--border);
+    padding: clamp(2.5rem,6vw,3.5rem) 1.6rem clamp(3rem,7vw,4.5rem);
+  }
+  .home-book .book-cover {
+    display: block; width: clamp(170px, 20vw, 210px); margin: 0 auto 1.4rem;
+    border: 1px solid var(--border); background: var(--surface);
+    box-shadow: 0 2px 18px rgba(29,27,24,.10);
+  }
+  .home-book .book-cover img { width: 100%; height: auto; display: block; }
+  .home-book p { color: var(--text); margin-bottom: 1.3rem; }
+  .home-book .book-title { font-style: italic; color: var(--heading); }
+  .home-book .btn-amazon {
+    display: inline-block; text-decoration: none;
+    background: var(--heading); color: var(--bg);
+    font-family: var(--font-body); font-size: .95rem; letter-spacing: .08em;
+    padding: .85rem 2.2rem; transition: opacity .25s;
+  }
+  .home-book .btn-amazon:hover { opacity: .85; }
+</style>
 </head>
 <body>
 
@@ -68,8 +90,8 @@
 
     <!-- CASEY -->
     <section class="person casey">
-      <div class="headshot"><img src="/assets/casey-home.jpg" alt="Casey Connell"></div>
-      <h2 class="person-name">Casey Connell</h2>
+      <a href="/casey" class="headshot"><img src="/assets/casey-home.jpg" alt="Casey Connell"></a>
+      <h2 class="person-name"><a href="/casey" style="text-decoration:none;color:inherit">Casey Connell</a></h2>
       <ul class="programs">
         <li><a class="program-link" href="/personal-finance-coaching">Personal Finance Coaching</a></li>
         <li><a class="program-link" href="/divorce-coaching">Divorce Coaching</a></li>
@@ -96,6 +118,15 @@
     <p class="story-video-caption">Our story &middot; 2 minutes</p>
 
     <a class="learn-more" href="/about">Learn more&hellip;</a>
+  </section>
+
+  <section class="home-book">
+    <a class="book-cover" href="https://www.amazon.com/dp/B0GZ7HNV9P?ref_=ppx_hzsearch_conn_dt_b_fed_asin_title_4" target="_blank" rel="noopener">
+      <img src="/assets/book-cover.jpg" alt="Cover of Why You Keep Choosing the Same Pain by Casey Connell">
+    </a>
+    <p>Casey's memoir,<br>
+    <span class="book-title">Why You Keep Choosing the Same Pain</span></p>
+    <a class="btn-amazon" href="https://www.amazon.com/dp/B0GZ7HNV9P?ref_=ppx_hzsearch_conn_dt_b_fed_asin_title_4" target="_blank" rel="noopener">Buy it on Amazon</a>
   </section>
 
   <footer class="site-footer">
