@@ -422,6 +422,15 @@ h1, h2, h3 { font-family: var(--font-heading); font-weight: 400; line-height: 1.
 }
 .pbanner.soulmaps .pbanner-frame > img { object-position: center 40%; }
 
+/* sampled edge colours, About */
+.pbanner.about .side.l {
+  background: linear-gradient(to bottom,#555c6f 0%,#d0bcab 25%,#b7937f 50%,#703f3d 75%,#52433f 100%);
+}
+.pbanner.about .side.r {
+  background: linear-gradient(to bottom,#536a91 0%,#2d3044 25%,#211e2d 50%,#2c1921 75%,#110609 100%);
+}
+.pbanner.about .pbanner-frame > img { object-position: center 20%; }
+
 /* sampled edge colours, Neurodiverse Wellness Systems */
 .pbanner.neurodiverse .side.l {
   background: linear-gradient(to bottom,#7aaeed 0%,#8fa0b1 25%,#a3b3b8 50%,#8d958c 75%,#403e34 100%);
