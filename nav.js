@@ -40,16 +40,16 @@
   var CSS = [
     '.topnav{position:relative;z-index:40;display:flex;align-items:center;justify-content:center;',
     'gap:clamp(1.4rem,5vw,2.6rem);padding:.7rem 1rem;font-family:var(--font-body,"Jost",system-ui,sans-serif)}',
-    '.topnav .nv{position:relative}',
+    '.topnav .nv{position:relative;padding-bottom:.45rem}',
+    '.topnav .nvdrop::before{content:"";position:absolute;left:-1.5rem;right:-1.5rem;top:-1.2rem;height:1.3rem}',
     '.topnav .nvtop{font-family:var(--font-heading,"Cormorant Garamond",Georgia,serif);',
     'font-size:1.15rem;line-height:1.2;cursor:pointer;padding:.2rem .1rem;display:inline-flex;',
     'align-items:center;gap:.35rem;border-bottom:1px solid transparent;user-select:none}',
     '.topnav .nvtop svg{width:.6em;height:.6em;flex:0 0 auto}',
     '.topnav .nvdrop{position:absolute;top:100%;left:50%;transform:translateX(-50%);',
     'background:var(--surface,#ffffff);border:1px solid var(--border,#e3ded6);min-width:15rem;',
-    'padding:.25rem 0;margin-top:.5rem;opacity:0;visibility:hidden;transition:opacity .16s;z-index:50}',
+    'padding:.25rem 0;margin-top:0;opacity:0;visibility:hidden;transition:opacity .16s;z-index:50}',
     '.topnav .nv.open .nvdrop{opacity:1;visibility:visible}',
-    '@media (hover:hover){.topnav .nv:hover .nvdrop{opacity:1;visibility:visible}}',
     '.topnav .nvdrop a{display:block;padding:.45rem .9rem;font-size:.72rem;line-height:1.4;',
     'color:var(--text,#2f2c28);text-decoration:none;white-space:nowrap}',
     '.topnav .nvdrop a.lead{font-family:var(--font-heading,"Cormorant Garamond",Georgia,serif);',
@@ -123,7 +123,9 @@
     host.classList.add('has-topnav');
 
     var items = bar.querySelectorAll('.nv');
+    var shutTimer;
     function closeAll() {
+      clearTimeout(shutTimer);
       Array.prototype.forEach.call(items, function (x) {
         x.classList.remove('open');
         x.querySelector('.nvtop').setAttribute('aria-expanded', 'false');
@@ -142,6 +144,22 @@
         if (e.key === 'Enter' || e.key === ' ') toggle(e);
         if (e.key === 'Escape') closeAll();
       });
+
+      if (window.matchMedia && window.matchMedia('(hover:hover)').matches) {
+        it.addEventListener('mouseenter', function () {
+          clearTimeout(shutTimer);
+          closeAll();
+          it.classList.add('open');
+          top.setAttribute('aria-expanded', 'true');
+        });
+        it.addEventListener('mouseleave', function (e) {
+          if (e.relatedTarget && it.contains(e.relatedTarget)) return;
+          clearTimeout(shutTimer);
+          shutTimer = setTimeout(closeAll, 450);
+        });
+        var panel = it.querySelector('.nvdrop');
+        panel.addEventListener('mouseenter', function () { clearTimeout(shutTimer); });
+      }
     });
     document.addEventListener('click', closeAll);
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeAll(); });
