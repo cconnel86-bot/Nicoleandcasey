@@ -33,7 +33,7 @@
       { label: 'Personal Finance Coaching',    href: '/personal-finance-coaching' },
       { label: 'Divorce Coaching',             href: '/divorce-coaching' },
       { label: 'Divorce Mediation',            href: '/divorce-mediation' },
-      { label: 'The memoir: Choosing the Same Pain', href: '/book', aside: true }
+      { label: 'The memoir: Choosing the Same Pain', href: 'https://www.amazon.com/dp/B0GZ7HNV9P?ref_=ppx_hzsearch_conn_dt_b_fed_asin_title_4', aside: true, ext: true }
     ]}
   ];
 
@@ -108,6 +108,7 @@
         if (it.href.replace(/\/+$/, '') === here) return;
         html += '<a href="' + it.href + '"'
              +  (it.lead ? ' class="lead"' : it.aside ? ' class="aside"' : '')
+             +  (it.ext ? ' target="_blank" rel="noopener"' : '')
              +  '>' + it.label + '</a>';
       });
       html += '</div></div>';
