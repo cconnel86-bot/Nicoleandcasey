@@ -1,4 +1,4 @@
-// Serves the static site and injects the Meta Pixel into every HTML page.
+// Serves the static site and injects the Meta Pixel into every HTML page..
 // Pixel ID: "Conversion Pixel", owned by Aligned and Thriving business portfolio.
 const PIXEL_ID = "441908771967847";
 const SKIP_PREFIXES = ["/admin"];
