@@ -1,6 +1,6 @@
 // Serves the static site and injects the Meta Pixel into every HTML page.
-// Pixel ID for nicoleandcasey.com (Meta Events Manager).
-const PIXEL_ID = "1745572216664966";
+// Pixel ID: "Conversion Pixel", owned by Aligned and Thriving business portfolio.
+const PIXEL_ID = "441908771967847";
 const SKIP_PREFIXES = ["/admin"];
 
 // Pages whose form is a booking (Schedule). Every other form counts as a Lead.
