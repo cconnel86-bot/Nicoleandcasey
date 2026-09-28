@@ -3,6 +3,9 @@
 const PIXEL_ID = "1745572216664966";
 const SKIP_PREFIXES = ["/admin"];
 
+// Pages whose form is a booking (Schedule). Every other form counts as a Lead.
+const BOOKING_PATHS = ["/book", "/coregulation/book"];
+
 function pixelSnippet(id) {
   return `
 <!-- Meta Pixel -->
@@ -14,12 +17,45 @@ t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
 document,'script','https://connect.facebook.net/en_US/fbevents.js');
 fbq('init', '${id}');
 fbq('track', 'PageView');
-document.addEventListener('submit', function (e) {
-  try {
-    var form = e.target;
-    fbq('track', 'Lead', { content_name: form.getAttribute('name') || form.id || location.pathname });
-  } catch (err) {}
-}, true);
+
+(function () {
+  var BOOKING = ${JSON.stringify(BOOKING_PATHS)};
+  var path = location.pathname.replace(/\\/+$/, '') || '/';
+  var isBooking = BOOKING.indexOf(path) !== -1;
+
+  // Lead / Schedule: fire only after FormSubmit confirms the send succeeded,
+  // matching the success check the site's own forms use (res.ok).
+  var origFetch = window.fetch;
+  if (origFetch) {
+    window.fetch = function (input, init) {
+      var url = typeof input === 'string' ? input : (input && input.url) || '';
+      var p = origFetch.apply(this, arguments);
+      if (url.indexOf('formsubmit.co/ajax/') === -1) return p;
+
+      var program = '';
+      try { program = JSON.parse(init && init.body || '{}').Program || ''; } catch (e) {}
+
+      p.then(function (res) {
+        if (!res || !res.ok) return;
+        var params = { content_name: program || path, content_category: path };
+        try { fbq('track', isBooking ? 'Schedule' : 'Lead', params); } catch (e) {}
+      }).catch(function () {});
+      return p;
+    };
+  }
+
+  // Contact: clicks on email or phone links.
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a[href^="mailto:"], a[href^="tel:"]');
+    if (!a) return;
+    try {
+      fbq('track', 'Contact', {
+        content_name: a.getAttribute('href').indexOf('tel:') === 0 ? 'phone' : 'email',
+        content_category: path
+      });
+    } catch (e) {}
+  }, true);
+})();
 </script>
 <noscript><img height="1" width="1" style="display:none"
 src="https://www.facebook.com/tr?id=${id}&ev=PageView&noscript=1"/></noscript>
