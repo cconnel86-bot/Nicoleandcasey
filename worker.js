@@ -1,6 +1,11 @@
-// Serves the static site and injects the Meta Pixel into every HTML page..
-// Pixel ID: "Conversion Pixel", owned by Aligned and Thriving business portfolio.
-const PIXEL_ID = "441908771967847";
+// Serves the static site and injects one Meta Pixel into every HTML page.
+// Default pixel: "Conversion Pixel", owned by the Aligned and Thriving business portfolio.
+// NWS pages get their own pixel, owned by the Neurodiverse Wellness Systems portfolio,
+// so NWS traffic and leads are counted separately and never land on the default pixel.
+const DEFAULT_PIXEL_ID = "441908771967847";
+const PIXEL_BY_PREFIX = [
+  { prefix: "/neurodiverse-wellness", id: "4431977637052983" }, // NWS Pixel
+];
 const SKIP_PREFIXES = ["/admin"];
 
 // Pages whose form is a booking (Schedule). Every other form counts as a Lead.
@@ -69,10 +74,12 @@ export default {
 
     const type = response.headers.get("content-type") || "";
     if (!type.includes("text/html")) return response;
-    if (!/^\d+$/.test(PIXEL_ID)) return response;
-
     const path = new URL(request.url).pathname;
     if (SKIP_PREFIXES.some((p) => path.startsWith(p))) return response;
+
+    const match = PIXEL_BY_PREFIX.find((m) => path.startsWith(m.prefix));
+    const PIXEL_ID = match ? match.id : DEFAULT_PIXEL_ID;
+    if (!/^\d+$/.test(PIXEL_ID)) return response;
 
     return new HTMLRewriter()
       .on("head", {
