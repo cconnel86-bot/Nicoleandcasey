@@ -6,5 +6,28 @@
     "directory": ".",
     "binding": "ASSETS",
     "run_worker_first": true
-  }
+  },
+
+  // Lead notifications. Restricted to the two inboxes on purpose: if the
+  // Worker is ever tricked into sending somewhere else, Cloudflare refuses
+  // it with E_RECIPIENT_NOT_ALLOWED rather than relaying it.
+  //
+  // Both addresses must be verified destination addresses in Email Routing,
+  // and nicoleandcasey.com must be onboarded to Email Sending, before this
+  // can send. Until then /api/lead returns 502 and cta-form.js falls back
+  // to FormSubmit, so no lead is lost while the DNS is settling.
+  "send_email": [
+    {
+      "name": "NOTIFY_EMAIL",
+      "allowed_destination_addresses": [
+        "cconnel86@gmail.com",
+        "nicole.tiffany.cruz@gmail.com"
+      ]
+    }
+  ]
+
+  // Secrets this Worker needs (set them with `wrangler secret put`, never
+  // in this file, which is public in the repo):
+  //   TURNSTILE_SECRET   secret key for sitekey 0x4AAAAAAEBPdzRvlBh8W6FV
+  //   RESEND_API_KEY     Resend key with sending access only
 }
