@@ -10,6 +10,9 @@ const PIXEL_BY_PREFIX = [
 ];
 const SKIP_PREFIXES = ["/admin"];
 
+// Never served to the public, whatever is sitting in the assets directory.
+const PRIVATE_PREFIXES = ["/admin"];
+
 // Pages whose form is a booking (Schedule). Every other form counts as a Lead.
 const BOOKING_PATHS = ["/book", "/coregulation/book"];
 
@@ -395,6 +398,16 @@ export default {
     // Runs before the static assets: run_worker_first is on, so this route
     // is ours and never falls through to a 404 from ASSETS.
     if (path === "/api/lead") return handleLead(request, env, ctx);
+
+    // The theme editor is an internal tool. It stays in the repo so it can be
+    // opened locally from a clone, but it is not served to the public. 404
+    // rather than 403, so the path gives nothing away.
+    if (PRIVATE_PREFIXES.some((p) => path === p || path.startsWith(p + "/"))) {
+      return new Response("Not found", {
+        status: 404,
+        headers: { "content-type": "text/plain; charset=utf-8" },
+      });
+    }
 
     const response = await env.ASSETS.fetch(request);
 
