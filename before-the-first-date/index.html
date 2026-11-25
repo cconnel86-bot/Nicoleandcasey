@@ -50,24 +50,53 @@
   .pf a:hover{ border-bottom-color:var(--pf-accent); }
   .pf a:focus-visible{ outline:2px solid var(--pf-accent); outline-offset:3px; border-radius:2px; }
 
-  .pf-top{ padding-block:1.75rem 0; }
-  .pf a.pf-back{ font-size:.75rem; letter-spacing:.14em; text-transform:uppercase; color:var(--pf-muted); border-bottom:none; }
-  .pf a.pf-back:hover{ color:var(--pf-accent); }
 
-  /* ---------- hero ---------- */
-  .pf-hero{ padding-block:3rem 3rem; }
-  .pf-hero-grid{ display:grid; grid-template-columns:1.15fr .85fr; gap:2.5rem; align-items:center; }
-  .pf-hero-grid > *{ min-width:0; }
-  .pf-eyebrow{ font-size:.7rem; font-weight:500; letter-spacing:.2em; text-transform:uppercase; color:var(--pf-accent); margin:0 0 1.25rem; }
-  .pf-hero h1{
-    font-family:var(--pf-font-h); font-weight:400; font-size:clamp(2.4rem,8vw,4.2rem);
-    line-height:1.03; letter-spacing:-.015em; color:var(--pf-heading); margin:0 0 1.25rem;
+  /* ---------- full-bleed photo banner ----------
+     Same treatment as Soulmaps, Neurodiverse and Bridge to Healthy Love:
+     the photo is held to 900px at 5:4 and centred, and the space either
+     side is filled with a gradient sampled from that photo's own edge
+     pixels at this crop. Copied here rather than pulled from base.css,
+     because this page is self-styled and does not load base.css. */
+  .pbanner{ position:relative; width:100%; overflow:hidden; background:#11161c; }
+  .pbanner-frame{ position:relative; z-index:2; max-width:900px; margin:0 auto; aspect-ratio:5/4; overflow:hidden; }
+  .pbanner-frame > img{
+    position:absolute; inset:0; width:100%; height:100%; z-index:0;
+    object-fit:cover; object-position:center 62%;
   }
-  .pf-sub{ font-family:var(--pf-font-h); font-size:clamp(1.35rem,3.6vw,1.75rem); line-height:1.3; color:var(--pf-heading); margin:0 0 1.25rem; }
-  .pf-lede{ font-size:1.1rem; line-height:1.65; margin:0 0 1.25rem; }
-  .pf-trust{ font-size:.9rem; color:var(--pf-muted); margin:0 0 1.75rem; }
-  .pf-hero-photo{ margin:0; }
-  .pf-hero-photo img{ display:block; width:100%; max-width:100%; height:auto; aspect-ratio:4/5; object-fit:cover; object-position:68% 45%; }
+  /* biased low: the sky at the top of this frame is near white, which
+     white type cannot survive, and the couple sits in the lower half */
+  .pbanner-frame .scrim{
+    position:absolute; inset:0; z-index:1;
+    background:linear-gradient(to bottom,
+      rgba(8,14,22,.30) 0%, rgba(8,14,22,.10) 26%, rgba(8,14,22,.06) 44%,
+      rgba(8,14,22,.52) 66%, rgba(8,14,22,.66) 100%);
+  }
+  .pbanner-inner{ position:absolute; left:0; right:0; top:54%; z-index:2; padding:0 clamp(1.5rem,6%,3.5rem); text-align:center; }
+  .pbanner-inner .pf-eyebrow, .pbanner-inner h1{ margin-left:auto; margin-right:auto; max-width:30rem; }
+  .pbanner .pf-eyebrow{ font-size:.66rem; font-weight:500; letter-spacing:.24em; text-transform:uppercase; color:rgba(255,255,255,.85); margin:0 0 .8rem; }
+  .pbanner h1{
+    font-family:var(--pf-font-h); font-weight:400; color:#fff; line-height:1; letter-spacing:.01em;
+    font-size:clamp(2.2rem,5.4vw,3.6rem); margin:0; text-shadow:0 2px 26px rgba(4,9,16,.6);
+  }
+  .pf a.back{
+    position:absolute; top:1.4rem; left:1.6rem; z-index:3; border-bottom:none;
+    color:rgba(255,255,255,.85); font-size:.72rem; letter-spacing:.14em; text-transform:uppercase;
+    text-shadow:0 1px 10px rgba(4,9,16,.6);
+  }
+  .pf a.back:hover{ color:#fff; border-bottom:none; }
+  .pbanner .side{ position:absolute; top:0; bottom:0; z-index:1; width:calc((100% - 900px) / 2); }
+  .pbanner .side.l{ left:0; background:linear-gradient(to bottom,#65625a 0%,#565b5f 25%,#4e535b 50%,#64554b 75%,#2d2725 100%); }
+  .pbanner .side.r{ right:0; background:linear-gradient(to bottom,#e2e2e1 0%,#e6e3e0 25%,#212630 50%,#0c0d13 75%,#10131a 100%); }
+  .pbanner .side::after{ content:""; position:absolute; inset:0; background:linear-gradient(to right,rgba(10,14,20,.62),rgba(10,14,20,0)); }
+  .pbanner .side.r::after{ background:linear-gradient(to left,rgba(10,14,20,.62),rgba(10,14,20,0)); }
+  @media (max-width:900px){ .pbanner .side{ display:none; } }
+
+  /* ---------- hero text, under the banner ---------- */
+  .pf-hero{ padding-block:clamp(2.25rem,5vw,3rem) 3rem; text-align:center; }
+  .pf-eyebrow{ font-size:.7rem; font-weight:500; letter-spacing:.2em; text-transform:uppercase; color:var(--pf-accent); margin:0 0 1.25rem; }
+  .pf-sub{ font-family:var(--pf-font-h); font-size:clamp(1.5rem,4vw,2.1rem); line-height:1.25; color:var(--pf-heading); margin:0 auto 1.25rem; max-width:30rem; }
+  .pf-lede{ font-size:1.1rem; line-height:1.65; margin:0 auto 1.25rem; max-width:34rem; }
+  .pf-trust{ font-size:.9rem; color:var(--pf-muted); margin:0 auto 1.75rem; max-width:32rem; }
 
   .pf a.pf-btn{
     display:inline-block; max-width:100%; text-align:center;
@@ -186,9 +215,6 @@
   .pf-foot p{ margin:0 0 .6rem; }
 
   @media (max-width:46rem){
-    .pf-hero-grid{ grid-template-columns:1fr; gap:2rem; }
-    .pf-hero-photo{ order:-1; }
-    .pf-hero-photo img{ aspect-ratio:4/3; }
   }
   @media (max-width:40rem){ .site-nav .nav-cols{ grid-template-columns:1fr; gap:2rem; } }
   @media (max-width:34rem){
@@ -201,24 +227,24 @@
 
 <body class="pf">
 
-<div class="pf-wrap pf-top">
-  <a class="pf-back" href="/">Nicole &amp; Casey</a>
-</div>
-
-<header class="pf-wrap pf-hero">
-  <div class="pf-hero-grid">
-    <div>
+<header class="pbanner btfd">
+  <a class="back" href="/">&larr; Nicole &amp; Casey</a>
+  <div class="side l"></div><div class="side r"></div>
+  <div class="pbanner-frame">
+    <img src="/assets/bridge.jpg" alt="Nicole Cruz and Casey Connell on the Brooklyn Bridge">
+    <div class="scrim"></div>
+    <div class="pbanner-inner">
       <p class="pf-eyebrow">Bridge to Healthy Love &middot; One-month program</p>
       <h1>Before the First Date</h1>
-      <p class="pf-sub">Practice dating before the emotional stakes are real.</p>
-      <p class="pf-lede">A one-month, fully virtual coaching program with Nicole and Casey. Get clear on what you want in a partner, practice the early conversations with a coach playing the match, and choose who you date more carefully.</p>
-      <p class="pf-trust">Fully virtual. Two trauma-informed coaches. You can pause any conversation at any moment.</p>
-      <a class="pf-btn" href="#start">Book a free fit call</a>
     </div>
-    <figure class="pf-hero-photo">
-      <img src="/assets/bridge.jpg" alt="Nicole Cruz and Casey Connell" width="1200" height="1807">
-    </figure>
   </div>
+</header>
+
+<header class="pf-wrap pf-hero">
+  <p class="pf-sub">Practice dating before the emotional stakes are real.</p>
+  <p class="pf-lede">A one-month, fully virtual coaching program with Nicole and Casey. Get clear on what you want in a partner, practice the early conversations with a coach playing the match, and choose who you date more carefully.</p>
+  <p class="pf-trust">Fully virtual. Two trauma-informed coaches. You can pause any conversation at any moment.</p>
+  <a class="pf-btn" href="#start">Book a free fit call</a>
 </header>
 
 <main>
