@@ -152,13 +152,21 @@
   .pf-coach h3{ font-family:var(--pf-font-h); font-weight:500; font-size:1.45rem; color:var(--pf-heading); margin:0 0 .35rem; }
 
   /* review video: click to load, no YouTube code until then */
-  .story-video{ position:relative; margin:1.5rem auto 0; max-width:720px; aspect-ratio:16/9; background:#14110f; overflow:hidden; }
+  /* full column width: a 720px cap left the video indented inside the
+     text column, so it was the only block on the page not flush left */
+  .story-video{ position:relative; margin:1.5rem 0 0; width:100%; aspect-ratio:16/9; background:#14110f; overflow:hidden; }
   .story-video iframe, .story-video img{ position:absolute; inset:0; width:100%; height:100%; border:0; object-fit:cover; }
   .story-video-play{ position:absolute; inset:0; width:100%; height:100%; padding:0; border:0; background:none; cursor:pointer; }
   .story-video-btn{ position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:4.5rem; height:4.5rem; border-radius:50%; background:rgba(255,255,255,.88); }
   .story-video-btn::after{ content:""; position:absolute; top:50%; left:56%; transform:translate(-50%,-50%); border-style:solid; border-width:.7rem 0 .7rem 1.15rem; border-color:transparent transparent transparent #14110f; }
   .story-video-play:focus-visible{ outline:2px solid var(--pf-accent); outline-offset:3px; }
-  .pf-quote{ font-family:var(--pf-font-h); font-size:clamp(1.35rem,3.8vw,1.7rem); line-height:1.35; color:var(--pf-heading); margin:1.75rem 0 .5rem; }
+  /* hang the opening quote mark into the margin so the first word lines
+     up with the paragraphs above and below it */
+  .pf-quote{
+    font-family:var(--pf-font-h); font-size:clamp(1.35rem,3.8vw,1.7rem); line-height:1.35;
+    color:var(--pf-heading); margin:1.75rem 0 .5rem; text-indent:-.42em;
+  }
+  .pf-attrib{ margin:0 0 .35rem; }
   .pf-note{ font-size:.85rem; color:var(--pf-muted); }
 
   /* faq */
@@ -339,8 +347,8 @@
         <span class="story-video-btn" aria-hidden="true"></span>
       </button>
     </div>
-    <p class="pf-quote">"I never felt dropped by him even for a second."</p>
-    <p>Maya Kova, sensuality and love coach</p>
+    <p class="pf-quote">&ldquo;I never felt dropped by him even for a second.&rdquo;</p>
+    <p class="pf-attrib">Maya Kova, sensuality and love coach</p>
     <p class="pf-note">Maya's session was a trade between coaches.</p>
   </section>
 
