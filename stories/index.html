@@ -1,0 +1,1058 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>In Our Own Words | Nicole &amp; Casey</title>
+<meta name="description" content="Real moments from Nicole Cruz and Casey Connell: how we met, what we have worked through, and what we believe about healthy love.">
+
+<meta property="og:title" content="In Our Own Words | Nicole &amp; Casey">
+<meta property="og:description" content="Real moments behind the work we do, in our own words.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://nicoleandcasey.com/stories">
+<meta property="og:image" content="https://nicoleandcasey.com/assets/stories/casey-01.jpg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/theme.css">
+
+<style>
+  :root{
+    --pf-bg:        var(--bg,        #FBF8F4);
+    --pf-surface:   var(--surface,   #FFFFFF);
+    --pf-text:      var(--text,      #2F2A26);
+    --pf-heading:   var(--heading,   #1E1B19);
+    --pf-accent:    var(--accent,    #A8654F);
+    --pf-muted:     var(--muted,     #6B625B);
+    --pf-border:    var(--border,    #E4DDD4);
+    --pf-font-h:    var(--font-heading, 'Cormorant Garamond', Georgia, serif);
+    --pf-font-b:    var(--font-body,    'Jost', system-ui, sans-serif);
+    --pf-max: 42rem;
+  }
+  *,*::before,*::after{ box-sizing:border-box; }
+  html{ overflow-x:hidden; }
+  body.pf{
+    margin:0; background:var(--pf-bg); color:var(--pf-text);
+    font-family:var(--pf-font-b); font-weight:300; font-size:1.0625rem; line-height:1.72;
+    overflow-x:hidden; overflow-wrap:break-word; -webkit-font-smoothing:antialiased;
+  }
+  .pf-wrap{ max-width:var(--pf-max); margin:0 auto; padding:0 1.5rem; }
+  .pf p{ margin:0 0 1.1rem; }
+  .pf a{ color:var(--pf-accent); text-decoration:none; border-bottom:1px solid rgba(168,101,79,.35); }
+  .pf a:hover{ border-bottom-color:var(--pf-accent); }
+  .pf a:focus-visible, .pf button:focus-visible{ outline:2px solid var(--pf-accent); outline-offset:3px; border-radius:2px; }
+
+  /* ---------- banner: same treatment as the program pages ---------- */
+  .pbanner{ position:relative; width:100%; overflow:hidden; background:#9a9fa6; }
+  .pbanner-frame{ position:relative; z-index:2; max-width:900px; margin:0 auto; aspect-ratio:5/4; overflow:hidden; }
+  .pbanner-frame > img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center 60%; }
+  .pbanner-frame .scrim{
+    position:absolute; inset:0; z-index:1;
+    background:linear-gradient(to bottom, rgba(8,14,22,.28) 0%, rgba(8,14,22,.06) 30%, rgba(8,14,22,.10) 50%, rgba(8,14,22,.55) 72%, rgba(8,14,22,.70) 100%);
+  }
+  .pbanner-inner{ position:absolute; left:0; right:0; bottom:9%; z-index:2; padding:0 clamp(1.5rem,6%,3.5rem); text-align:center; }
+  .pbanner .pf-eyebrow{ font-size:.66rem; font-weight:500; letter-spacing:.24em; text-transform:uppercase; color:rgba(255,255,255,.88); margin:0 0 .8rem; }
+  .pbanner h1{ font-family:var(--pf-font-h); font-weight:400; color:#fff; line-height:1; font-size:clamp(2.4rem,6vw,3.8rem); margin:0; text-shadow:0 2px 26px rgba(4,9,16,.6); }
+  .pf a.back{
+    position:absolute; top:1.4rem; left:1.6rem; z-index:3; border-bottom:none;
+    color:rgba(255,255,255,.9); font-size:.72rem; letter-spacing:.14em; text-transform:uppercase; text-shadow:0 1px 10px rgba(4,9,16,.6);
+  }
+  .pbanner .side{ position:absolute; top:0; bottom:0; z-index:1; width:calc((100% - 900px) / 2); }
+  .pbanner .side.l{ left:0; background:linear-gradient(to bottom,#dbdbdd 0%,#bec5ca 30%,#bdc2cc 50%,#a8a8a6 75%,#a5a5a4 100%); }
+  .pbanner .side.r{ right:0; background:linear-gradient(to bottom,#f3f2f0 0%,#bdbfc3 30%,#abacac 50%,#adadad 75%,#aaaaa9 100%); }
+  .pbanner .side::after{ content:""; position:absolute; inset:0; background:linear-gradient(to right,rgba(10,14,20,.45),rgba(10,14,20,0)); }
+  .pbanner .side.r::after{ background:linear-gradient(to left,rgba(10,14,20,.45),rgba(10,14,20,0)); }
+  @media (max-width:900px){ .pbanner .side{ display:none; } }
+
+  /* ---------- intro + filter ---------- */
+  .st-intro{ padding-block:clamp(2.25rem,5vw,3rem) 1rem; text-align:center; }
+  .st-intro .st-lede{ font-family:var(--pf-font-h); font-size:clamp(1.35rem,3.6vw,1.8rem); line-height:1.3; color:var(--pf-heading); margin:0 auto 1rem; max-width:32rem; }
+  .st-intro .st-note{ font-size:.92rem; color:var(--pf-muted); margin:0 auto; max-width:32rem; }
+  .st-filter{ display:flex; justify-content:center; gap:.5rem; flex-wrap:wrap; margin:2rem 0 .5rem; }
+  .st-filter button{
+    font-family:var(--pf-font-b); font-size:.74rem; font-weight:500; letter-spacing:.14em; text-transform:uppercase;
+    background:transparent; color:var(--pf-heading); border:1px solid var(--pf-border); padding:.6rem 1.1rem; cursor:pointer;
+  }
+  .st-filter button[aria-pressed="true"]{ background:var(--pf-heading); color:var(--pf-bg); border-color:var(--pf-heading); }
+  .st-filter .st-count{ opacity:.6; margin-left:.35rem; }
+
+  /* ---------- stories ---------- */
+  .st-card{ padding-block:2.75rem; border-top:1px solid var(--pf-border); }
+  .st-card:first-child{ border-top:none; }
+  .st-card[hidden]{ display:none; }
+  .st-photo{ margin:0 0 1.5rem; background:var(--pf-surface); }
+  .st-photo img{ display:block; width:100%; height:auto; max-height:34rem; object-fit:contain; background:#efeae3; }
+  .st-two{ display:grid; grid-template-columns:1fr 1fr; gap:.5rem; }
+  .st-two img{ aspect-ratio:3/4; object-fit:cover; max-height:none; }
+  .st-meta{ font-size:.7rem; font-weight:500; letter-spacing:.18em; text-transform:uppercase; color:var(--pf-muted); margin:0 0 .6rem !important; }
+  .st-who{ color:var(--pf-accent); }
+  .st-card h2{ font-family:var(--pf-font-h); font-weight:500; font-size:clamp(1.6rem,4.4vw,2.1rem); line-height:1.15; color:var(--pf-heading); margin:0 0 1.1rem; }
+  .st-body p{ margin:0 0 .85rem; }
+  .st-clamp{ max-height:11.5em; overflow:hidden; -webkit-mask-image:linear-gradient(180deg,#000 65%,transparent); mask-image:linear-gradient(180deg,#000 65%,transparent); }
+  .st-clamp.open{ max-height:none; -webkit-mask-image:none; mask-image:none; }
+  .st-more{
+    margin-top:.9rem; background:none; border:0; padding:.25rem 0; cursor:pointer;
+    font-family:var(--pf-font-b); font-size:.74rem; font-weight:500; letter-spacing:.14em; text-transform:uppercase; color:var(--pf-accent);
+  }
+  .st-more:hover{ color:var(--pf-heading); }
+
+  /* ---------- closing invitation ---------- */
+  .st-cta{ border-top:1px solid var(--pf-border); padding-block:3.25rem 3.5rem; text-align:center; }
+  .st-cta h2{ font-family:var(--pf-font-h); font-weight:400; font-size:clamp(1.9rem,4.5vw,2.5rem); line-height:1.15; color:var(--pf-heading); margin:0 0 1rem; }
+  .st-cta p{ max-width:32rem; margin:0 auto 1.75rem; }
+  .st-cta .st-links{ display:flex; gap:.75rem; justify-content:center; flex-wrap:wrap; }
+  .pf a.pf-btn{
+    display:inline-block; text-align:center; background:var(--pf-accent); color:#fff; border:1px solid var(--pf-accent);
+    font-size:.8rem; font-weight:500; letter-spacing:.12em; text-transform:uppercase; padding:1rem 1.6rem; transition:background .2s, color .2s;
+  }
+  .pf a.pf-btn:hover{ background:transparent; color:var(--pf-accent); }
+  .pf a.pf-btn.ghost{ background:transparent; color:var(--pf-accent); }
+  .pf a.pf-btn.ghost:hover{ background:var(--pf-accent); color:#fff; }
+
+  /* ---------- site nav ---------- */
+  .site-nav{ border-top:1px solid var(--pf-border); max-width:56rem; margin:0 auto; padding:clamp(2.5rem,6vw,3.5rem) 1.5rem 0; }
+  .site-nav .nav-cols{ display:grid; grid-template-columns:1fr auto 1fr; gap:clamp(1.2rem,4vw,3rem); text-align:center; align-items:start; }
+  .site-nav .nav-cols > *{ min-width:0; }
+  .site-nav .nav-name{ display:block; width:fit-content; margin:0 auto 1rem; font-size:.72rem; letter-spacing:.2em; text-transform:uppercase; color:var(--pf-heading); text-decoration:none; border-bottom:1px solid var(--pf-accent); padding-bottom:3px; }
+  .site-nav a:not(.nav-name){ display:block; padding:.5rem 0; text-decoration:none; border-bottom:none; font-family:var(--pf-font-h); font-size:1.1rem; color:var(--pf-heading); }
+  .site-nav a:hover{ color:var(--pf-accent); }
+  .site-nav .nav-muted{ font-size:.72rem; letter-spacing:.2em; text-transform:uppercase; color:var(--pf-muted); margin-bottom:.5rem; }
+  .site-nav .nav-together{ text-align:center; margin-top:2rem; }
+  .pf-foot{ border-top:1px solid var(--pf-border); margin-top:3rem; padding-block:2.25rem 3.5rem; font-size:.82rem; color:var(--pf-muted); line-height:1.6; }
+  .pf-foot p{ margin:0 0 .6rem; }
+  @media (max-width:40rem){ .site-nav .nav-cols{ grid-template-columns:1fr; gap:2rem; } }
+  @media (max-width:34rem){ .pf a.pf-btn{ display:block; width:100%; } }
+  @media (prefers-reduced-motion:reduce){ *{ transition:none !important; } }
+</style>
+</head>
+
+<body class="pf">
+
+<header class="pbanner">
+  <a class="back" href="/">&larr; Nicole &amp; Casey</a>
+  <div class="side l"></div><div class="side r"></div>
+  <div class="pbanner-frame">
+    <img src="/assets/stories/casey-01.jpg" alt="Nicole and Casey embracing on the beach">
+    <div class="scrim"></div>
+    <div class="pbanner-inner">
+      <p class="pf-eyebrow">Nicole &amp; Casey &middot; Stories</p>
+      <h1>In Our Own Words</h1>
+    </div>
+  </div>
+</header>
+
+<section class="pf-wrap st-intro">
+  <p class="st-lede">How we met, what we've worked through, and what we believe about healthy love.</p>
+  <p class="st-note">Everything here was first shared on our Facebook pages. Before you work with anyone on something this personal, you should know who they are.</p>
+  <div class="st-filter" role="group" aria-label="Show stories from">
+    <button type="button" data-show="all" aria-pressed="true">Both<span class="st-count">26</span></button>
+    <button type="button" data-show="nicole" aria-pressed="false">Nicole<span class="st-count">12</span></button>
+    <button type="button" data-show="casey" aria-pressed="false">Casey<span class="st-count">14</span></button>
+  </div>
+</section>
+
+<main class="pf-wrap" id="stories">
+
+    <article class="st-card" data-who="nicole">
+      <figure class="st-photo"><img src="/assets/stories/nicole-01.jpg" alt="" loading="lazy" decoding="async"></figure>
+      <p class="st-meta"><span class="st-who st-nicole">Nicole</span> &middot; November 2026</p>
+      <h2>On my way home from teaching Catharsis, my co-regulation class at The Tantra Institute.</h2>
+      <div class="st-body st-clamp">
+        <p>I’m so inspired. It was an intense class with a group that leaned in to deep work.</p>
+        <p>It’s about becoming a person who others feel calmer and more centered around, especially in difficult moments.</p>
+        <p>They asked thoughtful questions that showed how serious they were about learning the skills.</p>
+        <p>Some came to be that person for loved ones. Others were there for the people they served or their team at work.</p>
+        <p>More than half the group chose to press ice packs to the bottom of their feet or hold an exhale until panic in order to practice regulating themselves through an actual trigger.</p>
+        <p>While social media portrays a world of “me, me, me,” here was a group willing to put themselves through pain to learn how to show up powerfully for others in distress.</p>
+        <p>It was powerful. I’m amped up and tired at the same time.</p>
+      </div>
+      <button class="st-more" type="button" aria-expanded="false">Read the full story</button>
+    </article>
+
+    <article class="st-card" data-who="nicole">
+      <figure class="st-photo"><img src="/assets/stories/nicole-02.jpg" alt="" loading="lazy" decoding="async"></figure>
+      <p class="st-meta"><span class="st-who st-nicole">Nicole</span> &middot; October 2026</p>
+      <h2>Did you know that Casey leans right and I lean left?</h2>
+      <div class="st-body st-clamp">
+        <p>Neither of us fits clearly into any political category, but overall we approach things differently.</p>
+        <p>You know what has happened over the past few years?</p>
+        <p>Our opinions have moved closer together as we&#x27;ve learned from each other.</p>
+        <p>Like most people, we care about the world and the people in it. We want what&#x27;s best overall.</p>
+        <p>Our life experiences growing up in different circumstances and places led us to different ideas about what would work.</p>
+        <p>As we talk, we see the limits of our own perspectives and take in lessons from the other person&#x27;s experience.</p>
+        <p>The result is a better informed, wiser opinion.</p>
+        <p>We see the gray areas, the nuances. And click bait headlines seem ridiculous in comparison.</p>
+      </div>
+      <button class="st-more" type="button" aria-expanded="false">Read the full story</button>
+    </article>
+
+    <article class="st-card" data-who="nicole">
+      <figure class="st-photo"><img src="/assets/stories/nicole-03.jpg" alt="" loading="lazy" decoding="async"></figure>
+      <p class="st-meta"><span class="st-who st-nicole">Nicole</span> &middot; September 2026</p>
+      <h2>If you want generational trauma to end with you, it takes more than working on your thoughts and behavior.</h2>
+      <div class="st-body st-clamp">
+        <p>Kids feel safety and unsafety in us. No matter how well we fake it.</p>
+        <p>If we&#x27;re chronically dysregulated, they feel that</p>
+        <p>And pairing dysfunction with a fake smile and calling it happiness? That doesn’t fool them.</p>
+        <p>Their developing mind learns: “This is what it means to feel okay.&quot;</p>
+        <p>It&#x27;s not our fault. We were set up for failure. I&#x27;ve been the fake-happy zombie mom more times than I can count.</p>
+        <p>But better is possible. I&#x27;ve worked for years to achieve it.</p>
+        <p>It&#x27;s the ability to regulate ourselves, then use that calm, centered state to co-regulate with our kids, bringing them back to safety in hard moments.</p>
+        <p>It&#x27;s the ability to experience trauma without becoming traumatized.</p>
+        <p>To bounce back to a peaceful baseline quickly, and lead our kids to do the same.</p>
+        <p>This is what we practice in Catharsis, a monthly class in self-regulation and co-regulation.</p>
+        <p>I share the tools. We experiment with them together.</p>
+        <p>Beginners start gently. Experienced practitioners push further, intentionally activating intense sensation to build their capacity.</p>
+        <p>Either way, we practice navigating our own experience first, then have the option to pair up for partner practices.</p>
+        <p>We learn to consciously feel and read another person&#x27;s state, and notice their impact on us without being sucked into their negative emotions.</p>
+        <p>We cultivate a presence solid enough to hold someone else&#x27;s distress.</p>
+        <p>These are the same co-regulation skills I use with my son, my partner, my loved ones, even strangers, to help them find calm and clarity in hard moments.</p>
+        <p>If you want generational trauma to end with you, come practice releasing it from your nervous system.</p>
+        <p>And learn how to bring your kids back to peace, faster.</p>
+      </div>
+      <button class="st-more" type="button" aria-expanded="false">Read the full story</button>
+    </article>
+
+    <article class="st-card" data-who="nicole">
+      <figure class="st-photo"><img src="/assets/stories/nicole-04.jpg" alt="" loading="lazy" decoding="async"></figure>
+      <p class="st-meta"><span class="st-who st-nicole">Nicole</span> &middot; August 2026</p>
+      <h2>My partner charged toward them, seeing red and jaw twitching, with two muscular fitness trainers trying unsuccessfully to hold him back.</h2>
+      <div class="st-body st-clamp">
+        <p>It was shortly after Hurricane Sandy and my husband at the time and I had just lost our home.</p>
+        <p>In Rockaway, NYC we don’t need a car, but staying with my parents in Long Island we had bought an old one in cash to get back and forth to work.</p>
+        <p>A couple had tried to turn their car around and cut off a bus. The bus hit them and propelled their car into our parked car.</p>
+        <p>It was too much during an already devastating time and he lost it. His higher self blacked out and the animal mind took over.</p>
+        <p>I ran out in front of him and put my hand on his arm.</p>
+        <p>“Honey, they just got hit by a bus,” I said calmly but with power.</p>
+        <p>I quickly turned to the couple. “Is the baby ok?”</p>
+        <p>My partner suddenly snapped out of it like he was coming out of a daze, the Hulk returning to Dr. Banner.</p>
+        <p>“Uh…yeah, is the baby ok?”</p>
+        <p>I didn’t know what it was called at the time, but that’s the power of emotional co-regulation.</p>
+        <p>It involves using your own calm, centered state to help others - often those in distress - return to a calmer, more centered state.</p>
+        <p>It wasn’t an accident, and it’s not something I was born with.</p>
+        <p>It’s a skill.</p>
+        <p>I use it with Casey, Eric, other kids, friends, clients, and strangers.</p>
+      </div>
+      <button class="st-more" type="button" aria-expanded="false">Read the full story</button>
+    </article>
+
+    <article class="st-card" data-who="nicole">
+      <figure class="st-photo st-two"><img src="/assets/stories/nicole-05a.jpg" alt="" loading="lazy" decoding="async"><img src="/assets/stories/nicole-05b.jpg" alt="" loading="lazy" decoding="async"></figure>
+      <p class="st-meta"><span class="st-who st-nicole">Nicole</span> &middot; August 2026</p>
+      <h2>These are the pictures you get of me at the beach. Casey gets very different pictures.</h2>
+      <div class="st-body st-clamp">
+        <p>He, and he alone, gets the sexier ones.</p>
+        <p>Not because I have some moral judgment against women posting sexy pics of themselves online. For some women it’s aligned and I fully support it.</p>
+        <p>Not because I won’t show my body. I live at the beach. You’ll occasionally see a full body pic of me with Eric or others. Or a shot of something interesting or meaningful where I happen to be in a swimsuit.</p>
+        <p>But not a posed pic featuring me in a bathing suit. And definitely not a thirst trap. That’s reserved for my future husband only.</p>
+        <p>Why?</p>
+        <p>It’s a small way I show him that he’s special to me.</p>
+        <p>He has access that nobody else does. Not out of obligation, but because I want him to. I reserve that side of myself exclusively for him because doing so keeps it something special that only he and I share.</p>
+        <p>This is a personal choice I’ve made, not advice for anyone else.</p>
+        <p>Each relationship is unique. The rituals and boundaries of it must be too.</p>
+      </div>
+      <button class="st-more" type="button" aria-expanded="false">Read the full story</button>
+    </article>
+
+    <article class="st-card" data-who="nicole">
+      <figure class="st-photo"><img src="/assets/stories/nicole-06.jpg" alt="" loading="lazy" decoding="async"></figure>
+      <p class="st-meta"><span class="st-who st-nicole">Nicole</span> &middot; July 2026</p>
+      <h2>I wish every woman could feel the power of being a woman.</h2>
+      <div class="st-body st-clamp">
+        <p>This isn&#x27;t about feminism or empowerment in the mainstream sense.</p>
+        <p>It&#x27;s this innate feeling - knowing - that I can&#x27;t describe.</p>
+        <p>It arises when I notice myself setting the energy of a space.</p>
+        <p>For most of my life I didn’t do this consciously.</p>
+        <p>I didn’t even know I was doing it.</p>
+        <p>But I always felt safe because of it - though I didn’t always know that was the reason.</p>
+        <p>I wish everyone could feel this.</p>
+      </div>
+      <button class="st-more" type="button" aria-expanded="false">Read the full story</button>
+    </article>
+
+    <article class="st-card" data-who="nicole">
+      <figure class="st-photo"><img src="/assets/stories/nicole-07.jpg" alt="" loading="lazy" decoding="async"></figure>
+      <p class="st-meta"><span class="st-who st-nicole">Nicole</span> &middot; June 2026</p>
+      <h2>What if merging lives with Casey destroys the peaceful life I have now?</h2>
+      <div class="st-body st-clamp">
+        <p>What if going from mom of 1 to mom of 4 boys overnight ends my low stress lifestyle?</p>
+        <p>What if I hate the way he lives in our home?</p>
+        <p>What if the harmonious home I’ve created becomes filled with conflict and chaos?</p>
+        <p>Or on the other hand, what if he doesn&#x27;t find a job here and we’re still engaged 2,000 miles apart in 10 years?</p>
+        <p>These are my actual fears as Casey searches for a new job to move to New York.</p>
+        <p>I’ve been intentional about sharing with him what I’m experiencing internally.</p>
+        <p>Choosing intimacy.</p>
+        <p>Without letting those fears run the show.</p>
+        <p>We’ve talked about differences in how we live and are prepared to create a home that works for all of us.</p>
+        <p>I’ve been careful to distinguish between different voices in my head and know how to deal with each one.</p>
+        <p>Sometimes fear tells me everything is going in the wrong direction. That’s usually when I’m projecting past experiences onto this relationship. I work through that myself or ask Casey for support.</p>
+        <p>Sometimes wisdom tells me things are off track. I share my concerns with Casey and trust him to make the right decision.</p>
+        <p>The part of me that wants security and certainty wants to push him to do things my way.</p>
+        <p>It wants to control or manipulate.</p>
+        <p>It wants to judge him when things go wrong instead of support him through it.</p>
+        <p>I honor that part of me while deciding to be the partner he deserves.</p>
+        <p>And repairing when I fall short.</p>
+        <p>I consciously decide to take the risk of heartbreak that comes with any relationship.</p>
+        <p>Love is worth it to me.</p>
+        <p>Fears are normal when we take big steps.</p>
+        <p>Conflict and discomfort are inevitable when two personalities collide building a new life together.</p>
+        <p>But do you work through them together in a healthy way?</p>
+        <p>Or resort to control, manipulation, or blame?</p>
+        <p>Do you use these challenges to bring you closer or let them drive a wedge between you?</p>
+        <p>Love takes risk.</p>
+        <p>Sometimes we get hurt.</p>
+        <p>How we manage the risk and pain determines whether we sabotage our chances for healthy love or make it possible.</p>
+        <p>In Bridge to Healthy Love, Casey and I practice working through emotions and fears like this with you.</p>
+        <p>Not just talking. Not therapy.</p>
+        <p>It’s practice relationship immersions and coaching -</p>
+        <p>With certified Trauma Informed Coaches trained in facilitating practice relationship containers.</p>
+        <p>Depending on your needs we work on:</p>
+        <p>▪️Clarifying your unique needs in a relationship</p>
+        <p>▪️Attracting an aligned match</p>
+        <p>▪️Communication</p>
+        <p>▪️Boundaries</p>
+        <p>▪️Forming a secure attachment</p>
+        <p>▪️Working through conflict</p>
+        <p>and more.</p>
+      </div>
+      <button class="st-more" type="button" aria-expanded="false">Read the full story</button>
+    </article>
+
+    <article class="st-card" data-who="casey">
+      <figure class="st-photo"><img src="/assets/stories/casey-12.jpg" alt="" loading="lazy" decoding="async"></figure>
+      <p class="st-meta"><span class="st-who st-casey">Casey</span> &middot; June 2026</p>
+      <h2>The one time I got triggered by her going out without me, I learned everything I needed to know, about myself, not Nicole.</h2>
+      <div class="st-body st-clamp">
+        <p>She was at an event. Across the country. I couldn&#x27;t have gone anyway.</p>
+        <p>But my body didn&#x27;t know that. It was responding to my past, to every time someone I loved walked out the door and didn&#x27;t come back the same.</p>
+        <p>I felt it rising. The tightening. The old story starting to write itself.</p>
+        <p>So I told her about it. We talked through it for a while.</p>
+        <p>I said:</p>
+        <p>&quot;I want you to go. I trust you. I&#x27;m sorry my body is doing this, it&#x27;s not about you. Have a good time.&quot;</p>
+        <p>And she did.</p>
+        <p>That&#x27;s not a rule. That&#x27;s not control. That&#x27;s what it looks like when you&#x27;ve done enough work to catch the trigger, but you still have to feel it.</p>
+        <p>Most programs teach you what to do in that moment.</p>
+        <p>Bridge to Healthy Love puts you in that moment, intentionally, so your nervous system can actually practice moving through it.</p>
+        <p>We hold space for everything that comes up, help you process it fully, and then debrief so the experience becomes something you integrate, not just survive.</p>
+        <p>It&#x27;s the difference between knowing how to swim and getting in the water.</p>
+      </div>
+      <button class="st-more" type="button" aria-expanded="false">Read the full story</button>
+    </article>
+
+    <article class="st-card" data-who="casey">
+      <figure class="st-photo"><img src="/assets/stories/casey-11.jpg" alt="" loading="lazy" decoding="async"></figure>
+      <p class="st-meta"><span class="st-who st-casey">Casey</span> &middot; May 2026</p>
+      <h2>“The work you’re doing with Nicole is weird.”</h2>
+      <div class="st-body st-clamp">
+        <p>Yes it&#x27;s weird.</p>
+        <p>And we’re happy to do it because it’s so damn effective.</p>
+        <p>Is it weird to play the role of a client’s romantic partner in practice relationship immersions when you’re actually engaged?</p>
+        <p>Yes.</p>
+        <p>Especially while your fiancé is watching?</p>
+        <p>Definitely.</p>
+        <p>But it’s worth it.</p>
+        <p>Practicing dating and relationship skills with someone you don’t actually plan to date is extremely effective.</p>
+        <p>Having your practice partner be a trauma informed coach who is trained specifically in this method has even more benefits.</p>
+        <p>To the best of our knowledge we’re the only ones who do it as a couple, and that’s important.</p>
+        <p>This is deep, sensitive, and vulnerable work.</p>
+        <p>Having a second person there for support and safety - especially the fiancé - allows you to let your guard down and fully engage in it.</p>
+        <p>You don’t wonder if your practice partner is going to try to get in your pants.</p>
+        <p>You don’t wonder if they’re actually practicing or if they’re really falling for you.</p>
+        <p>You don’t have to choose between privacy and safety.</p>
+        <p>Plus, you get perspectives from both a man and a woman.</p>
+        <p>Let’s face it - “roughin’ it” in dating is an awful experience for most singles.</p>
+        <p>You struggle through dating apps hoping to find a great match.</p>
+        <p>Then when you finally meet someone reasonable, you try to remember everything your therapist said as you navigate the minefield of triggers you encounter.</p>
+        <p>You probably end up ghosted or disappointed.</p>
+        <p>Or you can practice with us and get a customized plan for your needs.</p>
+        <p>You can begin putting your biggest triggers behind you.</p>
+        <p>You can become ultra clear on who your ideal partner is so you waste less time with those who aren’t right for you.</p>
+        <p>You can feel what it’s like to communicate in a healthy way, maintain aligned boundaries, and support each other through hard times.</p>
+      </div>
+      <button class="st-more" type="button" aria-expanded="false">Read the full story</button>
+    </article>
+
+    <article class="st-card" data-who="nicole">
+      <figure class="st-photo"><img src="/assets/stories/nicole-random-guy.jpg" alt="" loading="lazy" decoding="async"></figure>
+      <p class="st-meta"><span class="st-who st-nicole">Nicole</span> &middot; May 2026</p>
+      <h2>My fiancé, Casey, was a random guy on the internet for the first 6 months we knew each other.</h2>
+      <div class="st-body st-clamp">
+        <p>There were no hopes.</p>
+        <p>He wasn’t the man of my dreams.</p>
+        <p>He was &quot;Random-Guy-On-The-Internet&quot;.</p>
+        <p>Because that’s what he actually was to me at the time.</p>
+        <p>And this was HEALTHY.</p>
+        <p>You know what would have been unhealthy?</p>
+        <p>Deciding that a man I had never met in real life was perfect for me.</p>
+        <p>Creating a fantasy of who I wanted him to be and mistaking that for reality.</p>
+        <p>Planning a life with a man when I had never experienced him living his normal daily life.</p>
+        <p>On the other hand, I would have missed out on this wonderful relationshiph if I had...</p>
+        <p>Shut down the connection because 2000 miles between us seemed impossible.</p>
+        <p>Or assumed that he was creepy because random guys on the internet usually are.</p>
+        <p>We met online when he registered for a virtual event I was organizing for single parents.</p>
+        <p>I sent him the Zoom link.</p>
+        <p>He kept messaging me every so often.</p>
+        <p>I enjoyed our conversations and messaged back.</p>
+        <p>That’s it. That’s all it was for months.</p>
+        <p>I never would have guessed he’d be the man to put a ring on my finger a few years later.</p>
+        <p>It’s tempting to try to control love.</p>
+        <p>We want to know right away - Will this person will be forever or break my heart?</p>
+        <p>We have checklists and tests and rules.</p>
+        <p>That doesn’t work.</p>
+        <p>What works is being open to love while staying grounded in reality.</p>
+        <p>Being vulnerable while maintaining boudaries from wisdom, not fear.</p>
+        <p>Knowing that pain is unavoidable in dating, but not giving those we barely know the power to break our hearts.</p>
+        <p>Random-Guy-On-The-Internet became a friend.</p>
+        <p>Then, a friend with spicy romance mixed in.</p>
+        <p>A year and a half after we first chatted online he became my boyfriend.</p>
+        <p>Two years after that he became my fiancé.</p>
+        <p>And we want you to discover your unique love story.</p>
+        <p>Casey and I support singles in finding and building healthy relationships with our program Bridge to Healthy Love.</p>
+        <p>You get a customized plan with a mix of coaching and practice scenarios.</p>
+        <p>One of us acts as your practice date or partner. The other is there for safety, support, and another perspective.</p>
+        <p>Depending on your needs we work on:</p>
+        <p>- Clarifying your unique needs in a relationship</p>
+        <p>- Attracting an aligned match</p>
+        <p>- Communication</p>
+        <p>- Boundaries</p>
+        <p>- Forming a secure attachment</p>
+        <p>- Working through conflict</p>
+        <p>and more</p>
+      </div>
+      <button class="st-more" type="button" aria-expanded="false">Read the full story</button>
+    </article>
+
+    <article class="st-card" data-who="casey">
+      <figure class="st-photo"><img src="/assets/stories/casey-10.jpg" alt="" loading="lazy" decoding="async"></figure>
+      <p class="st-meta"><span class="st-who st-casey">Casey</span> &middot; April 2026</p>
+      <h2>If you had what you think you want in a partner, are you sure you&#x27;d be happy?</h2>
+      <div class="st-body st-clamp">
+        <p>I talk to people every day who tell me about what they want in a partner and then when they finally get it, they&#x27;re disappointed.</p>
+        <p>&quot;I want an attentive, caring partner who communicates.&quot;</p>
+        <p>Then they get it and they don&#x27;t know what to do. It feels unsafe because they&#x27;re expecting for the &quot;other shoe to drop&quot; and their nervous system can&#x27;t handle it.</p>
+        <p>Other times they think there&#x27;s an ulterior motive where they want something from them or they feel love bombed.</p>
+        <p>Bridge to Healthy Love is a practice relationship program.</p>
+        <p>Last night Nicole and I created a safe practice dating container for a woman we&#x27;re working with. It&#x27;s designed for her to feel what it&#x27;s actually like to have an attentive, devoted partner.</p>
+        <p>Both Nicole and I are there in every text, video, and in person interaction so that she is reassured that it&#x27;s practice with pure intentions.</p>
+        <p>This isn&#x27;t the only type of practice relationship container we do with our clients. Each one is customized to our clients&#x27; needs.</p>
+        <p>We create ones for healing an anxious, fearful avoidant, or dismissive avoidant attachment style. We design ones to practice communication skills, and even to practice healthy conflict.</p>
+        <p>In this program we help you peel back the layers to understand what&#x27;s happening and learn to respond to what is triggering in a healthy and productive way.</p>
+      </div>
+      <button class="st-more" type="button" aria-expanded="false">Read the full story</button>
+    </article>
+
+    <article class="st-card" data-who="casey">
+      <figure class="st-photo"><img src="/assets/stories/casey-07.jpg" alt="" loading="lazy" decoding="async"></figure>
+      <p class="st-meta"><span class="st-who st-casey">Casey</span> &middot; April 2026</p>
+      <h2>Misogynist. Simp. White knight. Condescending pr!ck.</h2>
+      <div class="st-body st-clamp">
+        <p>All names I’ve been called over the last few years.</p>
+        <p>Sometimes by men.</p>
+        <p>Sometimes by women.</p>
+        <p>Sometimes in the same conversation.</p>
+        <p>And somehow… all of them think they’re right.</p>
+        <p>From the outside, it looks like I’m picking sides.</p>
+        <p>According to some people in society, I’m supposed to toe the line.</p>
+        <p>I’m not.</p>
+        <p>I can’t do that with integrity when one side is missing the point.</p>
+        <p>Rather than ignore it, I’m acknowledging things that are uncomfortable for both.</p>
+        <p>A lot of men don’t feel safe opening up, nor do they know how.</p>
+        <p>But if we’re being honest…</p>
+        <p>Women haven’t felt safe for a very long time.</p>
+        <p>Not emotionally.</p>
+        <p>Not physically.</p>
+        <p>Not in relationships.</p>
+        <p>And that didn’t happen overnight.</p>
+        <p>For generations, women had to rely on men</p>
+        <p>who weren’t always emotionally available…</p>
+        <p>or consistent…</p>
+        <p>or physically safe.</p>
+        <p>So they adapted.</p>
+        <p>They became more independent.</p>
+        <p>More self-sufficient.</p>
+        <p>More guarded.</p>
+        <p>Not because they all wanted to…</p>
+        <p>but because they had to.</p>
+        <p>And over time, that changed what they expect.</p>
+        <p>Now they’re asking for:</p>
+        <p>Emotional intelligence.</p>
+        <p>Clear communication.</p>
+        <p>Presence.</p>
+        <p>Leadership that feels safe, not assumed.</p>
+        <p>The problem is…</p>
+        <p>Most men were never taught how to do any of that.</p>
+        <p>Leadership used to be a given.</p>
+        <p>Now it has to be earned and demonstrated.</p>
+        <p>Emotional intelligence is expected…</p>
+        <p>but rarely taught.</p>
+        <p>So when women ask for these things, it can feel like:</p>
+        <p>Pressure.</p>
+        <p>Criticism.</p>
+        <p>Rejection.</p>
+        <p>And when men don’t meet those expectations…</p>
+        <p>Women see it as another reason not to trust.</p>
+        <p>Neither side feels heard.</p>
+        <p>Both sides feel frustrated.</p>
+        <p>And the cycle continues.</p>
+        <p>I’ve been on the side of not knowing how to do this.</p>
+        <p>I’ve also taken the time to understand why it matters.</p>
+        <p>That puts me in the middle.</p>
+        <p>And yeah… people don’t always like that.</p>
+        <p>To some, it feels like betrayal.</p>
+        <p>To others, it looks like pandering.</p>
+        <p>But the goal was never to pick a side.</p>
+        <p>It’s to help both sides understand</p>
+        <p>what the other has been shaped by.</p>
+        <p>Because we’ve all been raised for a world that no longer exists.</p>
+        <p>And we’re trying to build relationships</p>
+        <p>with tools that don’t match reality.</p>
+        <p>For me, this isn’t about being right.</p>
+        <p>In these situations, “right” is more complicated than some want to admit.</p>
+        <p>It’s about responsibility.</p>
+        <p>Making sure my kids have a better shot than I did.</p>
+        <p>Better awareness.</p>
+        <p>Better tools.</p>
+        <p>Better relationships.</p>
+        <p>We don’t get there by attacking each other.</p>
+        <p>We get there by understanding</p>
+        <p>why each side became who they are.</p>
+      </div>
+      <button class="st-more" type="button" aria-expanded="false">Read the full story</button>
+    </article>
+
+    <article class="st-card" data-who="casey">
+      <figure class="st-photo"><img src="/assets/stories/casey-06.jpg" alt="" loading="lazy" decoding="async"></figure>
+      <p class="st-meta"><span class="st-who st-casey">Casey</span> &middot; April 2026</p>
+      <h2>Society has a trust problem.</h2>
+      <div class="st-body st-clamp">
+        <p>Women don’t trust men.</p>
+        <p>Men don’t trust women.</p>
+        <p>And if we’re being honest… both sides have valid reasons for that.</p>
+        <p>Women are asking for emotional intelligence, communication, and vulnerability.</p>
+        <p>A lot of men don’t have those skills.</p>
+        <p>And many don’t even know how to learn them.</p>
+        <p>At the same time…</p>
+        <p>A ton of men don’t trust women because when they have the vulnerability was weaponized against them.</p>
+        <p>So now we’re stuck in a loop.</p>
+        <p>Women don’t trust men to show up emotionally.</p>
+        <p>Men don’t trust women enough to open up.</p>
+        <p>And both sides are reinforcing the problem.</p>
+        <p>There’s resentment on both sides.</p>
+        <p>Staying here isn’t going to fix anything.</p>
+        <p>Breaking this cycle doesn’t come from more blame.</p>
+        <p>It comes from doing something different with an intention.</p>
+        <p>For men, that means learning how to feel…</p>
+        <p>not just react.</p>
+        <p>Learning how to process what’s happening internally instead of bottling it up and shutting it down.</p>
+        <p>For women, it means creating space for that growth without tearing it down before it has a chance to develop and actually being able to handle what men share.</p>
+        <p>Because most men were never taught this.</p>
+        <p>And most women are tired of waiting for it.</p>
+        <p>Both of those things can be true.</p>
+        <p>It wasn’t a clear path when I started.</p>
+        <p>I had to feel through it.</p>
+        <p>Moment by moment. Trigger by trigger.</p>
+        <p>Some of that meant isolating.</p>
+        <p>Some of it was hard.</p>
+        <p>But it changed everything.</p>
+        <p>I look back at who I was 6+ years ago…</p>
+        <p>and I’m not proud of most of it.</p>
+        <p>I was hurting.</p>
+        <p>I was lost.</p>
+        <p>And I didn’t have the guidance I needed.</p>
+        <p>I had to go find it.</p>
+        <p>I know I’m not the only one.</p>
+        <p>A lot of men are still hurting.</p>
+        <p>A lot of them are lost.</p>
+        <p>And a lot of them are afraid to admit it.</p>
+        <p>If anything is going to change…</p>
+        <p>we need more men willing to learn these skills.</p>
+        <p>And we need space for that learning to happen.</p>
+        <p>Not perfectly. Not overnight. But gradually and intentionally.</p>
+        <p>Because this isn’t just about dating.</p>
+        <p>It’s about what we pass down.</p>
+        <p>Better tools.</p>
+        <p>Better awareness.</p>
+        <p>Better relationships.</p>
+        <p>Right now…</p>
+        <p>we’re not setting the next generation up very well.</p>
+        <p>We can’t accept the current status quo.</p>
+        <p>That’s why this work matters to me.</p>
+        <p>Not as an idea.</p>
+        <p>But as a responsibility.</p>
+        <p>Our sons and daughters will suffer if we don’t start the work soon.</p>
+      </div>
+      <button class="st-more" type="button" aria-expanded="false">Read the full story</button>
+    </article>
+
+    <article class="st-card" data-who="nicole">
+      <figure class="st-photo"><img src="/assets/stories/nicole-takeoff.jpg" alt="" loading="lazy" decoding="async"></figure>
+      <p class="st-meta"><span class="st-who st-nicole">Nicole</span> &middot; March 2026</p>
+      <h2>As I heard the engine rev up for takeoff a memory bubbled up.</h2>
+      <div class="st-body st-clamp">
+        <p>It was Eric’s first flight. He was 3. When he heard the engine rev up he got excited.</p>
+        <p>“It’s the loud noise! We’re gonna take off now!”</p>
+        <p>It’s mind blowing how impactful it is for little kids when we give them enough information to understand what’s happening.</p>
+        <p>Think about it.</p>
+        <p>Little kids spend much of the time having no clue what’s happening or why.</p>
+        <p>Think about how excited they get for some routines, like TV shows that have them say the same thing each time. They know what to expect. They got this!</p>
+        <p>This trick helped me tremendously when he was little and I was traveling as a single mom with a low budget.</p>
+        <p>In this case, to prepare for his first flight I found a kid-friendly video in which a woman explained everything that happens on a flight, from navigating the airport to finding your seat to what sounds to expect.</p>
+        <p>He watched that video over and over again.</p>
+        <p>Then, when we traveled he was able to understand what was happening and create meaning from what he observed.</p>
+        <p>When the engine got louder, he knew what was going to happen next.</p>
+        <p>And he got excited.</p>
+        <p>This worked even when the event was less exciting.</p>
+        <p>I remember our first Christmas Train Adventure.</p>
+        <p>Santa left a book (“published” by Staples 😉) under the tree with all the details.</p>
+        <p>You should have seen how excited he got when he saw the sign for Fredericksburg, Virginia, and when we arrived at a dirty 2-star motel.</p>
+        <p>It was what I could afford and at 5 years old he didn’t know that it wasn’t great.</p>
+        <p>But having the book with a page about Fredericksburg and a picture of the motel made it the most exciting thing ever.</p>
+        <p>Later along our adventure, you should have heard our previously silent train car giggle when a tiny voice screamed, “It’s the Washington Monument!” as we approached DC.</p>
+        <p>This trick isn’t only great for the kid.</p>
+        <p>Happy, engaged kids tend to be better behaved which makes travel smoother for everybody.</p>
+        <p>Now Eric is a pro and the best travel buddy ever. On some trips he even does most of the planning.</p>
+      </div>
+      <button class="st-more" type="button" aria-expanded="false">Read the full story</button>
+    </article>
+
+    <article class="st-card" data-who="nicole">
+      <figure class="st-photo"><img src="/assets/stories/nicole-first-kiss.jpg" alt="" loading="lazy" decoding="async"></figure>
+      <p class="st-meta"><span class="st-who st-nicole">Nicole</span> &middot; March 2026</p>
+      <h2>He walked straight toward me, took me in his arms and kissed me like we’d known each other forever.</h2>
+      <div class="st-body st-clamp">
+        <p>It was our first moment meeting in person, and this visit wasn’t meant to be romantic.</p>
+        <p>Casey and I had been chatting online for 9 months as friends.</p>
+        <p>In the week or two before his visit, his walls cracked open and I saw the side of him I could connect with as more than friends.</p>
+        <p>Things started getting flirtatious.</p>
+        <p>But still, we had no expectations for this visit.</p>
+        <p>Hopes, perhaps. But we knew we might not hit it off in person.</p>
+        <p>I insisted on having no expectations.</p>
+        <p>And yet, as soon as we saw each other and felt each other’s presence we both knew.</p>
+        <p>We moved toward each other like magnets.</p>
+        <p>Embraced.</p>
+        <p>Pulled away slightly to look in each other&#x27;s eyes.</p>
+        <p>He felt the invitation in my eyes and kissed me.</p>
+        <p>I didn’t know this word for most of my life, but the reason this could happen was “attunement&quot;.</p>
+        <p>Both of us could feel each other and respond instantly, as if we were reading each other’s minds.</p>
+        <p>Imagine how badly it would have gone if either of us were wrong.</p>
+        <p>How awkward or even dangerous could that have been?</p>
+        <p>Neither of us would have taken that risk if we weren’t 100% sure.</p>
+        <p>How were we so sure?</p>
+        <p>Attunement.</p>
+        <p>In my teen years, I didn’t realize that this didn’t come naturally to everybody.</p>
+        <p>I feel awful for innocent guys who made unwanted moves on me when I was young. It was a time when asking for permission before kissing wasn&#x27;t customary. I assumed they knew it was unwelcome and reacted as if they were predatory. I hope I wasn’t the cause of any trauma, but I likely was.</p>
+        <p>As an adult, I realized that some people could connect in this way and others couldn’t.</p>
+        <p>I’ve always gravitated toward those who could.</p>
+        <p>I thought it was innate.</p>
+        <p>There were times when I tried to date really great guys without attunement. I couldn’t feel fulfilled, even after trying for years.</p>
+        <p>It seemed like some were born with it and the rest couldn’t learn it.</p>
+        <p>I know now how wrong I was.</p>
+        <p>It’s a skill that can be learned and practiced, but until recently most people didn’t know it was a thing, and only a rare few taught it.</p>
+        <p>I’ve become passionate about learning ways to teach attunement so that more people can experience the fantasy-like magic I’ve experienced so many times…</p>
+        <p>And that I experience all the time with Casey at a higher level than ever before.</p>
+        <p>We’ve incorporated attunement into Bridge to Healthy Love, our new joint practice that supports singles in healing unhealthy relationship patterns and finding healthy love.</p>
+        <p>When people say that the romance or chemistry in movies doesn’t exist in real life, I have to laugh.</p>
+        <p>It always has for me.</p>
+        <p>And now that I know why, I’m teaching everyone I can how to experience it.</p>
+        <p>Big thanks to Amanda Monk for her mentorship and helping us shape the Bridge to Healthy Love methodology.</p>
+        <p>This isn&#x27;t that kiss, but it&#x27;s the first we got on camera.</p>
+      </div>
+      <button class="st-more" type="button" aria-expanded="false">Read the full story</button>
+    </article>
+
+    <article class="st-card" data-who="casey">
+      <figure class="st-photo"><img src="/assets/stories/casey-09.jpg" alt="" loading="lazy" decoding="async"></figure>
+      <p class="st-meta"><span class="st-who st-casey">Casey</span> &middot; March 2026</p>
+      <h2>Several months ago I had to tell Nicole something that terrified me.</h2>
+      <div class="st-body st-clamp">
+        <p>I had just gotten off the phone with my realtor.</p>
+        <p>The property I had spent well over a year renovating still wasn’t selling.</p>
+        <p>My realtor didn’t have any new ideas.</p>
+        <p>No new strategy.</p>
+        <p>Just one option.</p>
+        <p>Lower the price again.</p>
+        <p>And even that might not solve the problem.</p>
+        <p>It was the kind of news that makes your stomach drop.</p>
+        <p>Because that house wasn’t just a project.</p>
+        <p>It was part of the plan.</p>
+        <p>The profit was supposed to fund my move to New York and help make a long‑distance relationship possible without sacrificing time with my kids.</p>
+        <p>So in that moment, one thought kept running through my head:</p>
+        <p>She has every reason to end the relationship right then.</p>
+        <p>Life plans are fragile when distance and kids are involved.</p>
+        <p>And this setback changed the timeline in a big way.</p>
+        <p>I knew I had to be transparent and I couldn&#x27;t wait long.</p>
+        <p>Waiting felt like hot lava inside my body.</p>
+        <p>When we talked that night she shared something she was struggling with.</p>
+        <p>I knew I couldn&#x27;t share it that night because the timing wasn&#x27;t right, but I couldn&#x27;t sleep at all waiting to tell her.</p>
+        <p>Healthy relationships don’t grow from partial honesty.</p>
+        <p>They grow from transparency and trust.</p>
+        <p>So I told her everything.</p>
+        <p>What the realtor said.</p>
+        <p>What it meant financially.</p>
+        <p>And that I honestly didn’t know what the outcome would be yet.</p>
+        <p>That conversation could have gone a lot of ways.</p>
+        <p>Instead, something powerful happened.</p>
+        <p>Transparency created intimacy.</p>
+        <p>Instead of distance.</p>
+        <p>Nicole shared what was coming up for her internally, fears shaped by past experiences that had nothing to do with me.</p>
+        <p>And because she trusted my integrity, we were able to talk about it openly instead of letting it quietly erode the relationship.</p>
+        <p>Moments like that remind me of something important:</p>
+        <p>Healthy relationships aren’t defined by the absence of hard moments.</p>
+        <p>They’re defined by how two people choose to meet those moments together.</p>
+        <p>With honesty.</p>
+        <p>With vulnerability.</p>
+        <p>With trust.</p>
+        <p>That experience reinforced something Nicole and I believe deeply.</p>
+        <p>Most people aren’t failing in relationships because they don’t care.</p>
+        <p>They’re struggling because no one ever taught them how to navigate moments like this in a healthy way.</p>
+        <p>Fear takes over.</p>
+        <p>The nervous system shorts out.</p>
+        <p>That’s exactly why we’re launching a new joint practice together.</p>
+        <p>An immersive relationship experience designed to help people heal old patterns and practice the skills that make healthy love possible.</p>
+        <p>Transparency.</p>
+        <p>Repair.</p>
+        <p>Boundaries.</p>
+        <p>Trust.</p>
+      </div>
+      <button class="st-more" type="button" aria-expanded="false">Read the full story</button>
+    </article>
+
+    <article class="st-card" data-who="nicole">
+      <figure class="st-photo"><img src="/assets/stories/nicole-hard-news.jpg" alt="" loading="lazy" decoding="async"></figure>
+      <p class="st-meta"><span class="st-who st-nicole">Nicole</span> &middot; March 2026</p>
+      <h2>Casey gave me disappointing news and it activated my worst fears about our relationship.</h2>
+      <div class="st-body st-clamp">
+        <p>You know that feeling when, despite knowing better, your wounded, irrational side bubbles up to the surface?</p>
+        <p>What do you do when that happens?</p>
+        <p>In my unhealthiest relationship my partner made promises he didn’t keep.</p>
+        <p>Constantly.</p>
+        <p>He misrepresented the past and present to appear more competent and successful than he was.</p>
+        <p>The future we had agreed on…not even close.</p>
+        <p>The agreements we made…ignored unless convenient and easy.</p>
+        <p>Then Casey, who is clearly not my ex and doesn’t have that pattern, gave me news that brought all of that to the surface.</p>
+        <p>I felt electricity shoot through my stomach and heat rise to my head.</p>
+        <p>When we first met I wasn’t open to a long distance relationship.</p>
+        <p>We both have kids and coparents in our respective cities. It seemed impossible to build a shared future workout hurting them.</p>
+        <p>I changed my mind when he began renovating a family property.</p>
+        <p>It involved driving back and forth to another state with his kids almost every weekend for a year - while still working a demanding full time job.</p>
+        <p>He did most of the work with his own hands and taught his boys construction skills as he worked.</p>
+        <p>The profit would fund his move to New York and be the start of a new career that would give him the flexibility needed to see his kids often if they couldn’t move with him.</p>
+        <p>He was clearly willing to do whatever it takes.</p>
+        <p>It was quite a leap of faith for someone with my history, but we finally made our relationship official.</p>
+        <p>Fast forward a couple years.</p>
+        <p>The property had been transformed from an unsanitary and unsafe dump into a beautiful home.</p>
+        <p>And it had been sitting on the market for many months with no progress.</p>
+        <p>I was fighting my internal crazy side.</p>
+        <p>“He’s not my ex. These setbacks happen to everybody. He’s not my ex!”</p>
+        <p>Then came the news:</p>
+        <p>He would have to sell it at a loss.</p>
+        <p>I had flashbacks and couldn’t contain it anymore.</p>
+        <p>So…</p>
+        <p>I leaned in.</p>
+        <p>I chose intimacy.</p>
+        <p>I shared what was happening within me.</p>
+        <p>I made it clear that I wasn’t blaming him and he did nothing to cause this reaction.</p>
+        <p>But instead of pulling away or lashing out, I let him into my inner world.</p>
+        <p>Calmly. Respectfully.</p>
+        <p>And with raw emotion.</p>
+        <p>In moments like this it’s natural to want to distance and protect ourselves.</p>
+        <p>Devotion means choosing intimacy, vulnerability, and the relationship over our own comfort and protection.</p>
+        <p>When we don’t we contribute to sabotaging our relationships, degrading them over time.</p>
+        <p>When is it better to choose protection over devotion?</p>
+        <p>1. If the relationship is unhealthy and your partner is unwilling to do their side of the work.</p>
+        <p>2. If a healthy relationship has an unhealthy moment and naming it doesn’t change the behavior.</p>
+        <p>Devotion doesn’t require self abandonment.</p>
+        <p>But when it’s that wounded, irrational part - lean in.</p>
+        <p>This happened several months ago. We worked through it together. Casey is working hard on new plans to fulfill his promise. Our relationship is still strong.</p>
+      </div>
+      <button class="st-more" type="button" aria-expanded="false">Read the full story</button>
+    </article>
+
+    <article class="st-card" data-who="casey">
+      <figure class="st-photo"><img src="/assets/stories/casey-08.jpg" alt="" loading="lazy" decoding="async"></figure>
+      <p class="st-meta"><span class="st-who st-casey">Casey</span> &middot; March 2026</p>
+      <h2>The first lie can be the start… or the end.</h2>
+      <div class="st-body st-clamp">
+        <p>When trust breaks in a relationship, there can be a path to repair.</p>
+        <p>But repair doesn&#x27;t happen by waiting for time to pass.</p>
+        <p>It happens with intention.</p>
+        <p>In my marriage the first break in trust started with a tiny lie.</p>
+        <p>For some people it&#x27;s infidelity.</p>
+        <p>For others it&#x27;s secrecy.</p>
+        <p>At the time I didn&#x27;t know if our relationship would survive.</p>
+        <p>What I did know was that trust takes time to rebuild.</p>
+        <p>What I didn&#x27;t understand yet was that repair requires action from both people.</p>
+        <p>Instead we avoided the conversation and relied on time to fix the problem.</p>
+        <p>Eventually the triggers faded.</p>
+        <p>But the repair never actually happened.</p>
+        <p>And the unresolved hurt slowly turned into resentment.</p>
+        <p>When trust isn’t rebuilt intentionally, something else tends to happen.</p>
+        <p>Respect quietly disappears.</p>
+        <p>Looking back, I also made mistakes.</p>
+        <p>I didn&#x27;t enforce healthy boundaries for one.</p>
+        <p>And when I finally tried to enforce them years later, it happened all at once.</p>
+        <p>That made the ending far messier than I expected.</p>
+        <p>One of the biggest lessons I took from that experience is this:</p>
+        <p>Trust can break in a split second.</p>
+        <p>Repair takes intention and time.</p>
+        <p>And if repair never happens, the relationship slowly erodes whether people admit it or not.</p>
+        <p>Everyone makes mistakes.</p>
+        <p>But growth only happens when we’re willing to own them.</p>
+        <p>You can&#x27;t repair a relationship where one person owns their mistakes and the other ignores them.</p>
+        <p>And when you reach the point where you&#x27;re saving screenshots, bank statements, or recording phone calls…</p>
+        <p>the relationship is already in serious trouble.</p>
+        <p>I wish I had understood sooner that the moment I felt the need to keep those records…</p>
+        <p>we were already past the point of no return.</p>
+      </div>
+      <button class="st-more" type="button" aria-expanded="false">Read the full story</button>
+    </article>
+
+    <article class="st-card" data-who="casey">
+      <figure class="st-photo st-two"><img src="/assets/stories/casey-14a.jpg" alt="" loading="lazy" decoding="async"><img src="/assets/stories/casey-14b.jpg" alt="" loading="lazy" decoding="async"></figure>
+      <p class="st-meta"><span class="st-who st-casey">Casey</span> &middot; January 2026</p>
+      <h2>Nearly seven years ago, my kids’ mom and I separated.</h2>
+      <div class="st-body st-clamp">
+        <p>At the time, I didn’t know what “recovery from divorce” would be like other than getting through the paperwork, stabilizing finances, and trying to keep things together for the kids.</p>
+        <p>What I’ve learned since is that divorce doesn’t just end a relationship, but in the worst cases it can destroy mental health and financial futures.</p>
+        <p>The real work started after the dust settled.</p>
+        <p>It looked like:</p>
+        <p>Therapy (and a neutral space rather than a divisive one) that forced me to sit with things I’d spent a lifetime avoiding.</p>
+        <p>Life coaching that challenged the stories I told myself about who I was and what I deserved.</p>
+        <p>Learning how my nervous system responded to conflict, abandonment, and responsibility.</p>
+        <p>Taking full ownership of my part, not to self‑blame, but to heal and to break the cycle for my sons.</p>
+        <p>There were long stretches where the work felt invisible and sometimes impossible. No big wins. No applause.</p>
+        <p>Just consistency, humility, and choosing growth even when it was uncomfortable, sometimes while sitting in buckets of tears.</p>
+        <p>At the same time, I was raising boys who needed stability, one of them neurodivergent, which meant I couldn’t just say I was healing. I had to live it to avoid them following in my footsteps.</p>
+        <p>Fast forward to now, and I’m in a relationship that exists only because of that work.</p>
+        <p>Nicole showed incredible courage in even entertaining a connection that started nearly 2,000 miles apart, especially after her own experiences.</p>
+        <p>It took eight months of consistently showing up for her to realize I was already her partner. (Might as well call it what it is.)</p>
+        <p>What we built wasn’t based on chemistry alone, it was built on honesty, trust, patience, and intention.</p>
+        <p>Nothing about this chapter happened by accident.</p>
+        <p>It’s the result of years of intentional effort, uncomfortable self‑reflection, and a commitment to not repeat old patterns, for ourselves or our kids.</p>
+        <p>I’m sharing this because I know how common it is to feel like the work you’re doing after divorce isn’t going anywhere.</p>
+        <p>It is.</p>
+        <p>Even when it’s quiet.</p>
+        <p>Even when it’s slow.</p>
+        <p>Even when no one else can see it yet.</p>
+        <p>Progress doesn’t always announce itself, sometimes it shows up years later as a life that finally feels aligned in the same way that when we blink our children have grown feet and no longer have T in their clothing sizes.</p>
+        <p>And that’s worth every step it took to get here.</p>
+      </div>
+      <button class="st-more" type="button" aria-expanded="false">Read the full story</button>
+    </article>
+
+    <article class="st-card" data-who="casey">
+      <figure class="st-photo"><img src="/assets/stories/casey-04.jpg" alt="" loading="lazy" decoding="async"></figure>
+      <p class="st-meta"><span class="st-who st-casey">Casey</span> &middot; January 2026</p>
+      <h2>How could you not want to marry the woman who looks at you like this? (Isn&#x27;t she stunning?)</h2>
+      <div class="st-body st-clamp">
+        <p>You don&#x27;t get that look if you can&#x27;t make her feel safe, loved, appreciated, and heard.</p>
+        <p>Nicole gets that because she&#x27;s my peace. She&#x27;s my muse. Our goals are aligned.</p>
+        <p>She doesn&#x27;t try to change me and I don&#x27;t try to change her.</p>
+        <p>We are both so heavily invested in personal growth that when we do find a problem, we collaborate and fix it together.</p>
+        <p>It&#x27;s not my goals versus her goals. They&#x27;re all OUR goals.</p>
+        <p>Connect.</p>
+        <p>Express compassion.</p>
+        <p>Love deeply.</p>
+        <p>Intentionally build every aspect of our lives.</p>
+      </div>
+      <button class="st-more" type="button" aria-expanded="false">Read the full story</button>
+    </article>
+
+    <article class="st-card" data-who="casey">
+      <figure class="st-photo"><img src="/assets/stories/casey-03.jpg" alt="" loading="lazy" decoding="async"></figure>
+      <p class="st-meta"><span class="st-who st-casey">Casey</span> &middot; December 2025</p>
+      <h2>As if to foreshadow our engagement, Wyatt called this one after only being around Nicole for about 10 days on our first trip to New York.</h2>
+      <div class="st-body st-clamp">
+        <p>These are his exact words from the book I wrote about my life and our relationship, which he spoke on 7/11/2023. He was 9.</p>
+        <p>(A Shot in the Dark: Diary of a Cycle Breaker - Amazon)</p>
+        <p>When we told him and his brothers over video chat his mouth dropped with excitment.</p>
+        <p>We met in person on 3/16/2023 after talking online for several months. I was the not creepy random guy on the internet until much later/ Once we realized we had to take an actual shot at this on 11/27/2023 we managed to build a solid foundation together over a long distance (~2000 miles).</p>
+        <p>Many of you find our story inspirational, which I love.</p>
+      </div>
+      <button class="st-more" type="button" aria-expanded="false">Read the full story</button>
+    </article>
+
+    <article class="st-card" data-who="nicole">
+      <figure class="st-photo"><img src="/assets/stories/nicole-ring.jpg" alt="" loading="lazy" decoding="async"></figure>
+      <p class="st-meta"><span class="st-who st-nicole">Nicole</span> &middot; December 2025</p>
+      <h2>Look what a bearded man gave me this Christmas!</h2>
+      <div class="st-body st-clamp">
+        <p>I feel like the luckiest woman alive.</p>
+        <p>Casey got my family and friends involved.</p>
+        <p>He was so thoughtful. Every detail was meaningful.</p>
+        <p>If you look at the ring through a magnifying glass it has all of our sons’ initials subtly worked into the design.</p>
+        <p>Casey asked my dad and Jay Dee Ay for my hand.</p>
+        <p>My parents figured out my ring size without me suspecting a thing.</p>
+        <p>Vee AreGillahh decorated a room with rose petals, candles, and more and gave us a photo shoot.</p>
+        <p>She and Mary Boyd helped with the ring design.</p>
+        <p>This was in process for 6 months. I had no idea! What a surprise.</p>
+        <p>Thank you, Casey, for choosing me to spend the rest of your life with ❤️</p>
+      </div>
+      <button class="st-more" type="button" aria-expanded="false">Read the full story</button>
+    </article>
+
+    <article class="st-card" data-who="casey">
+      <figure class="st-photo"><img src="/assets/stories/casey-05.jpg" alt="" loading="lazy" decoding="async"></figure>
+      <p class="st-meta"><span class="st-who st-casey">Casey</span> &middot; December 2025</p>
+      <h2>The dating space is pretty clearly a dumpster fire across the board.</h2>
+      <div class="st-body st-clamp">
+        <p>Men are angry at women and women are angry with men.</p>
+        <p>Many of the reasons each way are valid and yet there&#x27;s a resistance to change on both sides. Each group has their own reasons for what they want, but the delivery leaves a lot to be desired.</p>
+        <p>Men of past generations had far less responsibility and we&#x27;ve struggled to grow into the supportive role which is now required by many more women.</p>
+        <p>Women, after being unable to support themselves for the most part historically have become self-sufficient and refuse to drag us along while they handle all of the family wants and needs alone.</p>
+        <p>The resentment from having to do that for so long &amp; from men having little to no guidance to grow our emotional intelligence leaves a lot of frustration in the dating and relationship space.</p>
+        <p>Men need more guides and a willingness to adjust to the new culture in dating and courtship and a drastically different approach.</p>
+        <p>Most women are looking for emotional intelligence which isn&#x27;t natural to most of us, myself included. Many women are frustrated by years if not decades of most of us not learning this skill.</p>
+        <p>Women, well, we can start with the space to do the necessary work. By that I mean not berating men who aren&#x27;t aware the work is necessary. This is a honey approach over vinegar. It&#x27;s not easy, but generally speaking, the vinegar approach has helped lead us to this dumpster fire.</p>
+        <p>Women, what also comes with that emotional intelligence is a requirement that you have the capacity for hearing some really gnarly stuff that goes through men’s minds. Many of you aren&#x27;t ready for the unfiltered access to men’s emotional states many of you are asking for.</p>
+        <p>We could ask for a few other things, but not everyone has the capacity for them nor are some willing to anymore. That&#x27;s fair.</p>
+        <p>Both groups need to actually, actively listen and not argue about what we are hearing because there are subgroups withing both sides who don&#x27;t all want the same things.</p>
+        <p>Some women want a strong leader and more traditional husband/partner. Other women want an equal partner to share in life’s duties together. Both are valid and both should be respected. (The delivery of those wants/needs/expectations is critical)</p>
+        <p>Some men are looking for traditional wives who follow them and their leadership (Caveat - men, you have to be a strong leader who they feel safe following which takes time - it&#x27;s not just a given anymore). Some men want an equal partner who they collaborate with on decisions. Those are valid too.</p>
+        <p>Dating with any preconceived notions of who the other person is or how they should behave is a recipe for disaster as is being rude to the other person because they don&#x27;t align with those expectations.</p>
+        <p>Rather than trashing them for it, we should be clear that those don&#x27;t align with the kind of partner we want and wish them well finding someone that works for.</p>
+        <p>When you find the right one, with mutual consent, don&#x27;t do silly things to ruin it.</p>
+      </div>
+      <button class="st-more" type="button" aria-expanded="false">Read the full story</button>
+    </article>
+
+    <article class="st-card" data-who="casey">
+      <figure class="st-photo"><img src="/assets/stories/casey-02.jpg" alt="" loading="lazy" decoding="async"></figure>
+      <p class="st-meta"><span class="st-who st-casey">Casey</span> &middot; November 2025</p>
+      <h2>So much time has gone by since Nicole caught my eye.</h2>
+      <div class="st-body st-clamp">
+        <p>We connected over a few comments at first and then I attended an online event for single parents which I was surprised to discover she was running.</p>
+        <p>It takes a special person to humor a man from 2000 miles away for anything other than friendship and yet from the first time we met in person our chemistry was undeniable.</p>
+        <p>Eight months later she had seen enough to realize that even through her opposition to a long distance relationship we already were, just without the title.</p>
+        <p>It has been two years since we left the title of &quot;just friends&quot; behind and became so much more. To this day it is one of the best decisions I have made in my life. My boys adore her as do I.</p>
+        <p>Happy anniversary my love.</p>
+      </div>
+      <button class="st-more" type="button" aria-expanded="false">Read the full story</button>
+    </article>
+
+    <article class="st-card" data-who="casey">
+      <figure class="st-photo"><img src="/assets/stories/casey-13.jpg" alt="" loading="lazy" decoding="async"></figure>
+      <p class="st-meta"><span class="st-who st-casey">Casey</span> &middot; July 2025</p>
+      <h2>If they don&#x27;t carry the bricks with you, then they&#x27;re not worth building with.</h2>
+      <div class="st-body st-clamp">
+        <p>I met a driven woman who handles her own and helps me become the best version of myself every day.</p>
+        <p>In my book, how we evolved into this relationship is a significant focus. We connected over mutual passions for travel, with each of us having boys on the spectrum and with similar first marriage experiences.</p>
+        <p>I&#x27;ve never had such a space to communicate with a partner in my life. She&#x27;s incredible and if I hadn&#x27;t done the bulk of &quot;the work&quot; before we met...I would have missed out. She continues to heal me and I&#x27;m told I heal her too.</p>
+        <p>It&#x27;s such a beautiful alignment Nicole and I share most of the time.</p>
+      </div>
+      <button class="st-more" type="button" aria-expanded="false">Read the full story</button>
+    </article>
+
+    <article class="st-card" data-who="casey">
+      <figure class="st-photo"><img src="/assets/stories/casey-01.jpg" alt="" loading="lazy" decoding="async"></figure>
+      <p class="st-meta"><span class="st-who st-casey">Casey</span> &middot; May 2025</p>
+      <h2>If I had given up on love. Where would I be?</h2>
+      <div class="st-body st-clamp">
+        <p>I grew up in a broken home until the age of 12.</p>
+        <p>I learned manipulation from my mom and how to channel everything to anger from my dad.</p>
+        <p>I learned codependency and people pleasing from many others in my family.</p>
+        <p>I learned my instincts were wrong and to always listen to others advice to guide me.</p>
+        <p>When my life came crashing down and I stood at the end of the road full of rubble I looked around wondering how all these other people had deep, committed, genuine love and I got….used.</p>
+        <p>I knew I had so much love in my heart that no one seemed to understand.</p>
+        <p>I didn’t have the words or the tools sometimes to show it in positive ways.</p>
+        <p>I did not have a clean divorce, like many men out there. I wouldn’t wish that experience on anyone.</p>
+        <p>I did know that I still wanted the hallmark movie kind of love so that one day I could model it for my boys.</p>
+        <p>I didn’t villainize women for what I went through. After all, I carried equal responsibility for the divorce.</p>
+        <p>I rebuilt everything in hopes of finding the right partner someday.</p>
+        <p>Then my boys could see what a loving marriage was supposed to look like.</p>
+        <p>They could build their own without the struggles I had.</p>
+        <p>I got a new therapist and coaches and started doing what felt natural and genuine to me and I had faith that eventually it would attract the right person.</p>
+        <p>After years of therapy and getting very clear on what I was looking for I met someone I saw potential with.</p>
+        <p>It was like a lightning rod hit my heart. They say you know it when you see it. I’d like to think that’s what happened, but even though we had instant chemistry and connection when we met in person it took a long time before we both realized we had to take the chance.</p>
+        <p>We had both been hurt before, but we both believed in the fairytale. We both love deeply with everything we have. More importantly we have healed one another and made each other better people. She has a way of planting seeds, and she doesn’t even know she’s doing it.</p>
+        <p>The seeds grow into the most beautiful things I’ve ever seen. They help me and everyone I know in her life become the best versions of themselves and it’s effortless.</p>
+        <p>I knew that a woman like her had to exist, but I couldn’t have built her with divine help and with a thousand prayers. She’s a gift. She changed my mind about marriage. She has made me a better dad. She’s made me the best partner I could be while I still leave room for more growth. She will help that happen faster than any therapist I’ve ever had.</p>
+        <p>If I had given up on love….I wouldn’t be the man or father I am today. I wouldn’t have the clarity I have on my purpose in my life…without her.</p>
+        <p>Don’t give up fellas. Invest in yourself. Invest in your heath, your happiness, boundaries, emotional intelligence. One day you’ll find your own personal Nicole to build your future with.</p>
+        <p>I’m here if you need some guidance.</p>
+      </div>
+      <button class="st-more" type="button" aria-expanded="false">Read the full story</button>
+    </article>
+
+</main>
+
+<section class="pf-wrap st-cta">
+  <h2>If something here felt familiar</h2>
+  <p>We coach singles toward healthy, secure love, and we do it together. Start with a free fit call, or read about our full program.</p>
+  <div class="st-links">
+    <a class="pf-btn" href="/before-the-first-date#start">Book a free fit call</a>
+    <a class="pf-btn ghost" href="/bridge-to-healthy-love">Bridge to Healthy Love</a>
+  </div>
+</section>
+
+<nav class="site-nav">
+  <div class="nav-cols">
+    <div class="nav-col">
+      <a class="nav-name" href="/nicole">Nicole</a>
+      <a href="/soul-map">Soulmaps</a>
+      <a href="/neurodiverse-wellness">Neurodiverse Wellness Systems</a>
+      <a href="/coregulation">Emotional Coregulation</a>
+    </div>
+    <div class="nav-col nav-mid">
+      <a class="nav-name" href="/about">About us</a>
+    </div>
+    <div class="nav-col">
+      <a class="nav-name" href="/casey">Casey</a>
+      <a href="/personal-finance-coaching">Personal Finance Coaching</a>
+      <a href="/divorce-coaching">Divorce Coaching</a>
+      <a href="/divorce-mediation">Divorce Mediation</a>
+    </div>
+  </div>
+  <div class="nav-together">
+    <p class="nav-muted">Together</p>
+    <a href="/bridge-to-healthy-love">Bridge to Healthy Love</a>
+    <a href="/before-the-first-date">Before the First Date</a>
+    <a href="/stories">In Our Own Words</a>
+  </div>
+</nav>
+
+<footer class="pf-wrap pf-foot">
+  <p>Stories lightly edited for the web from the original Facebook posts.</p>
+  <p>&copy; 2026 CDWJ LLC &middot; <a href="/">Nicole &amp; Casey</a></p>
+</footer>
+
+<script>
+document.querySelectorAll('.st-more').forEach(function (btn) {
+  var body = btn.previousElementSibling;
+  btn.addEventListener('click', function () {
+    var open = body.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    btn.textContent = open ? 'Show less' : 'Read the full story';
+
+    /* Meta Pixel. Fires on open only, so closing a story does not count a
+       second time. The pixel itself is injected by worker.js on every page,
+       so fbq may not exist if that injection is ever removed or blocked. */
+    if (!open) return;
+    try {
+      var card = btn.closest('.st-card');
+      var head = card && card.querySelector('h2');
+      fbq('trackCustom', 'StoryOpen', {
+        who: (card && card.dataset.who) || 'unknown',
+        content_name: head ? head.textContent.trim().slice(0, 100) : ''
+      });
+    } catch (e) {}
+  });
+});
+/* Hide the button on stories short enough to show in full. */
+window.addEventListener('load', function () {
+  document.querySelectorAll('.st-clamp').forEach(function (b) {
+    if (b.scrollHeight <= b.clientHeight + 4) { b.classList.add('open'); b.nextElementSibling.hidden = true; }
+  });
+});
+document.querySelectorAll('.st-filter button').forEach(function (btn) {
+  btn.addEventListener('click', function () {
+    var who = btn.dataset.show;
+    document.querySelectorAll('.st-filter button').forEach(function (b) { b.setAttribute('aria-pressed', b === btn ? 'true' : 'false'); });
+    document.querySelectorAll('.st-card').forEach(function (c) { c.hidden = !(who === 'all' || c.dataset.who === who); });
+  });
+});
+</script>
+<script src="/nav.js?v=4" defer></script>
+</body>
+</html>
