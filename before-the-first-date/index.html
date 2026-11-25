@@ -93,10 +93,9 @@
 
   /* ---------- hero text, under the banner ---------- */
   .pf-hero{ padding-block:clamp(2.25rem,5vw,3rem) 3rem; text-align:center; }
-  .pf-eyebrow{ font-size:.7rem; font-weight:500; letter-spacing:.2em; text-transform:uppercase; color:var(--pf-accent); margin:0 0 1.25rem; }
-  .pf-sub{ font-family:var(--pf-font-h); font-size:clamp(1.5rem,4vw,2.1rem); line-height:1.25; color:var(--pf-heading); margin:0 auto 1.25rem; max-width:30rem; }
-  .pf-lede{ font-size:1.1rem; line-height:1.65; margin:0 auto 1.25rem; max-width:34rem; }
-  .pf-trust{ font-size:.9rem; color:var(--pf-muted); margin:0 auto 1.75rem; max-width:32rem; }
+  .pf .pf-sub{ font-family:var(--pf-font-h); font-size:clamp(1.5rem,4vw,2.1rem); line-height:1.25; color:var(--pf-heading); margin:0 auto 1.25rem; max-width:30rem; }
+  .pf .pf-lede{ font-size:1.1rem; line-height:1.65; margin:0 auto 1.25rem; max-width:34rem; }
+  .pf .pf-trust{ font-size:.9rem; color:var(--pf-muted); margin:0 auto 1.75rem; max-width:32rem; }
 
   .pf a.pf-btn{
     display:inline-block; max-width:100%; text-align:center;
@@ -108,7 +107,7 @@
 
   /* ---------- sections ---------- */
   .pf-section{ padding-block:3.25rem; border-top:1px solid var(--pf-border); }
-  .pf-label{ font-size:.7rem; font-weight:500; letter-spacing:.2em; text-transform:uppercase; color:var(--pf-muted); margin:0 0 1.5rem; }
+  .pf .pf-label{ font-size:.7rem; font-weight:500; letter-spacing:.2em; text-transform:uppercase; color:var(--pf-muted); margin:0 0 1.5rem; }
   .pf-section h2{
     font-family:var(--pf-font-h); font-weight:400; font-size:clamp(1.9rem,4.5vw,2.6rem);
     line-height:1.15; color:var(--pf-heading); margin:0 0 1.5rem; letter-spacing:-.01em;
@@ -145,7 +144,7 @@
     padding:1.75rem; margin:2rem 0 0;
   }
   .pf-callout p:last-child{ margin-bottom:0; }
-  .pf-pause{ font-family:var(--pf-font-h); font-size:1.3rem; color:var(--pf-heading); margin:0 0 .75rem; }
+  .pf .pf-pause{ font-family:var(--pf-font-h); font-size:1.3rem; color:var(--pf-heading); margin:0 0 .75rem; }
 
   /* coaches */
   .pf-coach{ margin-bottom:1.5rem; }
@@ -162,12 +161,12 @@
   .story-video-play:focus-visible{ outline:2px solid var(--pf-accent); outline-offset:3px; }
   /* hang the opening quote mark into the margin so the first word lines
      up with the paragraphs above and below it */
-  .pf-quote{
+  .pf .pf-quote{
     font-family:var(--pf-font-h); font-size:clamp(1.35rem,3.8vw,1.7rem); line-height:1.35;
-    color:var(--pf-heading); margin:1.75rem 0 .5rem; text-indent:-.42em;
+    color:var(--pf-heading); margin:2rem 0 .75rem; text-indent:-.42em;
   }
-  .pf-attrib{ margin:0 0 .35rem; }
-  .pf-note{ font-size:.85rem; color:var(--pf-muted); }
+  .pf .pf-attrib{ margin:0 0 .35rem; }
+  .pf .pf-note{ font-size:.85rem; color:var(--pf-muted); margin:0 0 1.25rem; }
 
   /* faq */
   .pf-faq h3{ font-family:var(--pf-font-h); font-weight:500; font-size:1.3rem; color:var(--pf-heading); margin:1.5rem 0 .35rem; }
@@ -200,8 +199,8 @@
   }
   .pf-submit:hover{ background:transparent; color:var(--pf-accent); }
   .pf-submit:disabled{ background:var(--pf-muted); border-color:var(--pf-muted); cursor:wait; }
-  .pf-formnote{ font-size:.85rem; color:var(--pf-muted); margin-top:.9rem; text-align:center; }
-  .pf-alert{ display:none; font-size:.85rem; color:#A0442F; margin-top:.9rem; text-align:center; }
+  .pf .pf-formnote{ font-size:.85rem; color:var(--pf-muted); margin-top:.9rem; text-align:center; }
+  .pf .pf-alert{ display:none; font-size:.85rem; color:#A0442F; margin-top:.9rem; text-align:center; }
   .pf-alert a{ color:inherit; }
   .pf-done{ display:none; max-width:34rem; margin-top:2rem; }
   .pf-done h3{ font-family:var(--pf-font-h); font-weight:400; font-size:1.6rem; color:var(--pf-heading); margin:0 0 .75rem; }
