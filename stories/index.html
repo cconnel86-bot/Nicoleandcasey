@@ -1045,14 +1045,29 @@ window.addEventListener('load', function () {
     if (b.scrollHeight <= b.clientHeight + 4) { b.classList.add('open'); b.nextElementSibling.hidden = true; }
   });
 });
-document.querySelectorAll('.st-filter button').forEach(function (btn) {
-  btn.addEventListener('click', function () {
-    var who = btn.dataset.show;
-    document.querySelectorAll('.st-filter button').forEach(function (b) { b.setAttribute('aria-pressed', b === btn ? 'true' : 'false'); });
-    document.querySelectorAll('.st-card').forEach(function (c) { c.hidden = !(who === 'all' || c.dataset.who === who); });
+function applyFilter(who) {
+  document.querySelectorAll('.st-filter button').forEach(function (b) {
+    b.setAttribute('aria-pressed', b.dataset.show === who ? 'true' : 'false');
   });
+  document.querySelectorAll('.st-card').forEach(function (c) {
+    c.hidden = !(who === 'all' || c.dataset.who === who);
+  });
+}
+document.querySelectorAll('.st-filter button').forEach(function (btn) {
+  btn.addEventListener('click', function () { applyFilter(btn.dataset.show); });
 });
+/* /stories#nicole and /stories#casey open pre-filtered, so the links on the
+   bio pages land on that person's posts rather than everyone's. */
+function filterFromHash() {
+  var who = (location.hash || '').replace('#', '');
+  applyFilter(who === 'nicole' || who === 'casey' ? who : 'all');
+}
+/* Applied after load, not at parse time. The clamp check above measures each
+   story's height, and a hidden card measures zero, which would wrongly mark it
+   short and strip its button. Measure first, filter second. */
+window.addEventListener('load', filterFromHash);
+window.addEventListener('hashchange', filterFromHash);
 </script>
-<script src="/nav.js?v=4" defer></script>
+<script src="/nav.js?v=5" defer></script>
 </body>
 </html>

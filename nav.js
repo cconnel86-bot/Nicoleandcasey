@@ -26,6 +26,7 @@
     ]},
     { name: 'Together', items: [
       { label: 'Our story',                    href: '/about',                  lead: true },
+      { label: 'In our own words',             href: '/stories' },
       { label: 'Before the First Date',        href: '/before-the-first-date' },
       { label: 'Bridge to Healthy Love',       href: '/bridge-to-healthy-love' }
     ]},
