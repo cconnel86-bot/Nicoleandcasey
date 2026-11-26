@@ -397,20 +397,46 @@
         <input type="tel" id="fPhone" name="Phone" autocomplete="tel">
       </div>
 
+      <!-- Screening. data-qualify lists the answers that count toward a
+           qualified lead (separated by |). cta-form.js adds "Qualified: Yes"
+           or "No" to the request, and the Pixel fires QualifiedLead on Yes. -->
       <div class="pf-field">
-        <label for="fCurious">What made you curious about practicing dating?</label>
-        <textarea id="fCurious" name="What made you curious" required minlength="15"></textarea>
+        <label for="fGrowth">Have you done therapy, coaching, or personal growth work before?</label>
+        <select id="fGrowth" name="Growth work" required
+                data-qualify="Yes, for a few years or more|Yes, some">
+          <option value="" selected disabled>Choose one</option>
+          <option>Yes, for a few years or more</option>
+          <option>Yes, some</option>
+          <option>Not yet</option>
+        </select>
       </div>
 
       <div class="pf-field">
         <label for="fDating">Are you dating right now?</label>
-        <select id="fDating" name="Dating now" required>
+        <select id="fDating" name="Dating now" required
+                data-qualify="Yes, on apps|Yes, offline|Not yet, but I'm ready to start">
           <option value="" selected disabled>Choose one</option>
           <option>Yes, on apps</option>
           <option>Yes, offline</option>
-          <option>Not yet</option>
+          <option>Not yet, but I'm ready to start</option>
           <option>Taking a break</option>
         </select>
+      </div>
+
+      <div class="pf-field">
+        <label for="fInvest">If it's a good fit, are you open to investing in a paid program?</label>
+        <select id="fInvest" name="Open to paid program" required
+                data-qualify="Yes|Maybe, depending on cost">
+          <option value="" selected disabled>Choose one</option>
+          <option>Yes</option>
+          <option>Maybe, depending on cost</option>
+          <option>No, I'm looking for free support</option>
+        </select>
+      </div>
+
+      <div class="pf-field">
+        <label for="fCurious">What made you curious about practicing dating?</label>
+        <textarea id="fCurious" name="What made you curious" required minlength="15"></textarea>
       </div>
 
       <div class="pf-trap" aria-hidden="true">

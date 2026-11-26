@@ -58,6 +58,16 @@
     if (data._honey || (Date.now() - loadedAt) < 3000) { succeed(); return; }
     delete data._honey;
 
+    // Screening. Any field marked data-qualify="a|b" must hold one of those
+    // answers. Pages without screening fields send no Qualified value.
+    var screens = form.querySelectorAll('[data-qualify]');
+    if (screens.length) {
+      var ok = Array.prototype.every.call(screens, function (el) {
+        return el.getAttribute('data-qualify').split('|').indexOf(el.value) !== -1;
+      });
+      data.Qualified = ok ? 'Yes' : 'No';
+    }
+
     var firstName = (data['First Name'] || data.Name || '').trim().split(/\s+/)[0] || '';
 
     if (btn) { btn.disabled = true; btn.textContent = 'Sending\u2026'; }

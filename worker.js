@@ -359,14 +359,22 @@ fbq('track', 'PageView');
       var isFormSubmit = url.indexOf('formsubmit.co/ajax/') !== -1;
       if (!isApi && !isFormSubmit) return p;
 
-      var program = '';
-      try { program = JSON.parse(init && init.body || '{}').Program || ''; } catch (e) {}
+      var program = '', qualified = false;
+      try {
+        var sent = JSON.parse(init && init.body || '{}');
+        program = sent.Program || '';
+        qualified = sent.Qualified === 'Yes';
+      } catch (e) {}
 
       p.then(function (res) {
         if (!res || !res.ok || fired) return;
         fired = true;
         var params = { content_name: program || path, content_category: path };
         try { fbq('track', isBooking ? 'Schedule' : 'Lead', params); } catch (e) {}
+        // Lookalike seed: only screened-in requests. Lead still fires for all.
+        if (qualified) {
+          try { fbq('trackCustom', 'QualifiedLead', params); } catch (e) {}
+        }
       }).catch(function () {});
       return p;
     };
