@@ -228,6 +228,36 @@
     .pf a.pf-btn{ display:block; width:100%; }
     .pf-callout{ padding:1.35rem; }
   }
+  /* ---------- floating fit-call button ----------
+     Sits in the bottom-right corner while the reader scrolls. Shown once the
+     hero button is off screen, hidden again whenever the form is on screen. */
+  .pf a.pf-float{
+    position:fixed; z-index:30;
+    right:max(1rem, env(safe-area-inset-right, 0px));
+    bottom:max(1rem, env(safe-area-inset-bottom, 0px));
+    display:inline-flex; align-items:center; gap:.5rem;
+    padding:.8rem 1.15rem; border-radius:999px; border:1px solid var(--pf-accent);
+    background:var(--pf-accent); color:#fff;
+    font-family:var(--pf-font-b); font-size:.74rem; font-weight:500;
+    letter-spacing:.12em; text-transform:uppercase; text-decoration:none;
+    box-shadow:0 6px 20px rgba(30,27,25,.22);
+    opacity:0; transform:translateY(.75rem); pointer-events:none; visibility:hidden;
+    transition:opacity .2s ease, transform .2s ease, visibility 0s linear .2s;
+  }
+  .pf a.pf-float.on{
+    opacity:1; transform:none; pointer-events:auto; visibility:visible;
+    transition:opacity .2s ease, transform .2s ease;
+  }
+  .pf a.pf-float:hover{ background:var(--pf-heading); border-color:var(--pf-heading); color:#fff; }
+  .pf a.pf-float:focus-visible{ outline:2px solid var(--pf-heading); outline-offset:3px; }
+  .pf a.pf-float svg{ width:.9em; height:.9em; flex:0 0 auto; }
+  .pf a.pf-float .pf-float-short{ display:none; }
+  @media (max-width:40rem){
+    .pf a.pf-float{ font-size:.68rem; padding:.7rem 1rem; }
+    .pf a.pf-float .pf-float-long{ display:none; }
+    .pf a.pf-float .pf-float-short{ display:inline; }
+  }
+
   @media (prefers-reduced-motion:reduce){ *{ transition:none !important; } }
 </style>
 </head>
@@ -251,8 +281,11 @@
   <p class="pf-sub">Practice dating before the emotional stakes are real.</p>
   <p class="pf-lede">A one-month, fully virtual coaching program with Nicole and Casey. Get clear on what you want in a partner, practice the early conversations with a coach playing the match, and choose who you date more carefully.</p>
   <p class="pf-trust">Fully virtual. Two trauma-informed coaches. You can pause any conversation at any moment.</p>
-  <a class="pf-btn" href="#start">Request a free fit call</a>
+  <a class="pf-btn" id="heroCta" href="#start">Request a free fit call</a>
 </header>
+
+<a class="pf-float" id="floatCta" href="#start" aria-hidden="true" tabindex="-1" aria-label="Request a free fit call"><span class="pf-float-long">Request a free fit call</span><span class="pf-float-short">Free fit call</span>
+  <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 1v8M1.5 5.5 5 9l3.5-3.5"/></svg></a>
 
 <main>
 
@@ -513,6 +546,45 @@
   });
   var lp = document.getElementById('landing_path');
   if (lp) lp.value = (saved && saved.path) || location.pathname;
+})();
+
+/* Floating fit-call button: on while the hero button is above the screen and
+   the form is not yet on screen. Hidden for good once the form is sent. */
+(function () {
+  var btn = document.getElementById('floatCta');
+  var hero = document.getElementById('heroCta');
+  var form = document.getElementById('start');
+  if (!btn || !hero || !form) return;
+
+  // A plain scroll check rather than IntersectionObserver: on phones the hero
+  // button starts below the first screen, and a fast flick can carry it from
+  // below the screen to above it without it ever being "visible", which an
+  // observer never reports.
+  var queued = false;
+  function update() {
+    queued = false;
+    var vh = window.innerHeight || document.documentElement.clientHeight;
+    var heroGone = hero.getBoundingClientRect().bottom < 0;
+    var formShown = form.getBoundingClientRect().top < vh * 0.75;
+    var sent = document.getElementById('ctaSuccess');
+    var done = sent && sent.style.display === 'block';
+    var on = heroGone && !formShown && !done;
+    btn.classList.toggle('on', on);
+    btn.setAttribute('aria-hidden', on ? 'false' : 'true');
+    btn.tabIndex = on ? 0 : -1;
+  }
+  function queue() {
+    if (queued) return;
+    queued = true;
+    window.requestAnimationFrame(update);
+  }
+  window.addEventListener('scroll', queue, { passive: true });
+  window.addEventListener('resize', queue);
+  update();
+
+  btn.addEventListener('click', function () {
+    try { fbq('trackCustom', 'FloatCTAClick', { content_category: location.pathname }); } catch (err) {}
+  });
 })();
 
 /* Review video loads only when clicked. */
